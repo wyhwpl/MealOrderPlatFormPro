@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mealcommon/mealcommon.iml" filepath="$PROJECT_DIR$/mealcommon/mealcommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealmanager/mealmanager.iml" filepath="$PROJECT_DIR$/mealmanager/mealmanager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealmanager/meal-manager-mapper/mealmanagermapper.iml" filepath="$PROJECT_DIR$/mealmanager/meal-manager-mapper/mealmanagermapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealmanager/meal-manager-pojo/mealmanagerpojo.iml" filepath="$PROJECT_DIR$/mealmanager/meal-manager-pojo/mealmanagerpojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealmanager/meal-manager-service/mealmanagerservice.iml" filepath="$PROJECT_DIR$/mealmanager/meal-manager-service/mealmanagerservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealmanager/meal-manager-web/mealmanagerweb.iml" filepath="$PROJECT_DIR$/mealmanager/meal-manager-web/mealmanagerweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealparent/mealparent.iml" filepath="$PROJECT_DIR$/mealparent/mealparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealpay/mealpay.iml" filepath="$PROJECT_DIR$/mealpay/mealpay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealrider/mealrider.iml" filepath="$PROJECT_DIR$/mealrider/mealrider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealseller/mealseller.iml" filepath="$PROJECT_DIR$/mealseller/mealseller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mealuser/mealuser.iml" filepath="$PROJECT_DIR$/mealuser/mealuser.iml" />
+    </modules>
+  </component>
+</project>
