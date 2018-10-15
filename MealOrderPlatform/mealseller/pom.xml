@@ -12,6 +12,12 @@
 
     <artifactId>meal-seller</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>meal-seller-pojo</module>
+        <module>meal-seller-mapper</module>
+        <module>meal-seller-service</module>
+        <module>meal-seller-web</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -12,6 +12,12 @@
 
     <artifactId>meal-user</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>meal-user-pojo</module>
+        <module>meal-user-mapper</module>
+        <module>meal-user-service</module>
+        <module>meal-user-web</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
