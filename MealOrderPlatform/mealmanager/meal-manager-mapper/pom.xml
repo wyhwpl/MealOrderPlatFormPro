@@ -12,8 +12,6 @@
     <artifactId>meal-manager-mapper</artifactId>
     <packaging>jar</packaging>
 
-    <name>meal-manager-mapper</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,7 +58,6 @@
             </resource>
         </resources>
     </build>
-
 
 
 </project>

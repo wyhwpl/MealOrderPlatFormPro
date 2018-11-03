@@ -9,18 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/mealmanager/meal-manager-service/mealmanagerservice.iml" filepath="$PROJECT_DIR$/mealmanager/meal-manager-service/mealmanagerservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/mealmanager/meal-manager-web/mealmanagerweb.iml" filepath="$PROJECT_DIR$/mealmanager/meal-manager-web/mealmanagerweb.iml" />
       <module fileurl="file://$PROJECT_DIR$/mealparent/mealparent.iml" filepath="$PROJECT_DIR$/mealparent/mealparent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealpay/mealpay.iml" filepath="$PROJECT_DIR$/mealpay/mealpay.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealrider/mealrider.iml" filepath="$PROJECT_DIR$/mealrider/mealrider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealseller/mealseller.iml" filepath="$PROJECT_DIR$/mealseller/mealseller.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealseller/meal-seller-mapper/mealsellermapper.iml" filepath="$PROJECT_DIR$/mealseller/meal-seller-mapper/mealsellermapper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealseller/meal-seller-pojo/mealsellerpojo.iml" filepath="$PROJECT_DIR$/mealseller/meal-seller-pojo/mealsellerpojo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealseller/meal-seller-service/mealsellerservice.iml" filepath="$PROJECT_DIR$/mealseller/meal-seller-service/mealsellerservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealseller/meal-seller-web/mealsellerweb.iml" filepath="$PROJECT_DIR$/mealseller/meal-seller-web/mealsellerweb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealuser/mealuser.iml" filepath="$PROJECT_DIR$/mealuser/mealuser.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealuser/meal-user-mapper/mealusermapper.iml" filepath="$PROJECT_DIR$/mealuser/meal-user-mapper/mealusermapper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealuser/meal-user-pojo/mealuserpojo.iml" filepath="$PROJECT_DIR$/mealuser/meal-user-pojo/mealuserpojo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealuser/meal-user-service/mealuserservice.iml" filepath="$PROJECT_DIR$/mealuser/meal-user-service/mealuserservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mealuser/meal-user-web/mealuserweb.iml" filepath="$PROJECT_DIR$/mealuser/meal-user-web/mealuserweb.iml" />
     </modules>
   </component>
 </project>

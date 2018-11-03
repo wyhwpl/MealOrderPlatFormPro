@@ -1,0 +1,25 @@
+/*分页导航*/
+
+.portlet .portlet-body .page-nav{
+    width: 100%;
+    height: 40px;
+}
+.portlet .portlet-body .page-nav div{
+    display: none;
+}
+.portlet .portlet-body .page-nav .active{
+    display: block;
+}
+.portlet .portlet-body .page-nav div{
+    /*margin-left: 760px;*/
+    float: right;
+    height: 40px;
+}
+.portlet .portlet-body .page-nav .page-info{
+    float: left;
+    background-color: red;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}

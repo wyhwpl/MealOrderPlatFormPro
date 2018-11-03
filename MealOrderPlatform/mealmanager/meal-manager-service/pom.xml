@@ -38,6 +38,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
         <dependency>
@@ -50,6 +54,5 @@
         </dependency>
         <!-- service end-->
     </dependencies>
-
 
 </project>

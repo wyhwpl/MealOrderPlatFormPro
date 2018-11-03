@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mealmanagerweb:war">
+    <output-path>$PROJECT_DIR$/mealmanager/meal-manager-web/target</output-path>
+    <root id="archive" name="meal-manager-web.war">
+      <element id="artifact" artifact-name="mealmanagerweb:war exploded" />
+    </root>
+  </artifact>
+</component>

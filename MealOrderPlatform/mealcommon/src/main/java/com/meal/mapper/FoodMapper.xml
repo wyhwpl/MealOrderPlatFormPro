@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.meal.mapper.FoodMapper" >
+  <resultMap id="BaseResultMap" type="com.meal.pojo.Food" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="foodname" property="foodname" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="sellerID" property="sellerid" jdbcType="INTEGER" />
+    <result column="isaudit" property="isaudit" jdbcType="INTEGER" />
+    <result column="isthough" property="isthough" jdbcType="INTEGER" />
+    <result column="img_URL" property="imgUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, foodname, description, price, sellerID, isaudit, isthough, img_URL
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.FoodExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_food
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_food
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_food
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.meal.pojo.FoodExample" >
+    delete from t_food
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.meal.pojo.Food" >
+    insert into t_food (id, foodname, description, 
+      price, sellerID, isaudit, 
+      isthough, img_URL)
+    values (#{id,jdbcType=INTEGER}, #{foodname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{price,jdbcType=REAL}, #{sellerid,jdbcType=INTEGER}, #{isaudit,jdbcType=INTEGER}, 
+      #{isthough,jdbcType=INTEGER}, #{imgUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.meal.pojo.Food" >
+    insert into t_food
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="foodname != null" >
+        foodname,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="sellerid != null" >
+        sellerID,
+      </if>
+      <if test="isaudit != null" >
+        isaudit,
+      </if>
+      <if test="isthough != null" >
+        isthough,
+      </if>
+      <if test="imgUrl != null" >
+        img_URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="foodname != null" >
+        #{foodname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="sellerid != null" >
+        #{sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="isaudit != null" >
+        #{isaudit,jdbcType=INTEGER},
+      </if>
+      <if test="isthough != null" >
+        #{isthough,jdbcType=INTEGER},
+      </if>
+      <if test="imgUrl != null" >
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.meal.pojo.FoodExample" resultType="java.lang.Integer" >
+    select count(*) from t_food
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_food
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.foodname != null" >
+        foodname = #{record.foodname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=REAL},
+      </if>
+      <if test="record.sellerid != null" >
+        sellerID = #{record.sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.isaudit != null" >
+        isaudit = #{record.isaudit,jdbcType=INTEGER},
+      </if>
+      <if test="record.isthough != null" >
+        isthough = #{record.isthough,jdbcType=INTEGER},
+      </if>
+      <if test="record.imgUrl != null" >
+        img_URL = #{record.imgUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_food
+    set id = #{record.id,jdbcType=INTEGER},
+      foodname = #{record.foodname,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=REAL},
+      sellerID = #{record.sellerid,jdbcType=INTEGER},
+      isaudit = #{record.isaudit,jdbcType=INTEGER},
+      isthough = #{record.isthough,jdbcType=INTEGER},
+      img_URL = #{record.imgUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.Food" >
+    update t_food
+    <set >
+      <if test="foodname != null" >
+        foodname = #{foodname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="sellerid != null" >
+        sellerID = #{sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="isaudit != null" >
+        isaudit = #{isaudit,jdbcType=INTEGER},
+      </if>
+      <if test="isthough != null" >
+        isthough = #{isthough,jdbcType=INTEGER},
+      </if>
+      <if test="imgUrl != null" >
+        img_URL = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Food" >
+    update t_food
+    set foodname = #{foodname,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL},
+      sellerID = #{sellerid,jdbcType=INTEGER},
+      isaudit = #{isaudit,jdbcType=INTEGER},
+      isthough = #{isthough,jdbcType=INTEGER},
+      img_URL = #{imgUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
