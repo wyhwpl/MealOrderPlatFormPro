@@ -1,0 +1,4 @@
+apache-maven-3.5.4
+apache-tomcat-7.0.90
+JDK1.8
+mysql-5.7.23-winx64
