@@ -17,9 +17,9 @@
 }
 .portlet .portlet-body .page-nav .page-info{
     float: left;
-    background-color: red;
+    /*background-color: red;*/
     width: 100px;
     height: 40px;
     text-align: center;
-    line-height: 40px;
+    line-height: 50px;
 }

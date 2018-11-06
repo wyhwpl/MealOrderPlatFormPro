@@ -28,7 +28,12 @@ public class SellerInfoController {
                               @RequestParam("pageNum")int pageNum,
                               @RequestParam("pageSize")int pageSize){
 
-        return sellerInfoService.getSellerInfo(type, pageNum, pageSize);
+        System.out.println(type+"  "+pageNum+"  "+pageSize);
+        PageInfo pageInfo= sellerInfoService.getSellerInfo(pageNum, pageSize,type);
+        if(pageInfo==null) System.out.println("meiyouchadao");
+        System.out.println(pageInfo.getPageNum());
+        System.out.println(pageInfo.getTotal());
+        return pageInfo;
     }
 
 }

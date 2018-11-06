@@ -467,397 +467,114 @@
 						</div>
 					</form>
 				</li>
-				<li class="start active ">
-					<a href="index.jsp">
+				<li class="my-menu start active ">
+					<a href="javascript:;">
 					<i class="icon-home"></i>
 					<span class="title">主页</span>
 					<span class="selected"></span>
 					</a>
 				</li>
-				<li >
-					<a href="javascript:;">
-					<i class="icon-puzzle"></i>
-					<span class="title">用户信息</span>
-					<span class="arrow "></span>
-					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="layout_sidebar_fixed.html">
-							<i class="icon-anchor"></i>
-							商家信息</a>
-						</li>
-						<li>
-							<a href="layout_sidebar_closed.html">
-							<i class="icon-book-open"></i>
-							骑手信息</a>
-						</li>
-						<li>
-							<a href="layout_boxed_page.html">
-							<i class="icon-pin"></i>
-							Boxed Page</a>
-						</li>
-						<li>
-							<a href="layout_session_timeout.html">
-							<i class="icon-vector"></i>
-							<span class="badge badge-warning">new</span>Session Timeout</a>
-						</li>
-						<li>
-							<a href="layout_idle_timeout.html">
-							<i class="icon-cursor"></i>
-							User Idle Timeout</a>
-						</li>
-						<li>
-							<a href="layout_language_bar.html">
-							<i class="icon-rocket"></i>
-							Language Bar</a>
-						</li>
-						<li>
-							<a href="layout_disabled_menu.html">
-							<i class="icon-link"></i>
-							Disabled Menu Links</a>
-						</li>
-						<li>
-							<a href="layout_sidebar_reversed.html">
-							<i class="icon-settings"></i>
-							<span class="badge badge-success">new</span>Reversed Sidebar</a>
-						</li>
-						<li>
-							<a href="layout_blank_page.html">
-							<i class="icon-paper-clip"></i>
-							Blank Page</a>
-						</li>
-						<li>
-							<a href="layout_ajax.html">
-							<i class="icon-bubble"></i>
-							Content Loading via Ajax</a>
-						</li>
-					</ul>
-				</li>
-				<li >
-					<a href="javascript:;">
+				<li class="my-menu">
+					<a href="javascript:;" data-toggle="tab" data-target="#tab_1_0" onclick="allSeller('pageNum=1&&pageSize=30')">
 					<i class="icon-present"></i>
 					<span class="title">商家信息</span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="ui_general.html">
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_1_1" onclick="auditSeller('pageNum=1&&pageSize=30')">
 							已审核</a>
 						</li>
 						<li>
-							<a href="ui_buttons.html">
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_1_2" onclick="notAuditSeller('pageNum=1&&pageSize=30')">
 							未审核</a>
 						</li>
 						<li>
-							<a href="ui_icons.html">
+							<a href="#tab_1_4" data-toggle="tab" onclick="notThoughSeller('pageNum=1&&pageSize=30')">
 							未通过审核</a>
 						</li>
 						<li>
-							<a href="ui_typography.html">
+							<a href="#tab_1_3" data-toggle="tab" onclick="thoughSeller('pageNum=1&&pageSize=30')">
 							通过审核</a>
-						</li>
-						<li>
-							<a href="ui_modals.html">
-							Modals</a>
-						</li>
-						<li>
-							<a href="ui_extended_modals.html">
-							Extended Modals</a>
-						</li>
-						<li>
-							<a href="ui_tabs_accordions_navs.html">
-							Tabs, Accordions & Navs</a>
-						</li>
-						<li>
-							<a href="ui_toastr.html">
-							<span class="badge badge-warning">new</span>Toastr Notifications</a>
-						</li>
-						<li>
-							<a href="ui_datepaginator.html">
-							<span class="badge badge-success">new</span>Date Paginator</a>
-						</li>
-						<li>
-							<a href="ui_tree.html">
-							Tree View</a>
-						</li>
-						<li>
-							<a href="ui_nestable.html">
-							Nestable List</a>
-						</li>
-						<li>
-							<a href="ui_ion_sliders.html">
-							<span class="badge badge-important">new</span>Ion Range Sliders</a>
-						</li>
-						<li>
-							<a href="ui_jqueryui_sliders.html">
-							jQuery UI Sliders</a>
-						</li>
-						<li>
-							<a href="ui_knob.html">
-							Knob Circle Dials</a>
 						</li>
 					</ul>
 				</li>
-				<li >
-					<a href="javascript:;">
+				<li class="my-menu">
+					<a href="javascript:;" data-toggle="tab" data-target="#tab_2_0" onclick="allRider('pageNum=1&&pageSize=30')">
 					<i class="fa fa-motorcycle"></i>
 					<span class="title">骑手信息</span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="form_controls.html">
-							Form Controls</a>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_1" onclick="auditRider('pageNum=1&&pageSize=30')">
+							已审核</a>
 						</li>
 						<li>
-							<a href="form_layouts.html">
-							Form Layouts</a>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_2" onclick="notAuditRider('pageNum=1&&pageSize=30')">
+							未审核</a>
 						</li>
 						<li>
-							<a href="form_component.html">
-							Form Components</a>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_3" onclick="thoughRider('pageNum=1&&pageSize=30')">
+							通过</a>
 						</li>
 						<li>
-							<a href="form_editable.html">
-							<span class="badge badge-warning">new</span>Form X-editable</a>
-						</li>
-						<li>
-							<a href="form_wizard.html">
-							Form Wizard</a>
-						</li>
-						<li>
-							<a href="form_validation.html">
-							Form Validation</a>
-						</li>
-						<li>
-							<a href="form_image_crop.html">
-							<span class="badge badge-important">new</span>Image Cropping</a>
-						</li>
-						<li>
-							<a href="form_fileupload.html">
-							Multiple File Upload</a>
-						</li>
-						<li>
-							<a href="form_dropzone.html">
-							Dropzone File Upload</a>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_4" onclick="notThoughRider('pageNum=1&&pageSize=30')">
+							未通过</a>
 						</li>
 					</ul>
 				</li>
-				<li >
-					<a href="javascript:;">
-					<i class="icon-docs"></i>
-					<span class="title">任务</span>
-					<span class="arrow "></span>
+				<li class="my-menu">
+					<a href="javascript:;" data-toggle="tab" data-target="#tab_1_0" onclick="allSeller('pageNum=1&&pageSize=30')">
+						<i class="icon-docs"></i>
+						<span class="title">任务</span>
+						<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="page_inbox.html">
-							<span class="badge badge-important">4</span>Inbox</a>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_1_1" onclick="auditSeller('pageNum=1&&pageSize=30')">
+								已审核</a>
 						</li>
 						<li>
-							<a href="page_locked.html">
-							User Locked</a>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_1_2" onclick="notAuditSeller('pageNum=1&&pageSize=30')">
+								未审核</a>
 						</li>
 						<li>
-							<a href="page_portfolio.html">
-							<span class="badge badge-warning badge-roundless">new</span>Portfolio</a>
+							<a href="#tab_1_4" data-toggle="tab" onclick="notThoughSeller('pageNum=1&&pageSize=30')">
+								未通过审核</a>
 						</li>
 						<li>
-							<a href="page_blog.html">
-							Blog</a>
-						</li>
-						<li>
-							<a href="page_blog_item.html">
-							Blog Post</a>
-						</li>
-						<li>
-							<a href="page_about.html">
-							About Us</a>
-						</li>
-						<li>
-							<a href="page_contact.html">
-							Contact Us</a>
-						</li>
-						<li>
-							<a href="page_calendar.html">
-							<span class="badge badge-important">14</span>Calendar</a>
-						</li>
-						<li>
-							<a href="page_profile.html">
-							User Profile</a>
-						</li>
-						<li>
-							<a href="page_faq.html">
-							FAQ</a>
-						</li>
-						<li>
-							<a href="page_invoice.html">
-							Invoice</a>
-						</li>
-						<li>
-							<a href="page_pricing_table.html">
-							Pricing Tables</a>
-						</li>
-						<li>
-							<a href="page_404_option1.html">
-							404 Page Option 1</a>
-						</li>
-						<li>
-							<a href="page_404_option2.html">
-							404 Page Option 2</a>
-						</li>
-						<li>
-							<a href="page_500_option1.html">
-							500 Page Option 1</a>
-						</li>
-						<li>
-							<a href="page_500_option2.html">
-							500 Page Option 2</a>
+							<a href="#tab_1_3" data-toggle="tab" onclick="thoughSeller('pageNum=1&&pageSize=30')">
+								通过审核</a>
 						</li>
 					</ul>
 				</li>
-				<li>
-					<a href="javascript:;">
-					<i class="icon-share"></i>
-					<span class="title">4 Level Menu</span>
-					<span class="arrow "></span>
+				<li class="my-menu">
+					<a href="javascript:;" data-toggle="tab" data-target="#tab_2_0" onclick="allRider('pageNum=1&&pageSize=30')">
+						<i class="icon-user"></i>
+						<span class="title">个人信息</span>
+						<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="javascript:;">
-							<i class="icon-settings"></i> Item 1 <span class="arrow"></span>
-							</a>
-							<ul class="sub-menu">
-								<li>
-									<a href="javascript:;">
-									<i class="icon-user"></i>
-									Sample Link 1 <span class="arrow"></span>
-									</a>
-									<ul class="sub-menu">
-										<li>
-											<a href="#"><i class="icon-wrench"></i> Sample Link 1</a>
-										</li>
-										<li>
-											<a href="#"><i class="icon-ban"></i> Sample Link 1</a>
-										</li>
-										<li>
-											<a href="#"><i class="icon-check"></i> Sample Link 1</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="#"><i class="icon-question"></i> Sample Link 1</a>
-								</li>
-								<li>
-									<a href="#"><i class="icon-rocket"></i> Sample Link 2</a>
-								</li>
-								<li>
-									<a href="#"><i class="icon-tag"></i> Sample Link 3</a>
-								</li>
-							</ul>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_1" onclick="auditRider('pageNum=1&&pageSize=30')">
+								已审核</a>
 						</li>
 						<li>
-							<a href="javascript:;">
-							<i class="icon-globe"></i> Item 2 <span class="arrow"></span>
-							</a>
-							<ul class="sub-menu">
-								<li>
-									<a href="#"><i class="icon-graph"></i> Sample Link 1</a>
-								</li>
-								<li>
-									<a href="#"><i class="icon-share"></i> Sample Link 1</a>
-								</li>
-								<li>
-									<a href="#"><i class="icon-settings"></i> Sample Link 1</a>
-								</li>
-							</ul>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_2" onclick="notAuditRider('pageNum=1&&pageSize=30')">
+								未审核</a>
 						</li>
 						<li>
-							<a href="#">
-							<i class="icon-note"></i>
-							Item 3 </a>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_3" onclick="thoughRider('pageNum=1&&pageSize=30')">
+								通过</a>
+						</li>
+						<li>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_4" onclick="notThoughRider('pageNum=1&&pageSize=30')">
+								未通过</a>
 						</li>
 					</ul>
 				</li>
-				<li >
-					<a href="javascript:;">
-					<i class="icon-briefcase"></i>
-					<span class="title">Data Tables</span>
-					<span class="arrow "></span>
-					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="table_basic.html">
-							Basic Tables</a>
-						</li>
-						<li>
-							<a href="table_responsive.html">
-							Responsive Tables</a>
-						</li>
-						<li>
-							<a href="table_managed.html">
-							Managed Tables</a>
-						</li>
-						<li>
-							<a href="table_editable.html">
-							Editable Tables</a>
-						</li>
-						<li>
-							<a href="table_advanced.html">
-							Advanced Tables</a>
-						</li>
-						<li>
-							<a href="table_ajax.html">
-							Ajax Datatables</a>
-						</li>
-					</ul>
-				</li>
-				<li >
-					<a href="javascript:;">
-					<i class="icon-layers"></i>
-					<span class="title">Portlets</span>
-					<span class="arrow "></span>
-					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="portlet_general.html">
-							General Portlets</a>
-						</li>
-						<li>
-							<a href="portlet_draggable.html">
-							Draggable Portlets</a>
-						</li>
-					</ul>
-				</li>
-				<li >
-					<a href="javascript:;">
-					<i class="icon-pointer"></i>
-					<span class="title">Maps</span>
-					<span class="arrow "></span>
-					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="maps_google.html">
-							Google Maps</a>
-						</li>
-						<li>
-							<a href="maps_vector.html">
-							Vector Maps</a>
-						</li>
-					</ul>
-				</li>
-				<li >
-					<a href="charts.html">
-					<i class="icon-bar-chart"></i>
-					<span class="title">Visual Charts</span>
-					</a>
-				</li>
-				<li class="last ">
-					<a href="login.html">
-					<i class="icon-user"></i>
-					<span class="title">个人信息</span>
-					</a>
-				</li>
+
 			</ul>
 			<!-- END SIDEBAR MENU -->
 		</div>
@@ -895,7 +612,7 @@
 				<div class="theme-options">
 					<div class="theme-option theme-colors clearfix">
 						<span>
-						Theme Color </span>
+						主题颜色 </span>
 						<ul>
 							<li class="color-black current color-default tooltips" data-style="default" data-original-title="Default">
 							</li>
@@ -911,42 +628,42 @@
 					</div>
 					<div class="theme-option">
 						<span>
-						Layout </span>
+						布局 </span>
 						<select class="layout-option form-control input-small">
-							<option value="fluid" selected="selected">Fluid</option>
-							<option value="boxed">Boxed</option>
+							<option value="fluid" selected="selected">流式</option>
+							<option value="boxed">盒式</option>
 						</select>
 					</div>
 					<div class="theme-option">
 						<span>
-						Header </span>
+						头部 </span>
 						<select class="header-option form-control input-small">
-							<option value="fixed" selected="selected">Fixed</option>
-							<option value="default">Default</option>
+							<option value="fixed" selected="selected">固定</option>
+							<option value="default">默认</option>
 						</select>
 					</div>
 					<div class="theme-option">
 						<span>
-						Sidebar </span>
+						工具栏 </span>
 						<select class="sidebar-option form-control input-small">
-							<option value="fixed">Fixed</option>
-							<option value="default" selected="selected">Default</option>
+							<option value="fixed">固定</option>
+							<option value="default" selected="selected">默认</option>
 						</select>
 					</div>
 					<div class="theme-option">
 						<span>
-						Sidebar Position </span>
+						工具栏位置 </span>
 						<select class="sidebar-pos-option form-control input-small">
-							<option value="left" selected="selected">Left</option>
-							<option value="right">Right</option>
+							<option value="left" selected="selected">左</option>
+							<option value="right">右</option>
 						</select>
 					</div>
 					<div class="theme-option">
 						<span>
-						Footer </span>
+						页面底部 </span>
 						<select class="footer-option form-control input-small">
-							<option value="fixed">Fixed</option>
-							<option value="default" selected="selected">Default</option>
+							<option value="fixed">固定</option>
+							<option value="default" selected="selected">默认</option>
 						</select>
 					</div>
 				</div>
@@ -954,24 +671,19 @@
 			<!-- END BEGIN STYLE CUSTOMIZER -->
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			Dashboard <small>statistics and more</small>
+			XXX <small>订餐系统管理后台</small>
 			</h3>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
-						<a href="index.jsp">Home</a>
+						<a href="index.jsp">首页</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
 						<a href="#">Dashboard</a>
 					</li>
 				</ul>
-				<div class="page-toolbar">
-					<div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height btn-primary" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
-						<i class="icon-calendar"></i>&nbsp; <span class="thin uppercase visible-lg-inline-block"></span>&nbsp; <i class="fa fa-angle-down"></i>
-					</div>
-				</div>
 			</div>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN OVERVIEW STATISTIC BARS-->
@@ -987,7 +699,7 @@
 						</div>
 						<div class="details">
 							<div class="title">
-								 Users
+								 商家数量
 							</div>
 							<div class="numbers">
 								 1360
@@ -1130,7 +842,7 @@
 			<!-- END OVERVIEW STATISTIC BARS-->
 			<div class="clearfix">
 			</div>
-			<div class="row">
+			<div class="row hid hidden">
 				
 				<div class="col-md-12 col-sm-12">
 					<div class="portlet">
@@ -1147,21 +859,21 @@
 						</div>
 						<div class="portlet-body">
 							<!--BEGIN TABS-->
-							<ul class="nav nav-tabs">
+							<ul class="nav nav-tabs" id="nav_1">
 								<li class="active">
-									<a href="#tab_1_0" data-toggle="tab">全部商家</a>
+									<a href="#tab_1_0" data-toggle="tab" onclick="allSeller('pageNum=1&&pageSize=30')">全部商家</a>
 								</li>
 								<li>
-									<a href="#tab_1_1" data-toggle="tab">已审核</a>
+									<a href="#tab_1_1" data-toggle="tab" onclick="auditSeller('pageNum=1&&pageSize=30')">已审核</a>
 								</li>
 								<li>
-									<a href="#tab_1_2" data-toggle="tab">未审核</a>
+									<a href="#tab_1_2" data-toggle="tab" onclick="notAuditSeller('pageNum=1&&pageSize=30')">未审核</a>
 								</li>
 								<li>
-									<a href="#tab_1_3" data-toggle="tab">通过审核</a>
+									<a href="#tab_1_3" data-toggle="tab" onclick="thoughSeller('pageNum=1&&pageSize=30')">通过审核</a>
 								</li>
 								<li>
-									<a href="#tab_1_4" data-toggle="tab">未通过审核</a>
+									<a href="#tab_1_4" data-toggle="tab" onclick="notThoughSeller('pageNum=1&&pageSize=30')">未通过审核</a>
 								</li>
 							</ul>
 							<div class="tab-content">
@@ -1171,13 +883,19 @@
 								<thead>
 								<tr>
 									<th>
-										 姓名
+										 商家ID
 									</th>
 									<th>
-										 注册时间
+										 店铺名
 									</th>
 									<th>
-										 状态
+										 商家姓名
+									</th>
+									<th>
+										注册时间
+									</th>
+									<th>
+										状态
 									</th>
 									<th>
 									</th>
@@ -1195,108 +913,26 @@
 								       <thead>
 								       <tr>
 									<th>
-										 From
+										 商家ID
 									</th>
 									<th>
-										 Contact
+										 店铺名
 									</th>
 									<th>
-										 Amount
+										 商家名字
 									</th>
+										   <th>
+											   注册时间
+										   </th>
+										   <th>
+											   状态
+										   </th>
 									<th>
 									</th>
 								</tr>
 								</thead>
 								<tbody>
-								<tr>
-									<td>
-										<a href="#">Ikea</a>
-									</td>
-									<td>
-										 Elis Yong
-									</td>
-									<td>
-										 4560.60$ <span class="label label-warning label-sm">
-										Paid </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Apple</a>
-									</td>
-									<td>
-										 Daniel Kim
-									</td>
-									<td>
-										 360.60$
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">37Singals</a>
-									</td>
-									<td>
-										 Edward Cooper
-									</td>
-									<td>
-										 960.50$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Google</a>
-									</td>
-									<td>
-										 Paris Simpson
-									</td>
-									<td>
-										 1101.60$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Ikea</a>
-									</td>
-									<td>
-										 Elis Yong
-									</td>
-									<td>
-										 4560.60$ <span class="label label-warning label-sm">
-										Paid </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Google</a>
-									</td>
-									<td>
-										 Paris Simpson
-									</td>
-									<td>
-										 1101.60$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
+
 								</tbody>
 								</table>
 							</div>
@@ -1307,108 +943,26 @@
 								<thead>
 								<tr>
 									<th>
-										 From
+										 商家ID
 									</th>
 									<th>
-										 Contact
+										 店铺名
 									</th>
 									<th>
-										 Amount
+										 商家名
+									</th>
+									<th>
+										注册时间
+									</th>
+									<th>
+										状态
 									</th>
 									<th>
 									</th>
 								</tr>
 								</thead>
 								<tbody>
-								<tr>
-									<td>
-										<a href="#">Ikea</a>
-									</td>
-									<td>
-										 Elis Yong
-									</td>
-									<td>
-										 4560.60$ <span class="label label-warning label-sm">
-										Paid </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Apple</a>
-									</td>
-									<td>
-										 Daniel Kim
-									</td>
-									<td>
-										 360.60$
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">37Singals</a>
-									</td>
-									<td>
-										 Edward Cooper
-									</td>
-									<td>
-										 960.50$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Google</a>
-									</td>
-									<td>
-										 Paris Simpson
-									</td>
-									<td>
-										 1101.60$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Ikea</a>
-									</td>
-									<td>
-										 Elis Yong
-									</td>
-									<td>
-										 4560.60$ <span class="label label-warning label-sm">
-										Paid </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Google</a>
-									</td>
-									<td>
-										 Paris Simpson
-									</td>
-									<td>
-										 1101.60$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
+
 								</tbody>
 								</table>
 							</div>
@@ -1419,282 +973,85 @@
 								<thead>
 								<tr>
 									<th>
-										 From
+										 商家ID
 									</th>
 									<th>
-										 Contact
+										 店铺名字
 									</th>
 									<th>
-										 Amount
+										 商家名字
+									</th>
+									<th>
+										注册时间
+									</th>
+									<th>
+										状态
 									</th>
 									<th>
 									</th>
 								</tr>
 								</thead>
 								<tbody>
-								<tr>
-									<td>
-										<a href="#">Ikea</a>
-									</td>
-									<td>
-										 Elis Yong
-									</td>
-									<td>
-										 4560.60$ <span class="label label-warning label-sm">
-										Paid </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Apple</a>
-									</td>
-									<td>
-										 Daniel Kim
-									</td>
-									<td>
-										 360.60$
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">37Singals</a>
-									</td>
-									<td>
-										 Edward Cooper
-									</td>
-									<td>
-										 960.50$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Google</a>
-									</td>
-									<td>
-										 Paris Simpson
-									</td>
-									<td>
-										 1101.60$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Ikea</a>
-									</td>
-									<td>
-										 Elis Yong
-									</td>
-									<td>
-										 4560.60$ <span class="label label-warning label-sm">
-										Paid </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Google</a>
-									</td>
-									<td>
-										 Paris Simpson
-									</td>
-									<td>
-										 1101.60$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
+
 								</tbody>
 								</table>
 							</div>
 								</div>
 								<div class="tab-pane" id="tab_1_4">
 									<div class="table-scrollable">
-								<table class="table table-striped table-bordered table-hover">
-								<thead>
-								<tr>
-									<th>
-										 姓名
-									</th>
-									<th>
-										 注册时间
-									</th>
-									<th>
-										 状态
-									</th>
-									<th>
-									</th>
-								</tr>
-								</thead>
-								<tbody>
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+											<th>
+												 商家ID
+											</th>
+											<th>
+										 		店铺名
+											</th>
+											<th>
+												 商家名
+											</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+											<th>
+											</th>
+											</tr>
+											</thead>
+											<tbody>
 								
-								</tbody>
-								</table>
-							</div>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
-							<div class="page-nav">
-                                <p class="page-info">wpl</p>
-                                <div aria-label="Page navigation" class="page_0 active">
+							<div class="page-nav page1">
+                                <div id="nav_1_0" aria-label="Page navigation" class="page_1_0 active">
                                     <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="First">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&lsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&rsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="End">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </div>
-                                <div aria-label="Page navigation" class="page_1">
+                                <div id="nav_1_1" aria-label="Page navigation" class="page_1_1">
                                     <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="First">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&lsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&rsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="End">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </div>
-                                <div aria-label="Page navigation" class="page_2">
+                                <div id="nav_1_2" aria-label="Page navigation" class="page_1_2">
                                     <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="First">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&lsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&rsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="End">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </div>
-                                <div aria-label="Page navigation" class="page_3">
+                                <div id="nav_1_3" aria-label="Page navigation" class="page_1_3">
                                     <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="First">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&lsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&rsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="End">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </div>
-                                <div aria-label="Page navigation" class="page_4">
+                                <div id="nav_1_4" aria-label="Page navigation" class="page_1_4">
                                     <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="First">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&lsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&rsaquo;</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" aria-label="End">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -1706,7 +1063,227 @@
 			</div>
 			<div class="clearfix">
 			</div>
-			<div class="row ">
+			<div class="row hid hidden">
+				<div class="col-md-12 col-sm-12">
+					<div class="portlet">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-motorcycle"></i>骑手信息
+							</div>
+							<div class="tools">
+								<a href="" class="collapse"></a>
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
+								<a href="" class="reload"></a>
+								<a href="" class="remove"></a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<!--BEGIN TABS-->
+							<ul class="nav nav-tabs" id="nav_2">
+								<li class="active">
+									<a href="#tab_2_0" data-toggle="tab" onclick="allRider('pageNum=1&&pageSize=30')">全部骑手</a>
+								</li>
+								<li>
+									<a href="#tab_2_1" data-toggle="tab" onclick="auditRider('pageNum=1&&pageSize=30')">已审核</a>
+								</li>
+								<li>
+									<a href="#tab_2_2" data-toggle="tab" onclick="notAuditRider('pageNum=1&&pageSize=30')">未审核</a>
+								</li>
+								<li>
+									<a href="#tab_2_3" data-toggle="tab" onclick="thoughRider('pageNum=1&&pageSize=30')">通过审核</a>
+								</li>
+								<li>
+									<a href="#tab_2_4" data-toggle="tab" onclick="notThoughRider('pageNum=1&&pageSize=30')">未通过审核</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab_2_0">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													骑手ID
+												</th>
+												<th>
+													骑手名
+												</th>
+												<th>
+													商家姓名
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_2_1">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													骑手ID
+												</th>
+												<th>
+													骑手名
+												</th>
+												<th>
+													商家名字
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_2_2">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													骑手ID
+												</th>
+												<th>
+													骑手名
+												</th>
+												<th>
+													商家名
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_2_3">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													骑手ID
+												</th>
+												<th>
+													骑手名字
+												</th>
+												<th>
+													商家名字
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_2_4">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													骑手ID
+												</th>
+												<th>
+													骑手名
+												</th>
+												<th>
+													商家名
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="page-nav page2">
+								<div id="nav_2_0" aria-label="Page navigation" class="page_2_0 active">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+								<div id="nav_2_1" aria-label="Page navigation" class="page_2_1">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+								<div id="nav_2_2" aria-label="Page navigation" class="page_2_2">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+								<div id="nav_2_3" aria-label="Page navigation" class="page_2_3">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+								<div id="nav_2_4" aria-label="Page navigation" class="page_2_4">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+							</div>
+							<!--END TABS-->
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="clearfix">
+			</div>
+			<div class="row hid hidden">
 				<div class="col-md-6 col-sm-6">
 					<div class="portlet">
 						<div class="portlet-title">
@@ -2170,7 +1747,7 @@
 			</div>
 			<div class="clearfix">
 			</div>
-			<div class="row ">
+			<div class="row hid hidden">
 			
 				<div class="col-md-6 col-sm-12">
 					<!-- BEGIN PORTLET-->
@@ -2204,7 +1781,7 @@
 			<div class="clearfix">
 			</div>
 			<!-- BEGIN OVERVIEW STATISTIC BLOCKS-->
-			<div class="row">
+			<div class="row hid hidden">
 				<div class="col-md-3 col-sm-6">
 					<div class="circle-stat stat-block">
 						<div class="visual">
@@ -2289,7 +1866,7 @@
 			<!-- END OVERVIEW STATISTIC BLOCKS-->
 			<div class="clearfix">
 			</div>
-			<div class="row ">
+			<div class="row hid hidden">
 				<div class="col-md-6 col-sm-6">
 					<!-- BEGIN PORTLET-->
 					<div class="portlet calendar">
@@ -2489,6 +2066,10 @@
 <script src="/assets/scripts/app.js" type="text/javascript"></script>
 <script src="/assets/scripts/index.js" type="text/javascript"></script>
 <script src="/assets/scripts/tasks.js" type="text/javascript"></script>
+<script src="/js/seller.js" type="text/javascript"></script>
+<script src="/js/rider.js" type="text/javascript"></script>
+<script src="/js/index.js" type="text/javascript"></script>
+<script src="/js/pagebar.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 jQuery(document).ready(function() {    

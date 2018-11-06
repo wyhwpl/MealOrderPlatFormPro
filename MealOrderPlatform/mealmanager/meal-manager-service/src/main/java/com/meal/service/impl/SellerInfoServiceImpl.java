@@ -27,7 +27,7 @@ public class SellerInfoServiceImpl implements SellerInfoService {
         PageHelper.startPage(pageNum,pageSize);
         SellerExample example=new SellerExample();
         SellerExample.Criteria criteria=example.createCriteria();
-        //type=1、2、3、4分别代表已审核、未审核、未通过审核、通过审核
+        //type=1、2、3、4分别代表已审核、未审核、通过审核、未通过审核
         if(type==1){
             criteria.andIsauditEqualTo(1);
         }
@@ -43,7 +43,10 @@ public class SellerInfoServiceImpl implements SellerInfoService {
             criteria.andIsthoughEqualTo(0);
         }
         List<Seller> sellers=sellerMapper.selectByExample(example);
-        if(sellers==null||sellers.isEmpty())return null;
+        if(sellers==null||sellers.isEmpty()){
+            System.out.println("没有结果");
+            return null;
+        }
         PageInfo pageInfo=new PageInfo(sellers);
 
         return pageInfo;
