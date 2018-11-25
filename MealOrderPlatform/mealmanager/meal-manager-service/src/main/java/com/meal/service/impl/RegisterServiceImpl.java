@@ -4,9 +4,7 @@ import com.meal.commons.CheckResult;
 import com.meal.mapper.AdminMapper;
 import com.meal.pojo.Admin;
 import com.meal.pojo.AdminExample;
-import com.meal.pojo.AdminExample.*;
 import com.meal.service.RegisterService;
-import org.omg.CORBA.CurrentHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -29,7 +27,7 @@ public class RegisterServiceImpl implements RegisterService {
     public CheckResult checkData(String param, Integer type) {
 
         AdminExample example=new AdminExample();
-        Criteria criteria=example.createCriteria();
+        AdminExample.Criteria criteria=example.createCriteria();
         //1、2分别代表username、loginID
         if(type==1){
             criteria.andUsernameEqualTo(param);
@@ -63,7 +61,6 @@ public class RegisterServiceImpl implements RegisterService {
         }
 
         admin.setCreatetime(new Date());
-        admin.setUpdatetime(new Date());
         admin.setPassword(DigestUtils.md5DigestAsHex(admin.getPassword().getBytes()));
         adminMapper.insert(admin);
         return CheckResult.build(200,"注册成功");

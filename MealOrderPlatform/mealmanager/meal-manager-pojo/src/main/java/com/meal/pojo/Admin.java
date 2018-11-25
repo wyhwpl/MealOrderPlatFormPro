@@ -13,8 +13,6 @@ public class Admin {
 
     private Date createtime;
 
-    private Date updatetime;
-
     private String imgUrl;
 
     public Integer getId() {
@@ -55,14 +53,6 @@ public class Admin {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
-    }
-
-    public Date getUpdatetime() {
-        return updatetime;
-    }
-
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
     }
 
     public String getImgUrl() {

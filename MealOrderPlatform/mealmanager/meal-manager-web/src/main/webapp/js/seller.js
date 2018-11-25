@@ -74,18 +74,19 @@ function  allSeller(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isaudit=result.list[i].isaudit;
-                var isthough=result.list[i].isthough;
+                var statusCode=result.list[i].status;
                 var status;
-                if(isaudit==0) status="未审核";
-                else status=isthough==0?"未通过":"通过";
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
                     "<td>"+result.list[i].sellername+"</td>"+
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -229,15 +230,19 @@ function auditSeller(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isthough=result.list[i].isthough;
-                var status=isthough==0?"未通过":"通过";
+                var statusCode=result.list[i].status;
+                var status;
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
                     "<td>"+result.list[i].sellername+"</td>"+
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -377,15 +382,19 @@ function notAuditSeller(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isaudit=result.list[i].isaudit;
-                var status=isaudit==0?"未审核":"已审核";
+                var statusCode=result.list[i].status;
+                var status;
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
                     "<td>"+result.list[i].sellername+"</td>"+
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -526,15 +535,19 @@ function thoughSeller(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isthough=result.list[i].isthough;
-                var status=isthough==0?"未通过":"通过";
+                var statusCode=result.list[i].status;
+                var status;
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
                     "<td>"+result.list[i].sellername+"</td>"+
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -676,15 +689,19 @@ function notThoughSeller(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isthough=result.list[i].isthough;
-                var status=isthough==0?"未通过":"通过";
+                var statusCode=result.list[i].status;
+                var status;
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
                     "<td>"+result.list[i].sellername+"</td>"+
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);

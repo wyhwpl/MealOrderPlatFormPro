@@ -1,5 +1,7 @@
 package com.meal.pojo;
 
+import java.util.Date;
+
 public class Food {
     private Integer id;
 
@@ -7,13 +9,23 @@ public class Food {
 
     private String description;
 
+    private Float originPrice;
+
+    private Integer tagid;
+
     private Float price;
 
     private Integer sellerid;
 
-    private Integer isaudit;
+    private Float score;
 
-    private Integer isthough;
+    private Integer status;
+
+    private Date applicationtime;
+
+    private Date thoughtime;
+
+    private Date undercarriagetime;
 
     private String imgUrl;
 
@@ -41,6 +53,22 @@ public class Food {
         this.description = description == null ? null : description.trim();
     }
 
+    public Float getOriginPrice() {
+        return originPrice;
+    }
+
+    public void setOriginPrice(Float originPrice) {
+        this.originPrice = originPrice;
+    }
+
+    public Integer getTagid() {
+        return tagid;
+    }
+
+    public void setTagid(Integer tagid) {
+        this.tagid = tagid;
+    }
+
     public Float getPrice() {
         return price;
     }
@@ -57,20 +85,44 @@ public class Food {
         this.sellerid = sellerid;
     }
 
-    public Integer getIsaudit() {
-        return isaudit;
+    public Float getScore() {
+        return score;
     }
 
-    public void setIsaudit(Integer isaudit) {
-        this.isaudit = isaudit;
+    public void setScore(Float score) {
+        this.score = score;
     }
 
-    public Integer getIsthough() {
-        return isthough;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setIsthough(Integer isthough) {
-        this.isthough = isthough;
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Date getApplicationtime() {
+        return applicationtime;
+    }
+
+    public void setApplicationtime(Date applicationtime) {
+        this.applicationtime = applicationtime;
+    }
+
+    public Date getThoughtime() {
+        return thoughtime;
+    }
+
+    public void setThoughtime(Date thoughtime) {
+        this.thoughtime = thoughtime;
+    }
+
+    public Date getUndercarriagetime() {
+        return undercarriagetime;
+    }
+
+    public void setUndercarriagetime(Date undercarriagetime) {
+        this.undercarriagetime = undercarriagetime;
     }
 
     public String getImgUrl() {

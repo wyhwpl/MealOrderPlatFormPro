@@ -27,24 +27,24 @@ public class RiderInfoServiceImpl implements RiderInfoService {
         PageHelper.startPage(pageNum,pageSize);
         RiderExample example=new RiderExample();
         RiderExample.Criteria criteria=example.createCriteria();
-        //type=1、2、3、4分别代表已审核、未审核、未通过审核、通过审核
-
+        //type=1、已审核 2、未审核 3、通过审核 4、未通过审核 5、已注销
         if(type==1){
-            criteria.andIsauditEqualTo(1);
+            criteria.andStatusBetween(1,2);
         }
         if(type==2){
-            criteria.andIsauditEqualTo(0);
+            criteria.andStatusEqualTo(0);
         }
         if(type==3){
-            criteria.andIsauditEqualTo(1);
-            criteria.andIsthoughEqualTo(0);
+            criteria.andStatusEqualTo(1);
         }
         if(type==4){
-            criteria.andIsauditEqualTo(1);
-            criteria.andIsthoughEqualTo(1);
+            criteria.andStatusEqualTo(2);
+        }
+        if(type==5){
+            criteria.andStatusEqualTo(3);
         }
         List<Rider> riders=riderMapper.selectByExample(example);
-        if(riders.isEmpty()||riders==null) return null;
+        if(riders==null||riders.isEmpty()) return null;
         PageInfo pageInfo=new PageInfo(riders);
 
         return pageInfo;

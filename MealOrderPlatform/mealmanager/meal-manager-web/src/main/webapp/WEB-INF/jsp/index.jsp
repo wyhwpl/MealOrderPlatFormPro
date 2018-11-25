@@ -467,11 +467,11 @@
 						</div>
 					</form>
 				</li>
-				<li class="my-menu start active ">
+				<li class="my-menu active">
 					<a href="javascript:;">
-					<i class="icon-home"></i>
-					<span class="title">主页</span>
-					<span class="selected"></span>
+						<i class="icon-home"></i>
+						<span class="title">主页</span>
+						<span class="selected"></span>
 					</a>
 				</li>
 				<li class="my-menu">
@@ -528,51 +528,16 @@
 					<a href="javascript:;" data-toggle="tab" data-target="#tab_1_0" onclick="allSeller('pageNum=1&&pageSize=30')">
 						<i class="icon-docs"></i>
 						<span class="title">任务</span>
-						<span class="arrow "></span>
+						<span class="selected"></span>
 					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="javascript:;" data-toggle="tab" data-target="#tab_1_1" onclick="auditSeller('pageNum=1&&pageSize=30')">
-								已审核</a>
-						</li>
-						<li>
-							<a href="javascript:;" data-toggle="tab" data-target="#tab_1_2" onclick="notAuditSeller('pageNum=1&&pageSize=30')">
-								未审核</a>
-						</li>
-						<li>
-							<a href="#tab_1_4" data-toggle="tab" onclick="notThoughSeller('pageNum=1&&pageSize=30')">
-								未通过审核</a>
-						</li>
-						<li>
-							<a href="#tab_1_3" data-toggle="tab" onclick="thoughSeller('pageNum=1&&pageSize=30')">
-								通过审核</a>
-						</li>
-					</ul>
 				</li>
 				<li class="my-menu">
 					<a href="javascript:;" data-toggle="tab" data-target="#tab_2_0" onclick="allRider('pageNum=1&&pageSize=30')">
 						<i class="icon-user"></i>
 						<span class="title">个人信息</span>
-						<span class="arrow "></span>
+						<span class="selected "></span>
 					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_1" onclick="auditRider('pageNum=1&&pageSize=30')">
-								已审核</a>
-						</li>
-						<li>
-							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_2" onclick="notAuditRider('pageNum=1&&pageSize=30')">
-								未审核</a>
-						</li>
-						<li>
-							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_3" onclick="thoughRider('pageNum=1&&pageSize=30')">
-								通过</a>
-						</li>
-						<li>
-							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_4" onclick="notThoughRider('pageNum=1&&pageSize=30')">
-								未通过</a>
-						</li>
-					</ul>
+
 				</li>
 
 			</ul>
@@ -840,6 +805,285 @@
 				</div>
 			</div>
 			<!-- END OVERVIEW STATISTIC BARS-->
+			<div class="row hid hidden">
+				<div class="col-md-8 col-sm-8">
+					<div class="portlet tasks-widget">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bell"></i>最新消息
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="task-content">
+								<div class="scroller" style="height: 305px;" data-always-visible="1" data-rail-visible1="1">
+									<!-- START TASK LIST -->
+									<ul class="news task-list">
+										<li>
+											<div class="task-checkbox">
+												<i class="icon-bell"></i>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												Present 2013 Year IPO Statistics at Board Meeting </span>
+												<span class="label label-sm label-success">
+												Company </span>
+												<span class="task-bell">
+												<i class="fa fa-bell-o"></i>
+												</span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+														<i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												Hold An Interview for Marketing Manager Position </span>
+												<span class="label label-sm label-danger">
+												Marketing </span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+														<i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												AirAsia Intranet System Project Internal Meeting </span>
+												<span class="label label-sm label-success">
+												AirAsia </span>
+												<span class="task-bell">
+												<i class="fa fa-bell-o"></i>
+												</span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+														<i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												Technical Management Meeting </span>
+												<span class="label label-sm label-warning">
+												Company </span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												Kick-off Company CRM Mobile App Development </span>
+												<span class="label label-sm label-info">
+												Internal Products </span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												Prepare Commercial Offer For SmartVision Website Rewamp </span>
+												<span class="label label-sm label-danger">
+												SmartVision </span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												Sign-Off The Comercial Agreement With AutoSmart </span>
+												<span class="label label-sm label-default">
+												AutoSmart </span>
+												<span class="task-bell">
+												<i class="fa fa-bell-o"></i>
+												</span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												Company Staff Meeting </span>
+												<span class="label label-sm label-success">
+												Cruise </span>
+												<span class="task-bell">
+												<i class="fa fa-bell-o"></i>
+												</span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class="last-line">
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												KeenThemes Investment Discussion </span>
+												<span class="label label-sm label-warning">
+												KeenThemes </span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#"><i class="fa fa-check"></i> Complete</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+														</li>
+														<li>
+															<a href="#"><i class="fa fa-trash-o"></i> Cancel</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<!-- END START TASK LIST -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="clearfix">
 			</div>
 			<div class="row hid hidden">
@@ -1109,7 +1353,10 @@
 													骑手名
 												</th>
 												<th>
-													商家姓名
+													地址
+												</th>
+												<th>
+													性别
 												</th>
 												<th>
 													注册时间
@@ -1139,7 +1386,10 @@
 													骑手名
 												</th>
 												<th>
-													商家名字
+													地址
+												</th>
+												<th>
+													性别
 												</th>
 												<th>
 													注册时间
@@ -1169,7 +1419,10 @@
 													骑手名
 												</th>
 												<th>
-													商家名
+													地址
+												</th>
+												<th>
+													性别
 												</th>
 												<th>
 													注册时间
@@ -1199,7 +1452,10 @@
 													骑手名字
 												</th>
 												<th>
-													商家名字
+													地址
+												</th>
+												<th>
+													性别
 												</th>
 												<th>
 													注册时间
@@ -1229,7 +1485,10 @@
 													骑手名
 												</th>
 												<th>
-													商家名
+													地址
+												</th>
+												<th>
+													性别
 												</th>
 												<th>
 													注册时间
@@ -1474,7 +1733,7 @@
 							<div class="task-content">
 								<div class="scroller" style="height: 305px;" data-always-visible="1" data-rail-visible1="1">
 									<!-- START TASK LIST -->
-									<ul class="task-list">
+									<ul class="tasks task-list">
 										<li>
 											<div class="task-checkbox">
 												<input type="checkbox" class="liChild" value=""/>
@@ -1749,30 +2008,54 @@
 			</div>
 			<div class="row hid hidden">
 			
-				<div class="col-md-6 col-sm-12">
+				<div class="col-md-12 col-sm-12">
 					<!-- BEGIN PORTLET-->
 					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-signal"></i>Realtime Server Load
+								<i class="icon-user"></i>我的资料
 							</div>
 							<div class="actions">
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-success btn-sm">
-									<input type="radio" name="options" class="toggle">Database </label>
-									<label class="btn btn-success btn-sm">
-									<input type="radio" name="options" class="toggle">Web </label>
-								</div>
+
 							</div>
 						</div>
 						<div class="portlet-body">
-							<div id="load_statistics_loading">
-								<img src="/assets/img/loading.gif" alt="loading"/>
-							</div>
-							<div id="load_statistics_content" class="display-none">
-								<div id="load_statistics" style="height: 340px;">
-								</div>
-							</div>
+							<ul class="nav navbar-nav">
+								<li>
+									<a href="javascript:;">
+										<img src="/assets/img/avatar3.jpg" alt="管理员的头像" class="img-circle">
+									</a>
+									<p>
+										你好,
+										<strong>Nick</strong>
+									</p>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div>
+										<div class="head">我的任务</div>
+										<div class="div-body tasknumber">
+											<span class="number">1</span>个
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div>
+										<div class="head">我的成就</div>
+										<div class="div-body donenumber">
+											<span class="number">1</span>个
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li><div>
+									<div class="head">最近登录</div>
+									<div class="div-body reclogin">
+										<span class="time">1</span>个
+									</div>
+								</div></li>
+							</ul>
 						</div>
 					</div>
 					<!-- END PORTLET-->
@@ -2012,6 +2295,123 @@
 					<!-- END PORTLET-->
 				</div>
 			</div>
+			<div class="modal fade" id="sellerModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<h4 class="modal-title">商家详细信息</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-4 col-sm-4 sellercenter">
+									<img class="sellerimg" src="/images/sellerdefault.jpg" alt="商家头像">
+								</div>
+								<div class="col-md-8 col-sm-8">
+									<div class="information">
+										<div class="info-seller-span col-md-4 col-sm-4">
+											<span><i class="icon-present"></i>店铺名</span>
+											<span><i class="icon-user"></i>商家姓名</span>
+											<span><i class="icon-credit-card"></i>身份证件号</span>
+											<span><i class="icon-screen-smartphone"></i>手机号</span>
+
+										</div>
+										<div class="info-seller-label col-md-8 col-sm-8">
+											<label id="s_sellername"></label>
+											<label id="s_name"></label>
+											<label id="s_IDcard"></label>
+											<label id="s_phone"></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+							<div class="row row-top">
+								<div class="info-seller-span col-md-4 col-sm-4">
+									<span class="center">商家地址</span>
+									<span class="center">申请时间</span>
+									<span class="center">账号状态</span>
+									<span class="center">通过审核时间</span>
+									<span class="center">未通过原因</span>
+									<span class="center">商家评分</span>
+									<span class="center">注销时间</span>
+								</div>
+								<div class="info-seller-label col-md-8 col-sm-8">
+									<label id="s_address"></label>
+									<label id="s_regtime"></label>
+									<label id="s_status"></label>
+									<label id="s_though"></label>
+									<label id="s_reason"></label>
+									<label id="s_score"></label>
+									<label id="s_logout"></label>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="riderModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<h4 class="modal-title">骑手详细信息</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-4 col-sm-4 sellercenter">
+									<img class="sellerimg" src="/images/riderdefault.jpg" alt="骑手头像">
+								</div>
+								<div class="col-md-8 col-sm-8">
+									<div class="information">
+										<div class="info-rider-span col-md-4 col-sm-4">
+											<span><i class="fa fa-motorcycle"></i>骑手名</span>
+											<span><i class="icon-screen-smartphone"></i>手机号</span>
+											<span><i class="fa fa-transgender"></i>性别</span>
+										</div>
+										<div class="info-rider-label col-md-8 col-sm-8">
+											<label id="r_ridername"></label>
+											<label id="r_phone"></label>
+											<label id="r_sex"></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+							<div class="row row-top">
+								<div class="info-rider-span col-md-4 col-sm-4">
+									<span class="center">骑手地址</span>
+									<span class="center">申请时间</span>
+									<span class="center">账号状态</span>
+									<span class="center">通过审核时间</span>
+									<span class="center">接单状态</span>
+									<span class="center">骑手评分</span>
+									<span class="center">注销时间</span>
+								</div>
+								<div class="info-rider-label col-md-8 col-sm-8">
+									<label id="r_address"></label>
+									<label id="r_regtime"></label>
+									<label id="r_status"></label>
+									<label id="r_though"></label>
+									<label id="r_currentstatus"></label>
+									<label id="r_score"></label>
+									<label id="r_logout"></label>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- END CONTENT -->
@@ -2020,7 +2420,7 @@
 <!-- BEGIN FOOTER -->
 <div class="footer">
 	<div class="footer-inner">
-		 2013 &copy; Conquer by keenthemes.
+		 2018 &copy; Conquer by wpl xsc qx lyc.
 	</div>
 	<div class="footer-tools">
 		<span class="go-top">
@@ -2068,6 +2468,7 @@
 <script src="/assets/scripts/tasks.js" type="text/javascript"></script>
 <script src="/js/seller.js" type="text/javascript"></script>
 <script src="/js/rider.js" type="text/javascript"></script>
+<script src="/js/task.js" type="text/javascript"></script>
 <script src="/js/index.js" type="text/javascript"></script>
 <script src="/js/pagebar.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->

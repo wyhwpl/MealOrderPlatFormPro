@@ -7,6 +7,8 @@ public class Seller {
 
     private String idcard;
 
+    private String loginid;
+
     private String sellername;
 
     private String password;
@@ -17,15 +19,17 @@ public class Seller {
 
     private String address;
 
-    private Integer isaudit;
+    private Integer status;
 
-    private Integer isthough;
+    private String reason;
 
     private Float score;
 
     private Date regtime;
 
     private Date thoughtime;
+
+    private Date logouttime;
 
     private String imgUrl;
 
@@ -43,6 +47,14 @@ public class Seller {
 
     public void setIdcard(String idcard) {
         this.idcard = idcard == null ? null : idcard.trim();
+    }
+
+    public String getLoginid() {
+        return loginid;
+    }
+
+    public void setLoginid(String loginid) {
+        this.loginid = loginid == null ? null : loginid.trim();
     }
 
     public String getSellername() {
@@ -85,20 +97,20 @@ public class Seller {
         this.address = address == null ? null : address.trim();
     }
 
-    public Integer getIsaudit() {
-        return isaudit;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setIsaudit(Integer isaudit) {
-        this.isaudit = isaudit;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public Integer getIsthough() {
-        return isthough;
+    public String getReason() {
+        return reason;
     }
 
-    public void setIsthough(Integer isthough) {
-        this.isthough = isthough;
+    public void setReason(String reason) {
+        this.reason = reason == null ? null : reason.trim();
     }
 
     public Float getScore() {
@@ -123,6 +135,14 @@ public class Seller {
 
     public void setThoughtime(Date thoughtime) {
         this.thoughtime = thoughtime;
+    }
+
+    public Date getLogouttime() {
+        return logouttime;
+    }
+
+    public void setLogouttime(Date logouttime) {
+        this.logouttime = logouttime;
     }
 
     public String getImgUrl() {

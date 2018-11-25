@@ -3,7 +3,6 @@ package com.meal.service.impl;
 import com.meal.mapper.AdminMapper;
 import com.meal.pojo.Admin;
 import com.meal.pojo.AdminExample;
-import com.meal.pojo.AdminExample.*;
 import com.meal.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +31,7 @@ public class LoginServiceImpl implements LoginService {
     public boolean login(String loginID, String password) {
 
         AdminExample example=new AdminExample();
-        Criteria criteria=example.createCriteria();
+        AdminExample.Criteria criteria=example.createCriteria();
         criteria.andLoginidEqualTo(loginID);
         criteria.andPasswordEqualTo(password);
         List<Admin> lists=adminMapper.selectByExample(example);

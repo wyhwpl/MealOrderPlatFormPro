@@ -1,9 +1,9 @@
 drop table if exists t_user;
 create table t_user(
-	id int primary key not null auto_increment,
-	phone varchar(11) not null unique,
-	password varchar(255) not null,
-	username varchar(255) not null unique,
-	sex varchar(4),
-	img_URL varchar(255)
+	id int primary key not null auto_increment, #用户ID
+	phone varchar(11) not null unique,  #手机号(作为登录账号)
+	password varchar(255) not null,    #登录密码
+	username varchar(255) not null unique, #用户名
+	sex varchar(4),  #性别
+	img_URL varchar(255)  #头像路径
 );

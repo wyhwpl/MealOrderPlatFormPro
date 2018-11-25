@@ -23,3 +23,100 @@
     text-align: center;
     line-height: 50px;
 }
+.row .navbar-nav{
+    float:none;
+    margin-left: 150px;
+    height: 112px;
+    line-height: 112px;
+}
+.row .navbar-nav .divider{
+    border-bottom: 1px solid #000;
+    /*width: 1px;*/
+}
+.row .navbar-nav li{
+    height: 112px;
+    line-height: 112px;
+    margin-right: 50px;
+}
+.row .navbar-nav li a{
+    float: left;
+    height: 112px;
+    line-height: 80px;
+}
+.row .navbar-nav li p{
+    float: left;
+}
+.row .navbar-nav li a img{
+    height: 80px;
+    line-height: 50px;
+}
+.row .navbar-nav li .head{
+    height: 40px;
+}
+.row .navbar-nav li div{
+    width: 100px;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 10px;
+}
+.row .navbar-nav li span{
+    display: inline-block;
+    font-size: 20px;
+    color:red;
+    padding-right: 10px;
+}
+
+.hid .news li .task-checkbox i{
+    color:red;
+}
+
+
+.sellercenter{
+    text-align: center;
+}
+
+.info-seller-span span{
+    display: block;
+    margin-top: 6px;
+    height: 32px;
+    line-height: 32px;
+}
+.info-rider-span span{
+    display: block;
+    margin-top: 12px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.info-rider-span .center{
+    padding-left: 45px;
+}
+
+
+.info-seller-span .center{
+    padding-left: 45px;
+}
+
+.row-top{
+    margin-top: 10px;
+}
+
+.clearfix-line{
+    margin-top: 10px;
+    height: 1px;
+    border-bottom: 1px solid #000;
+}
+.info-rider-label label{
+    text-align: center;
+    display: block;
+    margin-top: 12px;
+    height: 32px;
+    line-height: 32px;
+}
+.info-seller-label label{
+    text-align: center;
+    display: block;
+    margin-top: 6px;
+    height: 32px;
+    line-height: 32px;
+}

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.meal.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.meal.pojo.User" >
+<mapper namespace="com.meal.mapper.AdminNewsMapper" >
+  <resultMap id="BaseResultMap" type="com.meal.pojo.AdminNews" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="userKind" property="userkind" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="VARCHAR" />
-    <result column="img_URL" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="action" property="action" jdbcType="VARCHAR" />
+    <result column="actionobject" property="actionobject" jdbcType="VARCHAR" />
+    <result column="newstime" property="newstime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, phone, password, username, sex, img_URL
+    id, userKind, userId, username, action, actionobject, newstime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.AdminNewsExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_user
+    from t_adminnews
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,96 +88,105 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from t_user
+    from t_adminnews
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_user
+    delete from t_adminnews
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.meal.pojo.UserExample" >
-    delete from t_user
+  <delete id="deleteByExample" parameterType="com.meal.pojo.AdminNewsExample" >
+    delete from t_adminnews
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.meal.pojo.User" >
-    insert into t_user (id, phone, password, 
-      username, sex, img_URL
-      )
-    values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{username,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.meal.pojo.AdminNews" >
+    insert into t_adminnews (id, userKind, userId, 
+      username, action, actionobject, 
+      newstime)
+    values (#{id,jdbcType=INTEGER}, #{userkind,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
+      #{username,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, #{actionobject,jdbcType=VARCHAR}, 
+      #{newstime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.meal.pojo.User" >
-    insert into t_user
+  <insert id="insertSelective" parameterType="com.meal.pojo.AdminNews" >
+    insert into t_adminnews
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="phone != null" >
-        phone,
+      <if test="userkind != null" >
+        userKind,
       </if>
-      <if test="password != null" >
-        password,
+      <if test="userid != null" >
+        userId,
       </if>
       <if test="username != null" >
         username,
       </if>
-      <if test="sex != null" >
-        sex,
+      <if test="action != null" >
+        action,
       </if>
-      <if test="imgUrl != null" >
-        img_URL,
+      <if test="actionobject != null" >
+        actionobject,
+      </if>
+      <if test="newstime != null" >
+        newstime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="phone != null" >
-        #{phone,jdbcType=VARCHAR},
+      <if test="userkind != null" >
+        #{userkind,jdbcType=INTEGER},
       </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
       </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=VARCHAR},
+      <if test="action != null" >
+        #{action,jdbcType=VARCHAR},
       </if>
-      <if test="imgUrl != null" >
-        #{imgUrl,jdbcType=VARCHAR},
+      <if test="actionobject != null" >
+        #{actionobject,jdbcType=VARCHAR},
+      </if>
+      <if test="newstime != null" >
+        #{newstime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.meal.pojo.UserExample" resultType="java.lang.Integer" >
-    select count(*) from t_user
+  <select id="countByExample" parameterType="com.meal.pojo.AdminNewsExample" resultType="java.lang.Integer" >
+    select count(*) from t_adminnews
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update t_user
+    update t_adminnews
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.phone != null" >
-        phone = #{record.phone,jdbcType=VARCHAR},
+      <if test="record.userkind != null" >
+        userKind = #{record.userkind,jdbcType=INTEGER},
       </if>
-      <if test="record.password != null" >
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.userid != null" >
+        userId = #{record.userid,jdbcType=INTEGER},
       </if>
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.sex != null" >
-        sex = #{record.sex,jdbcType=VARCHAR},
+      <if test="record.action != null" >
+        action = #{record.action,jdbcType=VARCHAR},
       </if>
-      <if test="record.imgUrl != null" >
-        img_URL = #{record.imgUrl,jdbcType=VARCHAR},
+      <if test="record.actionobject != null" >
+        actionobject = #{record.actionobject,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newstime != null" >
+        newstime = #{record.newstime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -184,45 +194,50 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update t_user
+    update t_adminnews
     set id = #{record.id,jdbcType=INTEGER},
-      phone = #{record.phone,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
+      userKind = #{record.userkind,jdbcType=INTEGER},
+      userId = #{record.userid,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
-      sex = #{record.sex,jdbcType=VARCHAR},
-      img_URL = #{record.imgUrl,jdbcType=VARCHAR}
+      action = #{record.action,jdbcType=VARCHAR},
+      actionobject = #{record.actionobject,jdbcType=VARCHAR},
+      newstime = #{record.newstime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.User" >
-    update t_user
+  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.AdminNews" >
+    update t_adminnews
     <set >
-      <if test="phone != null" >
-        phone = #{phone,jdbcType=VARCHAR},
+      <if test="userkind != null" >
+        userKind = #{userkind,jdbcType=INTEGER},
       </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
       </if>
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null" >
-        sex = #{sex,jdbcType=VARCHAR},
+      <if test="action != null" >
+        action = #{action,jdbcType=VARCHAR},
       </if>
-      <if test="imgUrl != null" >
-        img_URL = #{imgUrl,jdbcType=VARCHAR},
+      <if test="actionobject != null" >
+        actionobject = #{actionobject,jdbcType=VARCHAR},
+      </if>
+      <if test="newstime != null" >
+        newstime = #{newstime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.User" >
-    update t_user
-    set phone = #{phone,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.AdminNews" >
+    update t_adminnews
+    set userKind = #{userkind,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=INTEGER},
       username = #{username,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=VARCHAR},
-      img_URL = #{imgUrl,jdbcType=VARCHAR}
+      action = #{action,jdbcType=VARCHAR},
+      actionobject = #{actionobject,jdbcType=VARCHAR},
+      newstime = #{newstime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

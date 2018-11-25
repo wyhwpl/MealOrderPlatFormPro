@@ -28,13 +28,14 @@ function  allRider(data) {
             $div.addClass("active");
             $div.siblings().removeClass("active");
             $tbody.empty();
+            $pageNav.empty();
+            $pageInfo.remove();
             console.log(result.list);
 
             var pages;
             if(result.total%result.pageSize==0) pages=parseInt(result.total/result.pageSize);
             else pages=parseInt(result.total/result.pageSize)+1;
-            $pageNav.empty();
-            $pageInfo.remove();
+
             var pageNum=result.pageNum;
             var navMax=5;
             if(pages>=1){
@@ -74,18 +75,20 @@ function  allRider(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isaudit=result.list[i].isaudit;
-                var isthough=result.list[i].isthough;
+                var statusCode=result.list[i].status;
                 var status;
-                if(isaudit==0) status="未审核";
-                else status=isthough==0?"未通过":"通过";
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
-                    "<td>"+result.list[i].sellername+"</td>"+
-                    "<td>"+result.list[i].name+"</td>"+
+                    "<td>"+result.list[i].username+"</td>"+
+                    "<td>"+result.list[i].address+"</td>"+
+                    "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -161,7 +164,7 @@ function bindEvenAll_rider(result) {
 function auditRider(data) {
     $.ajax({
 
-        url:"/sellerInfo/all/1",
+        url:"/riderInfo/all/1",
         type:"get",
         data:data,
         dataType:"json",
@@ -183,13 +186,14 @@ function auditRider(data) {
             $div.addClass("active");
             $div.siblings().removeClass("active");
             $tbody.empty();
+            $pageNav.empty();
+            $pageInfo.remove();
             console.log(result.list);
 
             var pages;
             if(result.total%result.pageSize==0) pages=parseInt(result.total/result.pageSize);
             else pages=parseInt(result.total/result.pageSize)+1;
-            $pageNav.empty();
-            $pageInfo.remove();
+
             var pageNum=result.pageNum;
             var navMax=5;
             if(pages>=1){
@@ -229,15 +233,20 @@ function auditRider(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isthough=result.list[i].isthough;
-                var status=isthough==0?"未通过":"通过";
+                var statusCode=result.list[i].status;
+                var status;
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
-                    "<td>"+result.list[i].sellername+"</td>"+
-                    "<td>"+result.list[i].name+"</td>"+
+                    "<td>"+result.list[i].username+"</td>"+
+                    "<td>"+result.list[i].address+"</td>"+
+                    "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -310,7 +319,7 @@ function bindEvenAudit_rider(result) {
 function notAuditRider(data) {
     $.ajax({
 
-        url:"/sellerInfo/all/2",
+        url:"/riderInfo/all/2",
         type:"get",
         data:data,
         dataType:"json",
@@ -331,13 +340,14 @@ function notAuditRider(data) {
             $div.addClass("active");
             $div.siblings().removeClass("active");
             $tbody.empty();
+            $pageNav.empty();
+            $pageInfo.remove();
             console.log(result.list);
 
             var pages;
             if(result.total%result.pageSize==0) pages=parseInt(result.total/result.pageSize);
             else pages=parseInt(result.total/result.pageSize)+1;
-            $pageNav.empty();
-            $pageInfo.remove();
+
             var pageNum=result.pageNum;
             var navMax=5;
             if(pages>=1){
@@ -377,15 +387,20 @@ function notAuditRider(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isaudit=result.list[i].isaudit;
-                var status=isaudit==0?"未审核":"已审核";
+                var statusCode=result.list[i].status;
+                var status;
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
-                    "<td>"+result.list[i].sellername+"</td>"+
-                    "<td>"+result.list[i].name+"</td>"+
+                    "<td>"+result.list[i].username+"</td>"+
+                    "<td>"+result.list[i].address+"</td>"+
+                    "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -396,7 +411,7 @@ function notAuditRider(data) {
         },
         error:function (result) {
             console.log(result);
-            console.log("没有商家信息");
+            console.log("没有骑手信息");
             var $tbody=$("#tab_2_2 tbody");
             var $pageInfo=$(".page2 .page-info");
             var $pageNav=$(".page2 .page_2_2 ul");
@@ -459,7 +474,7 @@ function bindEvenNotAudit_rider(result) {
 function thoughRider(data) {
     $.ajax({
 
-        url:"/sellerInfo/all/4",
+        url:"/riderInfo/all/3",
         type:"get",
         data:data,
         dataType:"json",
@@ -480,13 +495,13 @@ function thoughRider(data) {
             $div.addClass("active");
             $div.siblings().removeClass("active");
             $tbody.empty();
+            $pageNav.empty();
+            $pageInfo.remove();
             console.log(result.list);
 
             var pages;
             if(result.total%result.pageSize==0) pages=parseInt(result.total/result.pageSize);
             else pages=parseInt(result.total/result.pageSize)+1;
-            $pageNav.empty();
-            $pageInfo.remove();
             var pageNum=result.pageNum;
             var navMax=5;
             if(pages>=1){
@@ -526,15 +541,20 @@ function thoughRider(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isthough=result.list[i].isthough;
-                var status=isthough==0?"未通过":"通过";
+                var statusCode=result.list[i].status;
+                var status;
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
-                    "<td>"+result.list[i].sellername+"</td>"+
-                    "<td>"+result.list[i].name+"</td>"+
+                    "<td>"+result.list[i].username+"</td>"+
+                    "<td>"+result.list[i].address+"</td>"+
+                    "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -608,7 +628,7 @@ function bindEvenThough_rider(result) {
 function notThoughRider(data) {
     $.ajax({
 
-        url:"/sellerInfo/all/3",
+        url:"/riderInfo/all/4",
         type:"get",
         data:data,
         dataType:"json",
@@ -630,16 +650,18 @@ function notThoughRider(data) {
             $div.addClass("active");
             $div.siblings().removeClass("active");
             $tbody.empty();
+            $pageNav.empty();
+            $pageInfo.remove();
             console.log(result.list);
 
             var pages;
             if(result.total%result.pageSize==0) pages=parseInt(result.total/result.pageSize);
             else pages=parseInt(result.total/result.pageSize)+1;
-            $pageNav.empty();
-            $pageInfo.remove();
+
             var pageNum=result.pageNum;
             var navMax=5;
             if(pages>=1){
+                console.log("info");
                 var info='<p class="page-info">'+'<span>'+result.pageNum+'页/'+pages+'页'+'</span></p>';
                 $page.prepend(createEle(info));
                 if(pageNum!=result.firstPage){
@@ -676,15 +698,20 @@ function notThoughRider(data) {
 
             for (var i=0;i<result.list.length;i++) {
                 var regtime=new Date(result.list[i].regtime);
-                var isthough=result.list[i].isthough;
-                var status=isthough==0?"未通过":"通过";
+                var statusCode=result.list[i].status;
+                var status;
+                if(statusCode==0) status="未审核";
+                if(statusCode==1) status="通过审核";
+                if(statusCode==2) status="未通过审核";
+                if(statusCode==3) status="已注销";
                 var elem="<tr>" +
                     "<td><a href='javascript:;'>"+result.list[i].id+"</a></td>" +
-                    "<td>"+result.list[i].sellername+"</td>"+
-                    "<td>"+result.list[i].name+"</td>"+
+                    "<td>"+result.list[i].username+"</td>"+
+                    "<td>"+result.list[i].address+"</td>"+
+                    "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);

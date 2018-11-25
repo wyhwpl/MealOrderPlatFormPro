@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.meal.mapper.AdminMapper" >
-  <resultMap id="BaseResultMap" type="com.meal.pojo.Admin" >
+<mapper namespace="com.meal.mapper.AdminTasksMapper" >
+  <resultMap id="BaseResultMap" type="com.meal.pojo.AdminTasks" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="taskKind" property="taskkind" jdbcType="INTEGER" />
+    <result column="objectId" property="objectid" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="loginID" property="loginid" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
-    <result column="img_URL" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="tasktime" property="tasktime" jdbcType="TIMESTAMP" />
+    <result column="donetime" property="donetime" jdbcType="TIMESTAMP" />
+    <result column="adminId" property="adminid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,15 +70,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, loginID, password, createtime, img_URL
+    id, taskKind, objectId, username, status, tasktime, donetime, adminId
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.AdminExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.AdminTasksExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_admin
+    from t_admintasks
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,96 +89,114 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from t_admin
+    from t_admintasks
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_admin
+    delete from t_admintasks
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.meal.pojo.AdminExample" >
-    delete from t_admin
+  <delete id="deleteByExample" parameterType="com.meal.pojo.AdminTasksExample" >
+    delete from t_admintasks
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.meal.pojo.Admin" >
-    insert into t_admin (id, username, loginID, 
-      password, createtime, img_URL
-      )
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{loginid,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{imgUrl,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.meal.pojo.AdminTasks" >
+    insert into t_admintasks (id, taskKind, objectId, 
+      username, status, tasktime, 
+      donetime, adminId)
+    values (#{id,jdbcType=INTEGER}, #{taskkind,jdbcType=INTEGER}, #{objectid,jdbcType=INTEGER}, 
+      #{username,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{tasktime,jdbcType=TIMESTAMP}, 
+      #{donetime,jdbcType=TIMESTAMP}, #{adminid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.meal.pojo.Admin" >
-    insert into t_admin
+  <insert id="insertSelective" parameterType="com.meal.pojo.AdminTasks" >
+    insert into t_admintasks
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
+      <if test="taskkind != null" >
+        taskKind,
+      </if>
+      <if test="objectid != null" >
+        objectId,
+      </if>
       <if test="username != null" >
         username,
       </if>
-      <if test="loginid != null" >
-        loginID,
+      <if test="status != null" >
+        status,
       </if>
-      <if test="password != null" >
-        password,
+      <if test="tasktime != null" >
+        tasktime,
       </if>
-      <if test="createtime != null" >
-        createtime,
+      <if test="donetime != null" >
+        donetime,
       </if>
-      <if test="imgUrl != null" >
-        img_URL,
+      <if test="adminid != null" >
+        adminId,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="taskkind != null" >
+        #{taskkind,jdbcType=INTEGER},
+      </if>
+      <if test="objectid != null" >
+        #{objectid,jdbcType=INTEGER},
+      </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="loginid != null" >
-        #{loginid,jdbcType=VARCHAR},
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
       </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
+      <if test="tasktime != null" >
+        #{tasktime,jdbcType=TIMESTAMP},
       </if>
-      <if test="createtime != null" >
-        #{createtime,jdbcType=TIMESTAMP},
+      <if test="donetime != null" >
+        #{donetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="imgUrl != null" >
-        #{imgUrl,jdbcType=VARCHAR},
+      <if test="adminid != null" >
+        #{adminid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.meal.pojo.AdminExample" resultType="java.lang.Integer" >
-    select count(*) from t_admin
+  <select id="countByExample" parameterType="com.meal.pojo.AdminTasksExample" resultType="java.lang.Integer" >
+    select count(*) from t_admintasks
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update t_admin
+    update t_admintasks
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.taskkind != null" >
+        taskKind = #{record.taskkind,jdbcType=INTEGER},
+      </if>
+      <if test="record.objectid != null" >
+        objectId = #{record.objectid,jdbcType=INTEGER},
+      </if>
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.loginid != null" >
-        loginID = #{record.loginid,jdbcType=VARCHAR},
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
       </if>
-      <if test="record.password != null" >
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.tasktime != null" >
+        tasktime = #{record.tasktime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.createtime != null" >
-        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      <if test="record.donetime != null" >
+        donetime = #{record.donetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.imgUrl != null" >
-        img_URL = #{record.imgUrl,jdbcType=VARCHAR},
+      <if test="record.adminid != null" >
+        adminId = #{record.adminid,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -184,45 +204,55 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update t_admin
+    update t_admintasks
     set id = #{record.id,jdbcType=INTEGER},
+      taskKind = #{record.taskkind,jdbcType=INTEGER},
+      objectId = #{record.objectid,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
-      loginID = #{record.loginid,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
-      createtime = #{record.createtime,jdbcType=TIMESTAMP},
-      img_URL = #{record.imgUrl,jdbcType=VARCHAR}
+      status = #{record.status,jdbcType=INTEGER},
+      tasktime = #{record.tasktime,jdbcType=TIMESTAMP},
+      donetime = #{record.donetime,jdbcType=TIMESTAMP},
+      adminId = #{record.adminid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.Admin" >
-    update t_admin
+  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.AdminTasks" >
+    update t_admintasks
     <set >
+      <if test="taskkind != null" >
+        taskKind = #{taskkind,jdbcType=INTEGER},
+      </if>
+      <if test="objectid != null" >
+        objectId = #{objectid,jdbcType=INTEGER},
+      </if>
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="loginid != null" >
-        loginID = #{loginid,jdbcType=VARCHAR},
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
+      <if test="tasktime != null" >
+        tasktime = #{tasktime,jdbcType=TIMESTAMP},
       </if>
-      <if test="createtime != null" >
-        createtime = #{createtime,jdbcType=TIMESTAMP},
+      <if test="donetime != null" >
+        donetime = #{donetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="imgUrl != null" >
-        img_URL = #{imgUrl,jdbcType=VARCHAR},
+      <if test="adminid != null" >
+        adminId = #{adminid,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Admin" >
-    update t_admin
-    set username = #{username,jdbcType=VARCHAR},
-      loginID = #{loginid,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      createtime = #{createtime,jdbcType=TIMESTAMP},
-      img_URL = #{imgUrl,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.AdminTasks" >
+    update t_admintasks
+    set taskKind = #{taskkind,jdbcType=INTEGER},
+      objectId = #{objectid,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      tasktime = #{tasktime,jdbcType=TIMESTAMP},
+      donetime = #{donetime,jdbcType=TIMESTAMP},
+      adminId = #{adminid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

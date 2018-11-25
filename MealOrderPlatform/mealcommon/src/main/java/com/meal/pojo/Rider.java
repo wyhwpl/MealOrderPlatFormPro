@@ -5,7 +5,7 @@ import java.util.Date;
 public class Rider {
     private Integer id;
 
-    private String name;
+    private String username;
 
     private String phone;
 
@@ -15,17 +15,17 @@ public class Rider {
 
     private Integer status;
 
+    private Integer currentstatus;
+
     private String sex;
-
-    private Integer isaudit;
-
-    private Integer isthough;
 
     private Float score;
 
     private Date regtime;
 
     private Date thoughtime;
+
+    private Date logouttime;
 
     private String imgUrl;
 
@@ -37,12 +37,12 @@ public class Rider {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPhone() {
@@ -77,28 +77,20 @@ public class Rider {
         this.status = status;
     }
 
+    public Integer getCurrentstatus() {
+        return currentstatus;
+    }
+
+    public void setCurrentstatus(Integer currentstatus) {
+        this.currentstatus = currentstatus;
+    }
+
     public String getSex() {
         return sex;
     }
 
     public void setSex(String sex) {
         this.sex = sex == null ? null : sex.trim();
-    }
-
-    public Integer getIsaudit() {
-        return isaudit;
-    }
-
-    public void setIsaudit(Integer isaudit) {
-        this.isaudit = isaudit;
-    }
-
-    public Integer getIsthough() {
-        return isthough;
-    }
-
-    public void setIsthough(Integer isthough) {
-        this.isthough = isthough;
     }
 
     public Float getScore() {
@@ -123,6 +115,14 @@ public class Rider {
 
     public void setThoughtime(Date thoughtime) {
         this.thoughtime = thoughtime;
+    }
+
+    public Date getLogouttime() {
+        return logouttime;
+    }
+
+    public void setLogouttime(Date logouttime) {
+        this.logouttime = logouttime;
     }
 
     public String getImgUrl() {
