@@ -86,7 +86,7 @@ function  allSeller(data) {
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -242,7 +242,7 @@ function auditSeller(data) {
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -394,7 +394,7 @@ function notAuditSeller(data) {
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -547,7 +547,7 @@ function thoughSeller(data) {
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -701,7 +701,7 @@ function notThoughSeller(data) {
                     "<td>"+result.list[i].name+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#sellerModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);

@@ -475,18 +475,18 @@
 					</a>
 				</li>
 				<li class="my-menu">
-					<a href="javascript:;" data-toggle="tab" data-target="#tab_1_0" onclick="allSeller('pageNum=1&&pageSize=30')">
+					<a href="javascript:;">
 					<i class="icon-present"></i>
 					<span class="title">商家信息</span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="javascript:;" data-toggle="tab" data-target="#tab_1_1" onclick="auditSeller('pageNum=1&&pageSize=30')">
+							<a href="#tab_1_1" data-toggle="tab" onclick="auditSeller('pageNum=1&&pageSize=30')">
 							已审核</a>
 						</li>
 						<li>
-							<a href="javascript:;" data-toggle="tab" data-target="#tab_1_2" onclick="notAuditSeller('pageNum=1&&pageSize=30')">
+							<a href="#tab_1_2" data-toggle="tab" onclick="notAuditSeller('pageNum=1&&pageSize=30')">
 							未审核</a>
 						</li>
 						<li>
@@ -500,7 +500,7 @@
 					</ul>
 				</li>
 				<li class="my-menu">
-					<a href="javascript:;" data-toggle="tab" data-target="#tab_2_0" onclick="allRider('pageNum=1&&pageSize=30')">
+					<a href="javascript:;">
 					<i class="fa fa-motorcycle"></i>
 					<span class="title">骑手信息</span>
 					<span class="arrow "></span>
@@ -521,6 +521,31 @@
 						<li>
 							<a href="javascript:;" data-toggle="tab" data-target="#tab_2_4" onclick="notThoughRider('pageNum=1&&pageSize=30')">
 							未通过</a>
+						</li>
+					</ul>
+				</li>
+				<li class="my-menu">
+					<a href="javascript:;">
+						<i class="icon-present"></i>
+						<span class="title">菜品信息</span>
+						<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_3_1" onclick="auditFood('pageNum=1&&pageSize=30')">
+								已审核</a>
+						</li>
+						<li>
+							<a href="javascript:;" data-toggle="tab" data-target="#tab_3_2" onclick="notAuditFood('pageNum=1&&pageSize=30')">
+								未审核</a>
+						</li>
+						<li>
+							<a href="#tab_3_4" data-toggle="tab" onclick="notThoughFood('pageNum=1&&pageSize=30')">
+								未通过审核</a>
+						</li>
+						<li>
+							<a href="#tab_3_3" data-toggle="tab" onclick="thoughFood('pageNum=1&&pageSize=30')">
+								通过审核</a>
 						</li>
 					</ul>
 				</li>
@@ -806,6 +831,7 @@
 			</div>
 			<!-- END OVERVIEW STATISTIC BARS-->
 			<div class="row hid hidden">
+				<div class="col-md-2 col-sm-2"></div>
 				<div class="col-md-8 col-sm-8">
 					<div class="portlet tasks-widget">
 						<div class="portlet-title">
@@ -824,9 +850,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Present 2013 Year IPO Statistics at Board Meeting </span>
+												 </span>
 												<span class="label label-sm label-success">
-												Company </span>
+												</span>
 												<span class="task-bell">
 												<i class="fa fa-bell-o"></i>
 												</span>
@@ -855,9 +881,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Hold An Interview for Marketing Manager Position </span>
+												</span>
 												<span class="label label-sm label-danger">
-												Marketing </span>
+												</span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -883,9 +909,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												AirAsia Intranet System Project Internal Meeting </span>
+												 </span>
 												<span class="label label-sm label-success">
-												AirAsia </span>
+												 </span>
 												<span class="task-bell">
 												<i class="fa fa-bell-o"></i>
 												</span>
@@ -914,9 +940,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Technical Management Meeting </span>
+												</span>
 												<span class="label label-sm label-warning">
-												Company </span>
+												</span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -941,9 +967,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Kick-off Company CRM Mobile App Development </span>
+												</span>
 												<span class="label label-sm label-info">
-												Internal Products </span>
+												</span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -968,9 +994,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Prepare Commercial Offer For SmartVision Website Rewamp </span>
+												</span>
 												<span class="label label-sm label-danger">
-												SmartVision </span>
+												 </span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -995,9 +1021,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Sign-Off The Comercial Agreement With AutoSmart </span>
+												</span>
 												<span class="label label-sm label-default">
-												AutoSmart </span>
+												</span>
 												<span class="task-bell">
 												<i class="fa fa-bell-o"></i>
 												</span>
@@ -1025,9 +1051,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Company Staff Meeting </span>
+												 </span>
 												<span class="label label-sm label-success">
-												Cruise </span>
+												 </span>
 												<span class="task-bell">
 												<i class="fa fa-bell-o"></i>
 												</span>
@@ -1055,9 +1081,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												KeenThemes Investment Discussion </span>
+												</span>
 												<span class="label label-sm label-warning">
-												KeenThemes </span>
+												 </span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -1543,146 +1569,233 @@
 			<div class="clearfix">
 			</div>
 			<div class="row hid hidden">
-				<div class="col-md-6 col-sm-6">
+
+				<div class="col-md-12 col-sm-12">
 					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-bell"></i>Recent Orders
+								<i class="icon-bell"></i>菜品信息
 							</div>
-							<div class="actions">
-								<div class="btn-group">
-									<a class="btn btn-default btn-sm dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-									Filter By <i class="fa fa-angle-down"></i>
-									</a>
-									<div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-										<label><input type="checkbox"/> Finance</label>
-										<label><input type="checkbox" checked=""/> Membership</label>
-										<label><input type="checkbox"/> Customer Support</label>
-										<label><input type="checkbox" checked=""/> HR</label>
-										<label><input type="checkbox"/> System</label>
-									</div>
-								</div>
+							<div class="tools">
+								<a href="" class="collapse"></a>
+								<a href="#portlet-config" data-toggle="modal" class="config"></a>
+								<a href="" class="reload"></a>
+								<a href="" class="remove"></a>
 							</div>
 						</div>
 						<div class="portlet-body">
-							<div class="table-scrollable">
-								<table class="table table-striped table-bordered table-hover">
-								<thead>
-								<tr>
-									<th>
-										 From
-									</th>
-									<th>
-										 Contact
-									</th>
-									<th>
-										 Amount
-									</th>
-									<th>
-									</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-									<td>
-										<a href="#">Ikea</a>
-									</td>
-									<td>
-										 Elis Yong
-									</td>
-									<td>
-										 4560.60$ <span class="label label-warning label-sm">
-										Paid </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Apple</a>
-									</td>
-									<td>
-										 Daniel Kim
-									</td>
-									<td>
-										 360.60$
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">37Singals</a>
-									</td>
-									<td>
-										 Edward Cooper
-									</td>
-									<td>
-										 960.50$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Google</a>
-									</td>
-									<td>
-										 Paris Simpson
-									</td>
-									<td>
-										 1101.60$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Ikea</a>
-									</td>
-									<td>
-										 Elis Yong
-									</td>
-									<td>
-										 4560.60$ <span class="label label-warning label-sm">
-										Paid </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">Google</a>
-									</td>
-									<td>
-										 Paris Simpson
-									</td>
-									<td>
-										 1101.60$ <span class="label label-success label-sm">
-										Pending </span>
-									</td>
-									<td>
-										<a href="#" class="btn btn-default btn-xs">View</a>
-									</td>
-								</tr>
-								</tbody>
-								</table>
+							<!--BEGIN TABS-->
+							<ul class="nav nav-tabs" id="nav_3">
+								<li class="active">
+									<a href="#tab_3_0" data-toggle="tab" onclick="allFood('pageNum=1&&pageSize=30')">全部商家</a>
+								</li>
+								<li>
+									<a href="#tab_3_1" data-toggle="tab" onclick="auditFood('pageNum=1&&pageSize=30')">已审核</a>
+								</li>
+								<li>
+									<a href="#tab_3_2" data-toggle="tab" onclick="notAuditFood('pageNum=1&&pageSize=30')">未审核</a>
+								</li>
+								<li>
+									<a href="#tab_3_3" data-toggle="tab" onclick="thoughFood('pageNum=1&&pageSize=30')">通过审核</a>
+								</li>
+								<li>
+									<a href="#tab_3_4" data-toggle="tab" onclick="notThoughFood('pageNum=1&&pageSize=30')">未通过审核</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab_3_0">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													菜品ID
+												</th>
+												<th>
+													菜品名
+												</th>
+												<th>
+													菜品描述
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_3_1">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													菜品ID
+												</th>
+												<th>
+													菜品名
+												</th>
+												<th>
+													菜品描述
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_3_2">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													菜品ID
+												</th>
+												<th>
+													菜品名
+												</th>
+												<th>
+													菜品描述
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_3_3">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													菜品ID
+												</th>
+												<th>
+													菜品名
+												</th>
+												<th>
+													菜品描述
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_3_4">
+									<div class="table-scrollable">
+										<table class="table table-striped table-bordered table-hover">
+											<thead>
+											<tr>
+												<th>
+													菜品ID
+												</th>
+												<th>
+													菜品名
+												</th>
+												<th>
+													菜品描述
+												</th>
+												<th>
+													注册时间
+												</th>
+												<th>
+													状态
+												</th>
+												<th>
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
 							</div>
+							<div class="page-nav page3">
+								<div id="nav_3_0" aria-label="Page navigation" class="page_3_0 active">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+								<div id="nav_3_1" aria-label="Page navigation" class="page_3_1">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+								<div id="nav_3_2" aria-label="Page navigation" class="page_3_2">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+								<div id="nav_3_3" aria-label="Page navigation" class="page_3_3">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+								<div id="nav_3_4" aria-label="Page navigation" class="page_3_4">
+									<ul class="pagination">
+
+									</ul>
+								</div>
+							</div>
+							<!--END TABS-->
 						</div>
+
 					</div>
 				</div>
+			</div>
+			<div class="clearfix">
+			</div>
+			<div class="row hid hidden">
+
 				<div class="col-md-6 col-sm-6">
 					<div class="portlet tasks-widget">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-check"></i>Tasks
+								<i class="fa fa-check"></i>任务
 							</div>
 							<div class="tools">
 								<a href="#portlet-config" data-toggle="modal" class="config"></a>
@@ -1740,9 +1853,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Present 2013 Year IPO Statistics at Board Meeting </span>
+												 </span>
 												<span class="label label-sm label-success">
-												Company </span>
+												 </span>
 												<span class="task-bell">
 												<i class="fa fa-bell-o"></i>
 												</span>
@@ -1771,9 +1884,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Hold An Interview for Marketing Manager Position </span>
+												 </span>
 												<span class="label label-sm label-danger">
-												Marketing </span>
+												 </span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -1799,9 +1912,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												AirAsia Intranet System Project Internal Meeting </span>
+												</span>
 												<span class="label label-sm label-success">
-												AirAsia </span>
+												 </span>
 												<span class="task-bell">
 												<i class="fa fa-bell-o"></i>
 												</span>
@@ -1830,9 +1943,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Technical Management Meeting </span>
+												</span>
 												<span class="label label-sm label-warning">
-												Company </span>
+												</span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -1857,9 +1970,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Kick-off Company CRM Mobile App Development </span>
+												</span>
 												<span class="label label-sm label-info">
-												Internal Products </span>
+												</span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -1884,9 +1997,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Prepare Commercial Offer For SmartVision Website Rewamp </span>
+												</span>
 												<span class="label label-sm label-danger">
-												SmartVision </span>
+												</span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -1911,9 +2024,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Sign-Off The Comercial Agreement With AutoSmart </span>
+												</span>
 												<span class="label label-sm label-default">
-												AutoSmart </span>
+												</span>
 												<span class="task-bell">
 												<i class="fa fa-bell-o"></i>
 												</span>
@@ -1941,9 +2054,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												Company Staff Meeting </span>
+												</span>
 												<span class="label label-sm label-success">
-												Cruise </span>
+												</span>
 												<span class="task-bell">
 												<i class="fa fa-bell-o"></i>
 												</span>
@@ -1971,9 +2084,9 @@
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
-												KeenThemes Investment Discussion </span>
+												 </span>
 												<span class="label label-sm label-warning">
-												KeenThemes </span>
+												</span>
 											</div>
 											<div class="task-config">
 												<div class="task-config-btn btn-group">
@@ -2062,238 +2175,6 @@
 				</div>
 			</div>
 			<div class="clearfix">
-			</div>
-			<!-- BEGIN OVERVIEW STATISTIC BLOCKS-->
-			<div class="row hid hidden">
-				<div class="col-md-3 col-sm-6">
-					<div class="circle-stat stat-block">
-						<div class="visual">
-							<input class="knobify" data-width="115" data-thickness=".2" data-skin="tron" data-displayprevious="true" value="+89" data-max="100" data-min="-100"/>
-						</div>
-						<div class="details">
-							<div class="title">
-								 Unique Visits <i class="fa fa-caret-up"></i>
-							</div>
-							<div class="number">
-								 10112
-							</div>
-							<span class="label label-success">
-							<i class="fa fa-map-marker"></i> 123 </span>
-							<span class="label label-warning">
-							<i class="fa fa-comment"></i> 3 </span>
-							<span class="label label-info">
-							<i class="fa fa-bullhorn"></i> 3 </span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="circle-stat stat-block">
-						<div class="visual">
-							<input class="knobify" data-width="115" data-fgcolor="#66EE66" data-thickness=".2" data-skin="tron" data-displayprevious="true" value="+19" data-max="100" data-min="-100"/>
-						</div>
-						<div class="details">
-							<div class="title">
-								 New Users <i class="fa fa-caret-up"></i>
-							</div>
-							<div class="number">
-								 987
-							</div>
-							<span class="label label-danger">
-							<i class="fa fa-bullhorn"></i> 567 </span>
-							<span class="label label-default">
-							<i class="fa fa-plus"></i> 16 </span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6" data-tablet="span6 fix-margin" data-desktop="span3">
-					<div class="circle-stat stat-block">
-						<div class="visual">
-							<input class="knobify" data-width="115" data-fgcolor="#e23e29" data-thickness=".2" data-skin="tron" data-displayprevious="true" value="-12" data-max="100" data-min="-100"/>
-						</div>
-						<div class="details">
-							<div class="title">
-								 Downtime <i class="fa fa-caret-down down"></i>
-							</div>
-							<div class="number">
-								 0.01%
-							</div>
-							<span class="label label-info">
-							<i class="fa fa-bookmark-empty"></i> 23 </span>
-							<span class="label label-warning">
-							<i class="fa fa-check"></i> 31 </span>
-							<span class="label label-success">
-							<i class="fa fa-briefcase"></i> 39 </span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="circle-stat stat-block">
-						<div class="visual">
-							<input class="knobify" data-width="115" data-fgcolor="#fdbb39" data-thickness=".2" data-skin="tron" data-displayprevious="true" value="+58" data-max="100" data-min="-100"/>
-						</div>
-						<div class="details">
-							<div class="title">
-								 Profit <i class="fa fa-caret-up"></i>
-							</div>
-							<div class="number">
-								 1120.32$
-							</div>
-							<span class="label label-success">
-							<i class="fa fa-comment"></i> 453 </span>
-							<span class="label label-default">
-							<i class="fa fa-globe"></i> 123 </span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- END OVERVIEW STATISTIC BLOCKS-->
-			<div class="clearfix">
-			</div>
-			<div class="row hid hidden">
-				<div class="col-md-6 col-sm-6">
-					<!-- BEGIN PORTLET-->
-					<div class="portlet calendar">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-calendar"></i>Event Calendar
-							</div>
-						</div>
-						<div class="portlet-body">
-							<div id="calendar">
-							</div>
-						</div>
-					</div>
-					<!-- END PORTLET-->
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<!-- BEGIN PORTLET-->
-					<div class="portlet">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-comments"></i>Conversations
-							</div>
-							<div class="tools">
-								<a href="" class="collapse"></a>
-								<a href="#portlet-config" data-toggle="modal" class="config"></a>
-								<a href="" class="reload"></a>
-								<a href="" class="remove"></a>
-							</div>
-						</div>
-						<div class="portlet-body" id="chats">
-							<div class="scroller" style="height: 435px;" data-always-visible="1" data-rail-visible1="1">
-								<ul class="chats">
-									<li class="in">
-										<img class="avatar img-responsive" alt="" src="/assets/img/avatar1.jpg"/>
-										<div class="message">
-											<span class="arrow">
-											</span>
-											<a href="#" class="name">Bob Nilson</a>
-											<span class="datetime">
-											at Jul 25, 2012 11:09 </span>
-											<span class="body">
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-										</div>
-									</li>
-									<li class="out">
-										<img class="avatar img-responsive" alt="" src="/assets/img/avatar2.jpg"/>
-										<div class="message">
-											<span class="arrow">
-											</span>
-											<a href="#" class="name">Lisa Wong</a>
-											<span class="datetime">
-											at Jul 25, 2012 11:09 </span>
-											<span class="body">
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-										</div>
-									</li>
-									<li class="in">
-										<img class="avatar img-responsive" alt="" src="/assets/img/avatar1.jpg"/>
-										<div class="message">
-											<span class="arrow">
-											</span>
-											<a href="#" class="name">Bob Nilson</a>
-											<span class="datetime">
-											at Jul 25, 2012 11:09 </span>
-											<span class="body">
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-										</div>
-									</li>
-									<li class="out">
-										<img class="avatar img-responsive" alt="" src="/assets/img/avatar3.jpg"/>
-										<div class="message">
-											<span class="arrow">
-											</span>
-											<a href="#" class="name">Richard Doe</a>
-											<span class="datetime">
-											at Jul 25, 2012 11:09 </span>
-											<span class="body">
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-										</div>
-									</li>
-									<li class="in">
-										<img class="avatar img-responsive" alt="" src="/assets/img/avatar3.jpg"/>
-										<div class="message">
-											<span class="arrow">
-											</span>
-											<a href="#" class="name">Richard Doe</a>
-											<span class="datetime">
-											at Jul 25, 2012 11:09 </span>
-											<span class="body">
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-										</div>
-									</li>
-									<li class="out">
-										<img class="avatar img-responsive" alt="" src="/assets/img/avatar1.jpg"/>
-										<div class="message">
-											<span class="arrow">
-											</span>
-											<a href="#" class="name">Bob Nilson</a>
-											<span class="datetime">
-											at Jul 25, 2012 11:09 </span>
-											<span class="body">
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-										</div>
-									</li>
-									<li class="in">
-										<img class="avatar img-responsive" alt="" src="/assets/img/avatar3.jpg"/>
-										<div class="message">
-											<span class="arrow">
-											</span>
-											<a href="#" class="name">Richard Doe</a>
-											<span class="datetime">
-											at Jul 25, 2012 11:09 </span>
-											<span class="body">
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-										</div>
-									</li>
-									<li class="out">
-										<img class="avatar img-responsive" alt="" src="/assets/img/avatar1.jpg"/>
-										<div class="message">
-											<span class="arrow">
-											</span>
-											<a href="#" class="name">Bob Nilson</a>
-											<span class="datetime">
-											at Jul 25, 2012 11:09 </span>
-											<span class="body">
-											Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. sed diam nonummy nibh euismod tincidunt ut laoreet. </span>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="chat-form">
-								<div class="input-cont">
-									<input class="form-control" type="text" placeholder="Type a message here..."/>
-								</div>
-								<div class="btn-cont">
-									<span class="arrow">
-									</span>
-									<a href="" class="btn btn-primary icn-only"><i class="fa fa-check"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- END PORTLET-->
-				</div>
 			</div>
 			<div class="modal fade" id="sellerModal" tabindex="-1" role="dialog">
 				<div class="modal-dialog" role="document">
@@ -2412,6 +2293,63 @@
 					</div>
 				</div>
 			</div>
+			<div class="modal fade" id="foodModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<h4 class="modal-title">菜品详细信息</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-4 col-sm-4 sellercenter">
+									<img class="sellerimg" src="/images/fooddefault.jpg" alt="菜品图片">
+								</div>
+								<div class="col-md-8 col-sm-8">
+									<div class="information">
+										<div class="info-rider-span col-md-4 col-sm-4">
+											<span><i class="fa fa-motorcycle"></i>菜品名</span>
+											<span><i class="icon-screen-smartphone"></i>菜品标签</span>
+											<span><i class="fa fa-transgender"></i>店铺名称</span>
+										</div>
+										<div class="info-rider-label col-md-8 col-sm-8">
+											<label id="f_foodname"></label>
+											<label id="f_tag"></label>
+											<label id="f_seller"></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+							<div class="row row-top">
+								<div class="info-rider-span col-md-4 col-sm-4">
+									<span class="center">菜品描述</span>
+									<span class="center">申请时间</span>
+									<span class="center">菜品状态</span>
+									<span class="center">通过审核时间</span>
+									<span class="center">价格</span>
+									<span class="center">菜品评分</span>
+									<span class="center">下架时间</span>
+								</div>
+								<div class="info-rider-label col-md-8 col-sm-8">
+									<label id="f_description"></label>
+									<label id="f_applicationtime"></label>
+									<label id="f_status"></label>
+									<label id="f_though"></label>
+									<label id="f_price"></label>
+									<label id="f_score"></label>
+									<label id="f_logout"></label>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- END CONTENT -->
@@ -2468,6 +2406,7 @@
 <script src="/assets/scripts/tasks.js" type="text/javascript"></script>
 <script src="/js/seller.js" type="text/javascript"></script>
 <script src="/js/rider.js" type="text/javascript"></script>
+<script src="/js/food.js" type="text/javascript"></script>
 <script src="/js/task.js" type="text/javascript"></script>
 <script src="/js/index.js" type="text/javascript"></script>
 <script src="/js/pagebar.js" type="text/javascript"></script>

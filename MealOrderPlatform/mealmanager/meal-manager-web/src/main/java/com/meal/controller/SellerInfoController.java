@@ -2,6 +2,7 @@ package com.meal.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.meal.commons.PageResult;
+import com.meal.pojo.Seller;
 import com.meal.service.SellerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,12 @@ public class SellerInfoController {
         System.out.println(pageInfo.getPageNum());
         System.out.println(pageInfo.getTotal());
         return pageInfo;
+    }
+
+    @RequestMapping(value = "/byId/{id}")
+    @ResponseBody
+    public Seller getSellerById(@PathVariable int id){
+        return sellerInfoService.getSellerById(id);
     }
 
 }

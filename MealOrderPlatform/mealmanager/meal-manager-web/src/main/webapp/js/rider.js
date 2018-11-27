@@ -88,7 +88,7 @@ function  allRider(data) {
                     "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -246,7 +246,7 @@ function auditRider(data) {
                     "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -400,7 +400,7 @@ function notAuditRider(data) {
                     "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -554,7 +554,7 @@ function thoughRider(data) {
                     "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);
@@ -711,7 +711,7 @@ function notThoughRider(data) {
                     "<td>"+result.list[i].sex+"</td>"+
                     "<td>"+regtime.getFullYear()+"年"+regtime.getMonth()+"月"+regtime.getDate()+"日"+"</td>"+
                     "<td>"+status+"</td>"+
-                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal'>详情</a></td>"+
+                    "<td><a href='javascript:;' data-toggle='modal' data-target='#riderModal' data-id='"+result.list[i].id+"'>详情</a></td>"+
                     "</tr>";
                 var $tr=createEle(elem);
                 console.log($tr);

@@ -1,6 +1,7 @@
 package com.meal.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.meal.pojo.Rider;
 import com.meal.service.RiderInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,12 @@ public class RiderInfoController {
                                  @RequestParam("pageNum")int pageNum,
                                  @RequestParam("pageSize")int pageSize){
         return riderInfoService.getRiderInfoByType(type, pageNum, pageSize);
+    }
+
+    @RequestMapping(value = "/byId/{id}")
+    @ResponseBody
+    public Rider getRiderById(@PathVariable int id){
+        return riderInfoService.getRiderById(id);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.meal.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.meal.pojo.Food;
 import com.meal.service.FoodInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,4 +29,11 @@ public class FoodInfoController {
                                 @RequestParam("pageSize")int pageSize){
         return foodInfoService.getFoodInfoByType(type, pageNum, pageSize);
     }
+
+    @RequestMapping(value = "/byId/{id}")
+    @ResponseBody
+    public Food getFoodById(@PathVariable int id){
+        return foodInfoService.getFoodById(id);
+    }
+
 }
