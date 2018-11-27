@@ -49,4 +49,10 @@ public class RiderInfoServiceImpl implements RiderInfoService {
 
         return pageInfo;
     }
+
+    public Rider getRiderById(int id) {
+        Rider rider=riderMapper.selectByPrimaryKey(id);
+        if(rider==null) return null;
+        return rider;
+    }
 }

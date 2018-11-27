@@ -1,6 +1,7 @@
 package com.meal.service;
 
 import com.github.pagehelper.PageInfo;
+import com.meal.pojo.Food;
 
 /*
 @author 汪培林
@@ -10,4 +11,6 @@ import com.github.pagehelper.PageInfo;
 public interface FoodInfoService {
 
     PageInfo getFoodInfoByType(int type, int pageNum, int pageSize);
+
+    Food getFoodById(int id);
 }

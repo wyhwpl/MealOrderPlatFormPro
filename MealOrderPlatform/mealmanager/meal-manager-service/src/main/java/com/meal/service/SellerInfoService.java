@@ -1,6 +1,7 @@
 package com.meal.service;
 
 import com.github.pagehelper.PageInfo;
+import com.meal.pojo.Seller;
 
 /*
 @author 汪培林
@@ -10,5 +11,7 @@ import com.github.pagehelper.PageInfo;
 public interface SellerInfoService {
 
     PageInfo getSellerInfo(int pageNum, int pageSize, int type);
+
+    Seller getSellerById(int id);
 
 }

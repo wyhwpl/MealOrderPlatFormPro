@@ -49,4 +49,12 @@ public class FoodInfoServiceImpl implements FoodInfoService {
 
         return pageInfo;
     }
+
+    public Food getFoodById(int id) {
+
+        Food food=foodMapper.selectByPrimaryKey(id);
+        if(food==null) return null;
+
+        return food;
+    }
 }

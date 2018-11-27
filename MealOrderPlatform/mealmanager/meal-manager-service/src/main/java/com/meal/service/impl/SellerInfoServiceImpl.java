@@ -52,4 +52,13 @@ public class SellerInfoServiceImpl implements SellerInfoService {
 
         return pageInfo;
     }
+
+    public Seller getSellerById(int id) {
+
+        Seller seller=sellerMapper.selectByPrimaryKey(id);
+        if(seller==null)return null;
+        return seller;
+    }
+
+
 }
