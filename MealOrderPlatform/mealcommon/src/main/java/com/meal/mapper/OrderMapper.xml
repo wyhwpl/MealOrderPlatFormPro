@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.meal.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.meal.pojo.Order" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userID" property="userid" jdbcType="INTEGER" />
+    <result column="sellerID" property="sellerid" jdbcType="INTEGER" />
+    <result column="riderID" property="riderid" jdbcType="INTEGER" />
+    <result column="total_price" property="totalPrice" jdbcType="REAL" />
+    <result column="sellersorce" property="sellersorce" jdbcType="REAL" />
+    <result column="ridersorce" property="ridersorce" jdbcType="REAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="foodscore" property="foodscore" jdbcType="REAL" />
+    <result column="ordertime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="paytime" property="paytime" jdbcType="TIMESTAMP" />
+    <result column="taketime" property="taketime" jdbcType="TIMESTAMP" />
+    <result column="arrivetime" property="arrivetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, userID, sellerID, riderID, total_price, sellersorce, ridersorce, status, price, 
+    foodscore, ordertime, paytime, taketime, arrivetime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.OrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.meal.pojo.OrderExample" >
+    delete from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.meal.pojo.Order" >
+    insert into t_order (id, userID, sellerID, 
+      riderID, total_price, sellersorce, 
+      ridersorce, status, price, 
+      foodscore, ordertime, paytime, 
+      taketime, arrivetime)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{sellerid,jdbcType=INTEGER}, 
+      #{riderid,jdbcType=INTEGER}, #{totalPrice,jdbcType=REAL}, #{sellersorce,jdbcType=REAL}, 
+      #{ridersorce,jdbcType=REAL}, #{status,jdbcType=INTEGER}, #{price,jdbcType=REAL}, 
+      #{foodscore,jdbcType=REAL}, #{ordertime,jdbcType=TIMESTAMP}, #{paytime,jdbcType=TIMESTAMP}, 
+      #{taketime,jdbcType=TIMESTAMP}, #{arrivetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.meal.pojo.Order" >
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userID,
+      </if>
+      <if test="sellerid != null" >
+        sellerID,
+      </if>
+      <if test="riderid != null" >
+        riderID,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="sellersorce != null" >
+        sellersorce,
+      </if>
+      <if test="ridersorce != null" >
+        ridersorce,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="foodscore != null" >
+        foodscore,
+      </if>
+      <if test="ordertime != null" >
+        ordertime,
+      </if>
+      <if test="paytime != null" >
+        paytime,
+      </if>
+      <if test="taketime != null" >
+        taketime,
+      </if>
+      <if test="arrivetime != null" >
+        arrivetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="sellerid != null" >
+        #{sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="riderid != null" >
+        #{riderid,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=REAL},
+      </if>
+      <if test="sellersorce != null" >
+        #{sellersorce,jdbcType=REAL},
+      </if>
+      <if test="ridersorce != null" >
+        #{ridersorce,jdbcType=REAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="foodscore != null" >
+        #{foodscore,jdbcType=REAL},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime != null" >
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taketime != null" >
+        #{taketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivetime != null" >
+        #{arrivetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.meal.pojo.OrderExample" resultType="java.lang.Integer" >
+    select count(*) from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_order
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userID = #{record.userid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sellerid != null" >
+        sellerID = #{record.sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="record.riderid != null" >
+        riderID = #{record.riderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalPrice != null" >
+        total_price = #{record.totalPrice,jdbcType=REAL},
+      </if>
+      <if test="record.sellersorce != null" >
+        sellersorce = #{record.sellersorce,jdbcType=REAL},
+      </if>
+      <if test="record.ridersorce != null" >
+        ridersorce = #{record.ridersorce,jdbcType=REAL},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null" >
+        price = #{record.price,jdbcType=REAL},
+      </if>
+      <if test="record.foodscore != null" >
+        foodscore = #{record.foodscore,jdbcType=REAL},
+      </if>
+      <if test="record.ordertime != null" >
+        ordertime = #{record.ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paytime != null" >
+        paytime = #{record.paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.taketime != null" >
+        taketime = #{record.taketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.arrivetime != null" >
+        arrivetime = #{record.arrivetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_order
+    set id = #{record.id,jdbcType=INTEGER},
+      userID = #{record.userid,jdbcType=INTEGER},
+      sellerID = #{record.sellerid,jdbcType=INTEGER},
+      riderID = #{record.riderid,jdbcType=INTEGER},
+      total_price = #{record.totalPrice,jdbcType=REAL},
+      sellersorce = #{record.sellersorce,jdbcType=REAL},
+      ridersorce = #{record.ridersorce,jdbcType=REAL},
+      status = #{record.status,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=REAL},
+      foodscore = #{record.foodscore,jdbcType=REAL},
+      ordertime = #{record.ordertime,jdbcType=TIMESTAMP},
+      paytime = #{record.paytime,jdbcType=TIMESTAMP},
+      taketime = #{record.taketime,jdbcType=TIMESTAMP},
+      arrivetime = #{record.arrivetime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.Order" >
+    update t_order
+    <set >
+      <if test="userid != null" >
+        userID = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="sellerid != null" >
+        sellerID = #{sellerid,jdbcType=INTEGER},
+      </if>
+      <if test="riderid != null" >
+        riderID = #{riderid,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=REAL},
+      </if>
+      <if test="sellersorce != null" >
+        sellersorce = #{sellersorce,jdbcType=REAL},
+      </if>
+      <if test="ridersorce != null" >
+        ridersorce = #{ridersorce,jdbcType=REAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="foodscore != null" >
+        foodscore = #{foodscore,jdbcType=REAL},
+      </if>
+      <if test="ordertime != null" >
+        ordertime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime != null" >
+        paytime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taketime != null" >
+        taketime = #{taketime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivetime != null" >
+        arrivetime = #{arrivetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Order" >
+    update t_order
+    set userID = #{userid,jdbcType=INTEGER},
+      sellerID = #{sellerid,jdbcType=INTEGER},
+      riderID = #{riderid,jdbcType=INTEGER},
+      total_price = #{totalPrice,jdbcType=REAL},
+      sellersorce = #{sellersorce,jdbcType=REAL},
+      ridersorce = #{ridersorce,jdbcType=REAL},
+      status = #{status,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL},
+      foodscore = #{foodscore,jdbcType=REAL},
+      ordertime = #{ordertime,jdbcType=TIMESTAMP},
+      paytime = #{paytime,jdbcType=TIMESTAMP},
+      taketime = #{taketime,jdbcType=TIMESTAMP},
+      arrivetime = #{arrivetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
