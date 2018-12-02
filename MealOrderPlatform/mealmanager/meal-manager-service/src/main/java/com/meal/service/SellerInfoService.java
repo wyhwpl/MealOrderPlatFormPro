@@ -14,4 +14,8 @@ public interface SellerInfoService {
 
     Seller getSellerById(int id);
 
+    int updateSellerStatusById(int status,String reason,int id);
+
+    int getTotal(int status);
+
 }

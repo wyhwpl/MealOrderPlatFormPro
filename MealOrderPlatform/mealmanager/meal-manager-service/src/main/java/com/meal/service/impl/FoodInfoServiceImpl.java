@@ -9,6 +9,7 @@ import com.meal.service.FoodInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -56,5 +57,34 @@ public class FoodInfoServiceImpl implements FoodInfoService {
         if(food==null) return null;
 
         return food;
+    }
+
+    public int updateFoodStatusById(int status, int id) {
+
+        Food food=foodMapper.selectByPrimaryKey(id);
+        if(food==null) return 0;
+
+        //status 0、通过
+        if(status==0){
+            food.setStatus(1);
+            food.setScore(5f);
+            food.setThoughtime(new Date());
+
+        }
+        else{
+            food.setStatus(2);
+        }
+
+
+        return foodMapper.updateByPrimaryKey(food);
+    }
+
+    public int getTotal(int status) {
+
+        FoodExample example=new FoodExample();
+        FoodExample.Criteria criteria=example.createCriteria();
+        criteria.andStatusEqualTo(status);
+
+        return foodMapper.countByExample(example);
     }
 }

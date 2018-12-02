@@ -9,6 +9,7 @@ import com.meal.service.RiderInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -54,5 +55,30 @@ public class RiderInfoServiceImpl implements RiderInfoService {
         Rider rider=riderMapper.selectByPrimaryKey(id);
         if(rider==null) return null;
         return rider;
+    }
+
+    public int updateRiderStatusById(int status, int id) {
+
+        Rider rider=riderMapper.selectByPrimaryKey(id);
+        if(rider==null) return 0;
+
+        //status 0、通过
+        if(status==0){
+            rider.setStatus(1);
+            rider.setThoughtime(new Date());
+            rider.setScore(5f);
+        }else{
+            rider.setStatus(2);
+        }
+        return riderMapper.updateByPrimaryKey(rider);
+    }
+
+    public int getTotal(int status) {
+
+        RiderExample example=new RiderExample();
+        RiderExample.Criteria criteria=example.createCriteria();
+        criteria.andStatusEqualTo(status);
+
+        return riderMapper.countByExample(example);
     }
 }

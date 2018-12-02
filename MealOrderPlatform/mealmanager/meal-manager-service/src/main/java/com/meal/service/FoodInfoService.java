@@ -13,4 +13,8 @@ public interface FoodInfoService {
     PageInfo getFoodInfoByType(int type, int pageNum, int pageSize);
 
     Food getFoodById(int id);
+
+    int updateFoodStatusById(int status,int id);
+
+    int getTotal(int status);
 }

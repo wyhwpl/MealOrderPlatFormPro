@@ -9,6 +9,7 @@ import com.meal.service.SellerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -21,6 +22,7 @@ public class SellerInfoServiceImpl implements SellerInfoService {
 
     @Autowired
     private SellerMapper sellerMapper;
+
 
     public PageInfo getSellerInfo(int pageNum, int pageSize, int type) {
 
@@ -58,6 +60,33 @@ public class SellerInfoServiceImpl implements SellerInfoService {
         Seller seller=sellerMapper.selectByPrimaryKey(id);
         if(seller==null)return null;
         return seller;
+    }
+
+    public int updateSellerStatusById(int status, String reason, int id) {
+
+        Seller seller=sellerMapper.selectByPrimaryKey(id);
+
+        if(seller==null) return 0;
+        //status 0、通过
+        if(status==0){
+            seller.setStatus(1);
+            seller.setThoughtime(new Date());
+            seller.setScore(5f);
+        }
+        else{
+            seller.setStatus(2);
+            seller.setReason(reason);
+        }
+        return sellerMapper.updateByPrimaryKey(seller);
+    }
+
+    public int getTotal(int status) {
+
+        SellerExample example=new SellerExample();
+        SellerExample.Criteria criteria=example.createCriteria();
+        criteria.andStatusEqualTo(status);
+
+        return sellerMapper.countByExample(example);
     }
 
 

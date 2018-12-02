@@ -12,4 +12,8 @@ public interface RiderInfoService {
     PageInfo getRiderInfoByType(int type, int pageNum, int pageSize);
 
     Rider getRiderById(int id);
+
+    int updateRiderStatusById(int status,int id);
+
+    int getTotal(int status);
 }

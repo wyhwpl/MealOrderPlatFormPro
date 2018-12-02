@@ -1,6 +1,10 @@
 package com.meal.service;
 
-import org.springframework.stereotype.Service;
+import com.meal.commons.CheckResult;
+import com.meal.pojo.Admin;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /*
 @author 汪培林
@@ -9,6 +13,6 @@ import org.springframework.stereotype.Service;
 */
 public interface LoginService {
 
-    boolean login(String loginID,String password);
+    CheckResult loginCheck(HttpServletRequest request, HttpServletResponse response,Admin admin);
 
 }
