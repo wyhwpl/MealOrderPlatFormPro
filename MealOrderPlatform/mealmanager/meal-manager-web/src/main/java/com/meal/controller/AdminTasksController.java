@@ -23,22 +23,43 @@ public class AdminTasksController {
     @Autowired
     private AdminTasksService adminTasksService;
 
-    @RequestMapping(value = "/all")
+    @RequestMapping(value = "/all/{adminId}")
     @ResponseBody
-    public List<AdminTasks> getAllTask(){
-        return adminTasksService.getAllTasks();
+    public List<AdminTasks> getAllTask(@PathVariable int adminId){
+        return adminTasksService.getAllTasks(adminId);
     }
 
-    @RequestMapping(value = "/some")
+    @RequestMapping(value = "/some/{adminId}")
     @ResponseBody
-    public List<AdminTasks> getSomeTask(@RequestParam("num")int num){
-        return adminTasksService.getSomeTasks(num);
+    public List<AdminTasks> getSomeTask(@PathVariable int adminId,
+                                        @RequestParam("num")int num){
+        return adminTasksService.getSomeTasks(num,adminId);
     }
 
     @RequestMapping(value = "/byexample/{type}")
     @ResponseBody
-    public List<AdminTasks> getTaskByExample(@PathVariable int type){
-        return adminTasksService.getTasksByExample(type);
+    public List<AdminTasks> getTaskByExample(@PathVariable int type,
+                                             @RequestParam("adminId")int adminId){
+        return adminTasksService.getTasksByExample(type,adminId);
+    }
+
+    @RequestMapping(value = "/done/{id}")
+    @ResponseBody
+    public int done(@PathVariable int id){
+        return adminTasksService.updateTaskStatusById(id);
+    }
+
+    @RequestMapping(value = "/getSum")
+    @ResponseBody
+    public int getTotal(@RequestParam("status") int status){
+        return adminTasksService.getTotal(status);
+    }
+
+    @RequestMapping(value = "/getAdminTask/{adminId}")
+    @ResponseBody
+    public int getTotal(@PathVariable int adminId,
+                        @RequestParam("status") int status){
+        return adminTasksService.getAdminTask(status,adminId);
     }
 
 }

@@ -43,4 +43,26 @@ public class SellerInfoController {
         return sellerInfoService.getSellerById(id);
     }
 
+    @RequestMapping(value = "/though/{id}")
+    @ResponseBody
+    public int though(@PathVariable int id){
+
+        return sellerInfoService.updateSellerStatusById(0,null,id);
+    }
+
+    @RequestMapping(value = "/notthough/{id}")
+    @ResponseBody
+    public int notThough(@PathVariable int id,
+                         @RequestParam("reason")String reason){
+
+        System.out.println(reason);
+        return sellerInfoService.updateSellerStatusById(1,reason,id);
+    }
+
+    @RequestMapping(value = "/getSum")
+    @ResponseBody
+    public int getTotal(@RequestParam("status") int status){
+        return sellerInfoService.getTotal(status);
+    }
+
 }

@@ -36,4 +36,22 @@ public class RiderInfoController {
         return riderInfoService.getRiderById(id);
     }
 
+    @RequestMapping(value = "/though/{id}")
+    @ResponseBody
+    public int though(@PathVariable int id){
+        return riderInfoService.updateRiderStatusById(0,id);
+    }
+
+    @RequestMapping(value = "/notthough/{id}")
+    @ResponseBody
+    public int notThough(@PathVariable int id){
+        return riderInfoService.updateRiderStatusById(1,id);
+    }
+
+    @RequestMapping(value = "/getSum")
+    @ResponseBody
+    public int getTotal(@RequestParam("status") int status){
+        return riderInfoService.getTotal(status);
+    }
+
 }
