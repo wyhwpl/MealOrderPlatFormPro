@@ -120,3 +120,33 @@
     height: 32px;
     line-height: 32px;
 }
+.oprow{
+
+    padding-top: 10px;
+}
+
+.stats-overview-cont .details{
+    text-align: center;
+}
+.stats-overview-cont .details .title,.numbers{
+    /*color:white;*/
+}
+
+.stats-overview-cont .color-first{
+    /*background-color: #9966FF;*/
+}
+.stats-overview-cont .color-second{
+    /*background-color: #9966FF;*/
+}
+.stats-overview-cont .color-third{
+    /*background-color: #9966FF;*/
+}
+.stats-overview-cont .color-forth{
+    /*background-color: #9966FF;*/
+}
+.stats-overview-cont .color-fifth{
+    /*background-color: #9966FF;*/
+}
+.stats-overview-cont .color-sixth{
+    /*background-color: #9966FF;*/
+}
