@@ -1,3 +1,4 @@
+<%@ page import="java.net.URLDecoder" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -39,6 +40,30 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
+
+<%
+	String imgUrl="/images/admindefault";
+	int adminId=1;
+	String adminName="管理员";
+	Cookie[] cookies=request.getCookies();
+	if(cookies!=null){
+		for (int i = 0; i < cookies.length; i++) {
+			if("imgUrl".equals(cookies[i].getName())){
+			    if(cookies[i].getValue()!=null&&(!cookies[i].getValue().equals(""))){
+			        imgUrl=cookies[i].getValue();
+				}
+			}
+			if("adminId".equals(cookies[i].getName())){
+			    adminId=Integer.parseInt(cookies[i].getValue());
+			}
+			if("adminName".equals(cookies[i].getName())){
+			    adminName= URLDecoder.decode(cookies[i].getValue(),"UTF-8");
+			}
+		}
+	}
+	String smallImag=imgUrl+"_29x29.jpg";
+	String midImg=imgUrl+"_45x45.jpg";
+%>
 <!-- BEGIN HEADER -->
 <div class="header navbar navbar-fixed-top">
 	<!-- BEGIN TOP NAVIGATION BAR -->
@@ -49,12 +74,7 @@
                 <img src="/assets/img/logo.png" alt="logo"/>
             </a>
         </div>
-        <form class="search-form search-form-header" role="form" action="index.jsp">
-            <div class="input-icon right">
-                <i class="icon-magnifier"></i>
-                <input type="text" class="form-control input-sm" name="query" placeholder="Search...">
-            </div>
-        </form>
+
 		<!-- END LOGO -->
 		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 		<a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -64,373 +84,33 @@
 		<!-- BEGIN TOP NAVIGATION MENU -->
 		<ul class="nav navbar-nav pull-right">
 			<!-- BEGIN NOTIFICATION DROPDOWN -->
-			<li class="dropdown" id="header_notification_bar">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-				<i class="icon-bell"></i>
-				<span class="badge badge-success">
-				6 </span>
-				</a>
-				<ul class="dropdown-menu extended notification">
-					<li>
-						<p>
-							 You have 14 new notifications
-						</p>
-					</li>
-					<li>
-						<ul class="dropdown-menu-list scroller" style="height: 250px;">
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-success">
-								<i class="fa fa-plus"></i>
-								</span>
-								New user registered. <span class="time">
-								Just now </span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-danger">
-								<i class="fa fa-bolt"></i>
-								</span>
-								Server #12 overloaded. <span class="time">
-								15 mins </span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-warning">
-								<i class="fa fa-bell"></i>
-								</span>
-								Server #2 not responding. <span class="time">
-								22 mins </span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-info">
-								<i class="fa fa-bullhorn"></i>
-								</span>
-								Application error. <span class="time">
-								40 mins </span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-danger">
-								<i class="fa fa-bolt"></i>
-								</span>
-								Database overloaded 68%. <span class="time">
-								2 hrs </span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-danger">
-								<i class="fa fa-bolt"></i>
-								</span>
-								2 user IP blocked. <span class="time">
-								5 hrs </span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-warning">
-								<i class="fa fa-bell"></i>
-								</span>
-								Storage Server #4 not responding. <span class="time">
-								45 mins </span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-info">
-								<i class="fa fa-bullhorn"></i>
-								</span>
-								System Error. <span class="time">
-								55 mins </span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="label label-sm label-icon label-danger">
-								<i class="fa fa-bolt"></i>
-								</span>
-								Database overloaded 68%. <span class="time">
-								2 hrs </span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="external">
-						<a href="#">See all notifications <i class="fa fa-angle-right"></i></a>
-					</li>
-				</ul>
-			</li>
+
 			<!-- END NOTIFICATION DROPDOWN -->
 			<!-- BEGIN INBOX DROPDOWN -->
-			<li class="dropdown" id="header_inbox_bar">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-				<i class="icon-envelope-open"></i>
-				<span class="badge badge-info">
-				5 </span>
-				</a>
-				<ul class="dropdown-menu extended inbox">
-					<li>
-						<p>
-							 You have 12 new messages
-						</p>
-					</li>
-					<li>
-						<ul class="dropdown-menu-list scroller" style="height: 250px;">
-							<li>
-								<a href="inbox.html?a=view">
-								<span class="photo">
-								<img src="/assets/img/avatar2.jpg" alt=""/>
-								</span>
-								<span class="subject">
-								<span class="from">
-								Lisa Wong </span>
-								<span class="time">
-								Just Now </span>
-								</span>
-								<span class="message">
-								Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-								</a>
-							</li>
-							<li>
-								<a href="inbox.html?a=view">
-								<span class="photo">
-								<img src="/assets/img/avatar3.jpg" alt=""/>
-								</span>
-								<span class="subject">
-								<span class="from">
-								Richard Doe </span>
-								<span class="time">
-								16 mins </span>
-								</span>
-								<span class="message">
-								Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-								</a>
-							</li>
-							<li>
-								<a href="inbox.html?a=view">
-								<span class="photo">
-								<img src="/assets/img/avatar1.jpg" alt=""/>
-								</span>
-								<span class="subject">
-								<span class="from">
-								Bob Nilson </span>
-								<span class="time">
-								2 hrs </span>
-								</span>
-								<span class="message">
-								Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-								</a>
-							</li>
-							<li>
-								<a href="inbox.html?a=view">
-								<span class="photo">
-								<img src="/assets/img/avatar2.jpg" alt=""/>
-								</span>
-								<span class="subject">
-								<span class="from">
-								Lisa Wong </span>
-								<span class="time">
-								40 mins </span>
-								</span>
-								<span class="message">
-								Vivamus sed auctor 40% nibh congue nibh... </span>
-								</a>
-							</li>
-							<li>
-								<a href="inbox.html?a=view">
-								<span class="photo">
-								<img src="/assets/img/avatar3.jpg" alt=""/>
-								</span>
-								<span class="subject">
-								<span class="from">
-								Richard Doe </span>
-								<span class="time">
-								46 mins </span>
-								</span>
-								<span class="message">
-								Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="external">
-						<a href="inbox.html">See all messages <i class="fa fa-angle-right"></i></a>
-					</li>
-				</ul>
-			</li>
-			<!-- END INBOX DROPDOWN -->
-			<!-- BEGIN TODO DROPDOWN -->
-			<li class="dropdown" id="header_task_bar">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-				<i class="icon-calendar"></i>
-				<span class="badge badge-warning">
-				5 </span>
-				</a>
-				<ul class="dropdown-menu extended tasks">
-					<li>
-						<p>
-							 You have 12 pending tasks
-						</p>
-					</li>
-					<li>
-						<ul class="dropdown-menu-list scroller" style="height: 250px;">
-							<li>
-								<a href="#">
-								<span class="task">
-								<span class="desc">
-								New release v1.2 </span>
-								<span class="percent">
-								30% </span>
-								</span>
-								<span class="progress">
-								<span style="width: 40%;" class="progress-bar progress-bar-success" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								40% Complete </span>
-								</span>
-								</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="task">
-								<span class="desc">
-								Application deployment </span>
-								<span class="percent">
-								65% </span>
-								</span>
-								<span class="progress progress-striped">
-								<span style="width: 65%;" class="progress-bar progress-bar-danger" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								65% Complete </span>
-								</span>
-								</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="task">
-								<span class="desc">
-								Mobile app release </span>
-								<span class="percent">
-								98% </span>
-								</span>
-								<span class="progress">
-								<span style="width: 98%;" class="progress-bar progress-bar-success" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								98% Complete </span>
-								</span>
-								</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="task">
-								<span class="desc">
-								Database migration </span>
-								<span class="percent">
-								10% </span>
-								</span>
-								<span class="progress progress-striped">
-								<span style="width: 10%;" class="progress-bar progress-bar-warning" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								10% Complete </span>
-								</span>
-								</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="task">
-								<span class="desc">
-								Web server upgrade </span>
-								<span class="percent">
-								58% </span>
-								</span>
-								<span class="progress progress-striped">
-								<span style="width: 58%;" class="progress-bar progress-bar-info" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								58% Complete </span>
-								</span>
-								</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="task">
-								<span class="desc">
-								Mobile development </span>
-								<span class="percent">
-								85% </span>
-								</span>
-								<span class="progress progress-striped">
-								<span style="width: 85%;" class="progress-bar progress-bar-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								85% Complete </span>
-								</span>
-								</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-								<span class="task">
-								<span class="desc">
-								New UI release </span>
-								<span class="percent">
-								18% </span>
-								</span>
-								<span class="progress progress-striped">
-								<span style="width: 18%;" class="progress-bar progress-bar-important" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								18% Complete </span>
-								</span>
-								</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="external">
-						<a href="#">See all tasks <i class="fa fa-angle-right"></i></a>
-					</li>
-				</ul>
-			</li>
-			<!-- END TODO DROPDOWN -->
+
 			<li class="devider">
 				 &nbsp;
 			</li>
 			<!-- BEGIN USER LOGIN DROPDOWN -->
-			<li class="dropdown user">
+			<li class="dropdown user" onmouseover="showTaskNum(<%=adminId%>)">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-				<img alt="" src="/assets/img/avatar3_small.jpg"/>
-				<span class="username username-hide-on-mobile">Nick </span>
+				<img alt="" src="<%=smallImag%>"/>
+				<span class="username username-hide-on-mobile"><%=adminName%></span>
 				<i class="fa fa-angle-down"></i>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="extra_profile.html"><i class="fa fa-user"></i> My Profile</a>
+						<a href="javascript:;" onclick="adminInfo()"><i class="fa fa-user"></i>我的资料</a>
 					</li>
 					<li>
-						<a href="page_calendar.html"><i class="fa fa-calendar"></i> My Calendar</a>
-					</li>
-					<li>
-						<a href="page_inbox.html"><i class="fa fa-envelope"></i> My Inbox <span class="badge badge-danger">
-						3 </span>
-						</a>
-					</li>
-					<li>
-						<a href="#"><i class="fa fa-tasks"></i> My Tasks <span class="badge badge-success">
+						<a href="javascript:;" onclick="taskInfo()"><i class="fa fa-tasks"></i>我的任务<span class="badge badge-success">
 						7 </span>
 						</a>
 					</li>
 					<li class="divider">
 					</li>
 					<li>
-						<a href="login.html"><i class="fa fa-key"></i> 退出登录</a>
+						<a href="/logout"><i class="fa fa-key"></i> 退出登录</a>
 					</li>
 				</ul>
 			</li>
@@ -550,14 +230,14 @@
 					</ul>
 				</li>
 				<li class="my-menu">
-					<a href="javascript:;" data-toggle="tab" data-target="#tab_1_0" onclick="allSeller('pageNum=1&&pageSize=30')">
+					<a href="javascript:;" class="my-task" data-toggle="tab" onclick="getSomeTasks(10,<%=adminId%>)">
 						<i class="icon-docs"></i>
 						<span class="title">任务</span>
 						<span class="selected"></span>
 					</a>
 				</li>
 				<li class="my-menu">
-					<a href="javascript:;" data-toggle="tab" data-target="#tab_2_0" onclick="allRider('pageNum=1&&pageSize=30')">
+					<a href="javascript:;" class="my-info" data-toggle="tab" onclick="getAdminInfo('<%=adminId%>')">
 						<i class="icon-user"></i>
 						<span class="title">个人信息</span>
 						<span class="selected "></span>
@@ -679,151 +359,83 @@
 			<!-- BEGIN OVERVIEW STATISTIC BARS-->
 			<div class="row stats-overview-cont">
 				<div class="col-md-2 col-sm-4">
-					<div class="stats-overview stat-block">
-						<div class="display stat ok huge">
-							<span class="line-chart">
-							5, 6, 7, 11, 14, 10, 15, 19, 15, 2 </span>
-							<div class="percent">
-								 +66%
-							</div>
-						</div>
+					<div class="stats-overview stat-block color-first">
+
 						<div class="details">
 							<div class="title">
 								 商家数量
 							</div>
 							<div class="numbers">
-								 1360
+								 0
 							</div>
 						</div>
-						<div class="progress">
-							<span style="width: 40%;" class="progress-bar progress-bar-info" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
-							<span class="sr-only">
-							66% Complete </span>
-							</span>
+
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-4">
+					<div class="stats-overview stat-block color-second">
+
+						<div class="details">
+							<div class="title">
+								 骑手数量
+							</div>
+							<div class="numbers">
+								 0
+							</div>
+
 						</div>
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-4">
-					<div class="stats-overview stat-block">
-						<div class="display stat good huge">
-							<span class="line-chart">
-							2,6,8,12, 11, 15, 16, 11, 16, 11, 10, 3, 7, 8, 12, 19 </span>
-							<div class="percent">
-								 +16%
-							</div>
-						</div>
+					<div class="stats-overview stat-block color-third">
 						<div class="details">
 							<div class="title">
-								 Site Visits
+								 用户数量
 							</div>
 							<div class="numbers">
-								 1800
+								 0
 							</div>
-							<div class="progress">
-								<span style="width: 16%;" class="progress-bar progress-bar-warning" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								16% Complete </span>
-								</span>
-							</div>
+
 						</div>
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-4">
-					<div class="stats-overview stat-block">
-						<div class="display stat bad huge">
-							<span class="line-chart">
-							2,6,8,11, 14, 11, 12, 13, 15, 12, 9, 5, 11, 12, 15, 9,3 </span>
-							<div class="percent">
-								 +6%
-							</div>
-						</div>
+					<div class="stats-overview stat-block color-forth">
+
 						<div class="details">
 							<div class="title">
-								 Orders
+								 订单交易数量
 							</div>
 							<div class="numbers">
-								 509
+								 0
 							</div>
-							<div class="progress">
-								<span style="width: 16%;" class="progress-bar progress-bar-success" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								16% Complete </span>
-								</span>
-							</div>
+
 						</div>
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-4">
-					<div class="stats-overview stat-block">
-						<div class="display stat good huge">
-							<span class="bar-chart">
-							1,4,9,12, 10, 11, 12, 15, 12, 11, 9, 12, 15, 19, 14, 13, 15 </span>
-							<div class="percent">
-								 +86%
-							</div>
-						</div>
+					<div class="stats-overview stat-block color-fifth">
+
 						<div class="details">
 							<div class="title">
-								 Revenue
+								 菜品数量
 							</div>
 							<div class="numbers">
-								 1550
+								 0
 							</div>
-							<div class="progress">
-								<span style="width: 56%;" class="progress-bar progress-bar-warning" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								56% Complete </span>
-								</span>
-							</div>
+
 						</div>
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-4">
-					<div class="stats-overview stat-block">
-						<div class="display stat ok huge">
-							<span class="line-chart">
-							2,6,8,12, 11, 15, 16, 17, 14, 12, 10, 8, 10, 2, 4, 12, 19 </span>
-							<div class="percent">
-								 +72%
-							</div>
-						</div>
+					<div class="stats-overview stat-block color-sixth">
+
 						<div class="details">
 							<div class="title">
-								 Sales
+								 任务完成量
 							</div>
 							<div class="numbers">
-								 9600
-							</div>
-							<div class="progress">
-								<span style="width: 72%;" class="progress-bar progress-bar-danger" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								72% Complete </span>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-2 col-sm-4">
-					<div class="stats-overview stat-block">
-						<div class="display stat bad huge">
-							<span class="line-chart">
-							1,7,9,11, 14, 12, 6, 7, 4, 2, 9, 8, 11, 12, 14, 12, 10 </span>
-							<div class="percent">
-								 +15%
-							</div>
-						</div>
-						<div class="details">
-							<div class="title">
-								 Stock
-							</div>
-							<div class="numbers">
-								 2090
-							</div>
-							<div class="progress">
-								<span style="width: 15%;" class="progress-bar progress-bar-success" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
-								<span class="sr-only">
-								15% Complete </span>
-								</span>
+								 0
 							</div>
 						</div>
 					</div>
@@ -1808,35 +1420,15 @@
 									</a>
 									<ul class="dropdown-menu pull-right">
 										<li>
-											<a href="#"><i class="i"></i> All Project</a>
+											<a href="javascript:;" onclick="getAllTasks(<%=adminId%>)"><i class="i"></i>全部任务</a>
 										</li>
 										<li class="divider">
 										</li>
 										<li>
-											<a href="#">AirAsia</a>
+											<a href="javascript:;" onclick="getTaskByExample(1,<%=adminId%>)">未完成任务</a>
 										</li>
 										<li>
-											<a href="#">Cruise</a>
-										</li>
-										<li>
-											<a href="#">HSBC</a>
-										</li>
-										<li class="divider">
-										</li>
-										<li>
-											<a href="#">Pending <span class="badge badge-important">
-											4 </span>
-											</a>
-										</li>
-										<li>
-											<a href="#">Completed <span class="badge badge-success">
-											12 </span>
-											</a>
-										</li>
-										<li>
-											<a href="#">Overdue <span class="badge badge-warning">
-											9 </span>
-											</a>
+											<a href="javascript:;" onclick="getTaskByExample(2,<%=adminId%>)">已完成任务</a>
 										</li>
 									</ul>
 								</div>
@@ -2111,7 +1703,7 @@
 							</div>
 							<div class="task-footer">
 								<span class="pull-right">
-								<a href="#">See All Tasks</a> &nbsp; </span>
+								<a href="javascript:;" onclick="getAllTasks(<%=adminId%>)">See All Tasks</a> &nbsp; </span>
 							</div>
 						</div>
 					</div>
@@ -2136,11 +1728,11 @@
 							<ul class="nav navbar-nav">
 								<li>
 									<a href="javascript:;">
-										<img src="/assets/img/avatar3.jpg" alt="管理员的头像" class="img-circle">
+										<img src="<%=midImg%>" alt="管理员的头像" class="img-circle">
 									</a>
 									<p>
 										你好,
-										<strong>Nick</strong>
+										<strong><%=adminName%></strong>
 									</p>
 								</li>
 								<li class="divider"></li>
@@ -2156,7 +1748,7 @@
 								<li>
 									<div>
 										<div class="head">我的成就</div>
-										<div class="div-body donenumber">
+										<div class="div-body tasknumber">
 											<span class="number">1</span>个
 										</div>
 									</div>
@@ -2198,10 +1790,10 @@
 
 										</div>
 										<div class="info-seller-label col-md-8 col-sm-8">
-											<label id="s_sellername"></label>
-											<label id="s_name"></label>
-											<label id="s_IDcard"></label>
-											<label id="s_phone"></label>
+											<label class="s_sellername"></label>
+											<label class="s_name"></label>
+											<label class="s_IDcard"></label>
+											<label class="s_phone"></label>
 										</div>
 									</div>
 								</div>
@@ -2220,13 +1812,13 @@
 									<span class="center">注销时间</span>
 								</div>
 								<div class="info-seller-label col-md-8 col-sm-8">
-									<label id="s_address"></label>
-									<label id="s_regtime"></label>
-									<label id="s_status"></label>
-									<label id="s_though"></label>
-									<label id="s_reason"></label>
-									<label id="s_score"></label>
-									<label id="s_logout"></label>
+									<label class="s_address"></label>
+									<label class="s_regtime"></label>
+									<label class="s_status"></label>
+									<label class="s_though"></label>
+									<label class="s_reason"></label>
+									<label class="s_score"></label>
+									<label class="s_logout"></label>
 								</div>
 							</div>
 						</div>
@@ -2256,9 +1848,9 @@
 											<span><i class="fa fa-transgender"></i>性别</span>
 										</div>
 										<div class="info-rider-label col-md-8 col-sm-8">
-											<label id="r_ridername"></label>
-											<label id="r_phone"></label>
-											<label id="r_sex"></label>
+											<label class="r_ridername"></label>
+											<label class="r_phone"></label>
+											<label class="r_sex"></label>
 										</div>
 									</div>
 								</div>
@@ -2277,13 +1869,13 @@
 									<span class="center">注销时间</span>
 								</div>
 								<div class="info-rider-label col-md-8 col-sm-8">
-									<label id="r_address"></label>
-									<label id="r_regtime"></label>
-									<label id="r_status"></label>
-									<label id="r_though"></label>
-									<label id="r_currentstatus"></label>
-									<label id="r_score"></label>
-									<label id="r_logout"></label>
+									<label class="r_address"></label>
+									<label class="r_regtime"></label>
+									<label class="r_status"></label>
+									<label class="r_though"></label>
+									<label class="r_currentstatus"></label>
+									<label class="r_score"></label>
+									<label class="r_logout"></label>
 								</div>
 							</div>
 						</div>
@@ -2313,9 +1905,9 @@
 											<span><i class="fa fa-transgender"></i>店铺名称</span>
 										</div>
 										<div class="info-rider-label col-md-8 col-sm-8">
-											<label id="f_foodname"></label>
-											<label id="f_tag"></label>
-											<label id="f_seller"></label>
+											<label class="f_foodname"></label>
+											<label class="f_tag"></label>
+											<label class="f_seller"></label>
 										</div>
 									</div>
 								</div>
@@ -2334,17 +1926,260 @@
 									<span class="center">下架时间</span>
 								</div>
 								<div class="info-rider-label col-md-8 col-sm-8">
-									<label id="f_description"></label>
-									<label id="f_applicationtime"></label>
-									<label id="f_status"></label>
-									<label id="f_though"></label>
-									<label id="f_price"></label>
-									<label id="f_score"></label>
-									<label id="f_logout"></label>
+									<label class="f_description"></label>
+									<label class="f_applicationtime"></label>
+									<label class="f_status"></label>
+									<label class="f_though"></label>
+									<label class="f_price"></label>
+									<label class="f_score"></label>
+									<label class="f_logout"></label>
 								</div>
 							</div>
 						</div>
 						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="sellerTask" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<h4 class="modal-title">商家详细信息</h4>
+						</div>
+						<div class="modal-body" data-id="">
+							<div class="row">
+								<div class="col-md-4 col-sm-4 sellercenter">
+									<img class="sellerimg" src="/images/sellerdefault.jpg" alt="商家头像">
+								</div>
+								<div class="col-md-8 col-sm-8">
+									<div class="information">
+										<div class="info-seller-span col-md-4 col-sm-4">
+											<span><i class="icon-present"></i>店铺名</span>
+											<span><i class="icon-user"></i>商家姓名</span>
+											<span><i class="icon-credit-card"></i>身份证件号</span>
+											<span><i class="icon-screen-smartphone"></i>手机号</span>
+
+										</div>
+										<div class="info-seller-label col-md-8 col-sm-8">
+											<label class="s_sellername"></label>
+											<label class="s_name"></label>
+											<label class="s_IDcard"></label>
+											<label class="s_phone"></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+							<div class="row row-top">
+								<div class="info-seller-span col-md-4 col-sm-4">
+									<span class="center">商家地址</span>
+									<span class="center">申请时间</span>
+									<span class="center">账号状态</span>
+									<span class="center">通过审核时间</span>
+									<span class="center">未通过原因</span>
+									<span class="center">商家评分</span>
+									<span class="center">注销时间</span>
+								</div>
+								<div class="info-seller-label col-md-8 col-sm-8">
+									<label class="s_address"></label>
+									<label class="s_regtime"></label>
+									<label class="s_status"></label>
+									<label class="s_though"></label>
+									<label class="s_reason"></label>
+									<label class="s_score"></label>
+									<label class="s_logout"></label>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="riderTask" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<h4 class="modal-title">骑手详细信息</h4>
+						</div>
+						<div class="modal-body" data-id="">
+							<div class="row">
+								<div class="col-md-4 col-sm-4 sellercenter">
+									<img class="sellerimg" src="/images/riderdefault.jpg" alt="骑手头像">
+								</div>
+								<div class="col-md-8 col-sm-8">
+									<div class="information">
+										<div class="info-rider-span col-md-4 col-sm-4">
+											<span><i class="fa fa-motorcycle"></i>骑手名</span>
+											<span><i class="icon-screen-smartphone"></i>手机号</span>
+											<span><i class="fa fa-transgender"></i>性别</span>
+										</div>
+										<div class="info-rider-label col-md-8 col-sm-8">
+											<label class="r_ridername"></label>
+											<label class="r_phone"></label>
+											<label class="r_sex"></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+							<div class="row row-top">
+								<div class="info-rider-span col-md-4 col-sm-4">
+									<span class="center">骑手地址</span>
+									<span class="center">申请时间</span>
+									<span class="center">账号状态</span>
+									<span class="center">通过审核时间</span>
+									<span class="center">接单状态</span>
+									<span class="center">骑手评分</span>
+									<span class="center">注销时间</span>
+								</div>
+								<div class="info-rider-label col-md-8 col-sm-8">
+									<label class="r_address"></label>
+									<label class="r_regtime"></label>
+									<label class="r_status"></label>
+									<label class="r_though"></label>
+									<label class="r_currentstatus"></label>
+									<label class="r_score"></label>
+									<label class="r_logout"></label>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="foodTask" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<h4 class="modal-title">菜品详细信息</h4>
+						</div>
+						<div class="modal-body" data-id="">
+							<div class="row">
+								<div class="col-md-4 col-sm-4 sellercenter">
+									<img class="sellerimg" src="/images/fooddefault.jpg" alt="菜品图片">
+								</div>
+								<div class="col-md-8 col-sm-8">
+									<div class="information">
+										<div class="info-rider-span col-md-4 col-sm-4">
+											<span><i class="fa fa-motorcycle"></i>菜品名</span>
+											<span><i class="icon-screen-smartphone"></i>菜品标签</span>
+											<span><i class="fa fa-transgender"></i>店铺名称</span>
+										</div>
+										<div class="info-rider-label col-md-8 col-sm-8">
+											<label class="f_foodname"></label>
+											<label class="f_tag"></label>
+											<label class="f_seller"></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+							<div class="row row-top">
+								<div class="info-rider-span col-md-4 col-sm-4">
+									<span class="center">菜品描述</span>
+									<span class="center">申请时间</span>
+									<span class="center">菜品状态</span>
+									<span class="center">通过审核时间</span>
+									<span class="center">价格</span>
+									<span class="center">菜品评分</span>
+									<span class="center">下架时间</span>
+								</div>
+								<div class="info-rider-label col-md-8 col-sm-8">
+									<label class="f_description"></label>
+									<label class="f_applicationtime"></label>
+									<label class="f_status"></label>
+									<label class="f_though"></label>
+									<label class="f_price"></label>
+									<label class="f_score"></label>
+									<label class="f_logout"></label>
+								</div>
+							</div>
+							<div class="clearfix-line">
+
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="Confirm" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<h4 class="modal-title">确认框</h4>
+						</div>
+						<div class="modal-body" data-id="">
+
+							<div class="row row-top">
+								<div class="col-md-4 col-sm-4">
+
+								</div>
+								<div class="info-seller-label col-md-4 col-sm-4">
+									<label>确认提交么?</label>
+								</div>
+								<div class="col-md-4 col-sm-4">
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary btn-confirm" data-task="" data-kind="" data-id="" data-status="">确定</button>
+							<button type="button" class="btn btn-primary btn-cancle" data-dismiss="modal" aria-label="Close">取消</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="reason" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<h4 class="modal-title">不通过原因</h4>
+						</div>
+						<div class="modal-body" data-id="">
+
+							<div class="row row-top">
+								<div class="col-md-2 col-sm-2">
+
+								</div>
+								<div class="info-rider-label col-md-2 col-sm-2">
+									<label>原因</label>
+								</div>
+								<div class="col-md-4 col-sm-4">
+									<input type="text">
+								</div>
+								<div class="col-md-4 col-sm-4">
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Confirm" data-kind="seller" data-id="" data-task="" data-status="no">提交</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">关闭</button>
 						</div>
 					</div>
@@ -2410,6 +2245,7 @@
 <script src="/js/task.js" type="text/javascript"></script>
 <script src="/js/index.js" type="text/javascript"></script>
 <script src="/js/pagebar.js" type="text/javascript"></script>
+<script src="/js/adminInfo.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 jQuery(document).ready(function() {    
