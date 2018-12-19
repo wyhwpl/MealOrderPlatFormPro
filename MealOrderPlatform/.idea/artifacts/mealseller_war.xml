@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mealseller:war">
+    <output-path>$PROJECT_DIR$/mealseller/target</output-path>
+    <root id="archive" name="meal-seller-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="mealseller:war exploded" />
+    </root>
+  </artifact>
+</component>

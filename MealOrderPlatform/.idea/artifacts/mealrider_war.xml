@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mealrider:war">
+    <output-path>$PROJECT_DIR$/mealrider/target</output-path>
+    <root id="archive" name="meal-rider-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="mealrider:war exploded" />
+    </root>
+  </artifact>
+</component>

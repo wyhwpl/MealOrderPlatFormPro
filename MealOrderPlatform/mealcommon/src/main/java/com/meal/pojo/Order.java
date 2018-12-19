@@ -7,9 +7,21 @@ public class Order {
 
     private Integer userid;
 
+    private String username;
+
+    private String address;
+
+    private String phone;
+
     private Integer sellerid;
 
+    private String sellername;
+
+    private String sellerphone;
+
     private Integer riderid;
+
+    private String riderphone;
 
     private Float totalPrice;
 
@@ -47,6 +59,30 @@ public class Order {
         this.userid = userid;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
     public Integer getSellerid() {
         return sellerid;
     }
@@ -55,12 +91,36 @@ public class Order {
         this.sellerid = sellerid;
     }
 
+    public String getSellername() {
+        return sellername;
+    }
+
+    public void setSellername(String sellername) {
+        this.sellername = sellername == null ? null : sellername.trim();
+    }
+
+    public String getSellerphone() {
+        return sellerphone;
+    }
+
+    public void setSellerphone(String sellerphone) {
+        this.sellerphone = sellerphone == null ? null : sellerphone.trim();
+    }
+
     public Integer getRiderid() {
         return riderid;
     }
 
     public void setRiderid(Integer riderid) {
         this.riderid = riderid;
+    }
+
+    public String getRiderphone() {
+        return riderphone;
+    }
+
+    public void setRiderphone(String riderphone) {
+        this.riderphone = riderphone == null ? null : riderphone.trim();
     }
 
     public Float getTotalPrice() {
