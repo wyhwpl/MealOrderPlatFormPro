@@ -1,9 +1,9 @@
 package com.meal.pojo;
 
 public class OrderFood {
-    private Integer id;
+    private String id;
 
-    private Integer foodid;
+    private String foodid;
 
     private Integer copies;
 
@@ -11,22 +11,22 @@ public class OrderFood {
 
     private Float score;
 
-    private Integer orderid;
+    private String orderid;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public Integer getFoodid() {
+    public String getFoodid() {
         return foodid;
     }
 
-    public void setFoodid(Integer foodid) {
-        this.foodid = foodid;
+    public void setFoodid(String foodid) {
+        this.foodid = foodid == null ? null : foodid.trim();
     }
 
     public Integer getCopies() {
@@ -53,11 +53,11 @@ public class OrderFood {
         this.score = score;
     }
 
-    public Integer getOrderid() {
+    public String getOrderid() {
         return orderid;
     }
 
-    public void setOrderid(Integer orderid) {
-        this.orderid = orderid;
+    public void setOrderid(String orderid) {
+        this.orderid = orderid == null ? null : orderid.trim();
     }
 }

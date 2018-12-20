@@ -1,47 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.meal.mapper.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.meal.pojo.Order">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="userID" jdbcType="INTEGER" property="userid" />
-    <result column="userName" jdbcType="VARCHAR" property="username" />
-    <result column="address" jdbcType="VARCHAR" property="address" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="sellerID" jdbcType="INTEGER" property="sellerid" />
-    <result column="sellerName" jdbcType="VARCHAR" property="sellername" />
-    <result column="sellerPhone" jdbcType="VARCHAR" property="sellerphone" />
-    <result column="riderID" jdbcType="INTEGER" property="riderid" />
-    <result column="riderPhone" jdbcType="VARCHAR" property="riderphone" />
-    <result column="total_price" jdbcType="REAL" property="totalPrice" />
-    <result column="sellersorce" jdbcType="REAL" property="sellersorce" />
-    <result column="ridersorce" jdbcType="REAL" property="ridersorce" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="price" jdbcType="REAL" property="price" />
-    <result column="foodscore" jdbcType="REAL" property="foodscore" />
-    <result column="ordertime" jdbcType="TIMESTAMP" property="ordertime" />
-    <result column="paytime" jdbcType="TIMESTAMP" property="paytime" />
-    <result column="taketime" jdbcType="TIMESTAMP" property="taketime" />
-    <result column="arrivetime" jdbcType="TIMESTAMP" property="arrivetime" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.meal.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.meal.pojo.Order" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="userID" property="userid" jdbcType="VARCHAR" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="sellerID" property="sellerid" jdbcType="VARCHAR" />
+    <result column="sellerName" property="sellername" jdbcType="VARCHAR" />
+    <result column="sellerPhone" property="sellerphone" jdbcType="VARCHAR" />
+    <result column="riderID" property="riderid" jdbcType="VARCHAR" />
+    <result column="riderPhone" property="riderphone" jdbcType="VARCHAR" />
+    <result column="total_price" property="totalPrice" jdbcType="REAL" />
+    <result column="sellersorce" property="sellersorce" jdbcType="REAL" />
+    <result column="ridersorce" property="ridersorce" jdbcType="REAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="foodscore" property="foodscore" jdbcType="REAL" />
+    <result column="ordertime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="paytime" property="paytime" jdbcType="TIMESTAMP" />
+    <result column="taketime" property="taketime" jdbcType="TIMESTAMP" />
+    <result column="arrivetime" property="arrivetime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -52,25 +52,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -81,42 +81,42 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     id, userID, userName, address, phone, sellerID, sellerName, sellerPhone, riderID, 
     riderPhone, total_price, sellersorce, ridersorce, status, price, foodscore, ordertime, 
     paytime, taketime, arrivetime
   </sql>
-  <select id="selectByExample" parameterType="com.meal.pojo.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.OrderExample" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from t_order
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_order
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_order
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.meal.pojo.OrderExample">
+  <delete id="deleteByExample" parameterType="com.meal.pojo.OrderExample" >
     delete from t_order
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.meal.pojo.Order">
+  <insert id="insert" parameterType="com.meal.pojo.Order" >
     insert into t_order (id, userID, userName, 
       address, phone, sellerID, 
       sellerName, sellerPhone, riderID, 
@@ -124,226 +124,226 @@
       ridersorce, status, price, 
       foodscore, ordertime, paytime, 
       taketime, arrivetime)
-    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sellerid,jdbcType=INTEGER}, 
-      #{sellername,jdbcType=VARCHAR}, #{sellerphone,jdbcType=VARCHAR}, #{riderid,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sellerid,jdbcType=VARCHAR}, 
+      #{sellername,jdbcType=VARCHAR}, #{sellerphone,jdbcType=VARCHAR}, #{riderid,jdbcType=VARCHAR}, 
       #{riderphone,jdbcType=VARCHAR}, #{totalPrice,jdbcType=REAL}, #{sellersorce,jdbcType=REAL}, 
       #{ridersorce,jdbcType=REAL}, #{status,jdbcType=INTEGER}, #{price,jdbcType=REAL}, 
       #{foodscore,jdbcType=REAL}, #{ordertime,jdbcType=TIMESTAMP}, #{paytime,jdbcType=TIMESTAMP}, 
       #{taketime,jdbcType=TIMESTAMP}, #{arrivetime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.meal.pojo.Order">
+  <insert id="insertSelective" parameterType="com.meal.pojo.Order" >
     insert into t_order
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="userid != null">
+      <if test="userid != null" >
         userID,
       </if>
-      <if test="username != null">
+      <if test="username != null" >
         userName,
       </if>
-      <if test="address != null">
+      <if test="address != null" >
         address,
       </if>
-      <if test="phone != null">
+      <if test="phone != null" >
         phone,
       </if>
-      <if test="sellerid != null">
+      <if test="sellerid != null" >
         sellerID,
       </if>
-      <if test="sellername != null">
+      <if test="sellername != null" >
         sellerName,
       </if>
-      <if test="sellerphone != null">
+      <if test="sellerphone != null" >
         sellerPhone,
       </if>
-      <if test="riderid != null">
+      <if test="riderid != null" >
         riderID,
       </if>
-      <if test="riderphone != null">
+      <if test="riderphone != null" >
         riderPhone,
       </if>
-      <if test="totalPrice != null">
+      <if test="totalPrice != null" >
         total_price,
       </if>
-      <if test="sellersorce != null">
+      <if test="sellersorce != null" >
         sellersorce,
       </if>
-      <if test="ridersorce != null">
+      <if test="ridersorce != null" >
         ridersorce,
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         status,
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         price,
       </if>
-      <if test="foodscore != null">
+      <if test="foodscore != null" >
         foodscore,
       </if>
-      <if test="ordertime != null">
+      <if test="ordertime != null" >
         ordertime,
       </if>
-      <if test="paytime != null">
+      <if test="paytime != null" >
         paytime,
       </if>
-      <if test="taketime != null">
+      <if test="taketime != null" >
         taketime,
       </if>
-      <if test="arrivetime != null">
+      <if test="arrivetime != null" >
         arrivetime,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
       </if>
-      <if test="userid != null">
-        #{userid,jdbcType=INTEGER},
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
       </if>
-      <if test="username != null">
+      <if test="username != null" >
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="address != null">
+      <if test="address != null" >
         #{address,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
+      <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="sellerid != null">
-        #{sellerid,jdbcType=INTEGER},
+      <if test="sellerid != null" >
+        #{sellerid,jdbcType=VARCHAR},
       </if>
-      <if test="sellername != null">
+      <if test="sellername != null" >
         #{sellername,jdbcType=VARCHAR},
       </if>
-      <if test="sellerphone != null">
+      <if test="sellerphone != null" >
         #{sellerphone,jdbcType=VARCHAR},
       </if>
-      <if test="riderid != null">
-        #{riderid,jdbcType=INTEGER},
+      <if test="riderid != null" >
+        #{riderid,jdbcType=VARCHAR},
       </if>
-      <if test="riderphone != null">
+      <if test="riderphone != null" >
         #{riderphone,jdbcType=VARCHAR},
       </if>
-      <if test="totalPrice != null">
+      <if test="totalPrice != null" >
         #{totalPrice,jdbcType=REAL},
       </if>
-      <if test="sellersorce != null">
+      <if test="sellersorce != null" >
         #{sellersorce,jdbcType=REAL},
       </if>
-      <if test="ridersorce != null">
+      <if test="ridersorce != null" >
         #{ridersorce,jdbcType=REAL},
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         #{status,jdbcType=INTEGER},
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         #{price,jdbcType=REAL},
       </if>
-      <if test="foodscore != null">
+      <if test="foodscore != null" >
         #{foodscore,jdbcType=REAL},
       </if>
-      <if test="ordertime != null">
+      <if test="ordertime != null" >
         #{ordertime,jdbcType=TIMESTAMP},
       </if>
-      <if test="paytime != null">
+      <if test="paytime != null" >
         #{paytime,jdbcType=TIMESTAMP},
       </if>
-      <if test="taketime != null">
+      <if test="taketime != null" >
         #{taketime,jdbcType=TIMESTAMP},
       </if>
-      <if test="arrivetime != null">
+      <if test="arrivetime != null" >
         #{arrivetime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.meal.pojo.OrderExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.meal.pojo.OrderExample" resultType="java.lang.Integer" >
     select count(*) from t_order
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update t_order
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.userid != null">
-        userID = #{record.userid,jdbcType=INTEGER},
+      <if test="record.userid != null" >
+        userID = #{record.userid,jdbcType=VARCHAR},
       </if>
-      <if test="record.username != null">
+      <if test="record.username != null" >
         userName = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.address != null">
+      <if test="record.address != null" >
         address = #{record.address,jdbcType=VARCHAR},
       </if>
-      <if test="record.phone != null">
+      <if test="record.phone != null" >
         phone = #{record.phone,jdbcType=VARCHAR},
       </if>
-      <if test="record.sellerid != null">
-        sellerID = #{record.sellerid,jdbcType=INTEGER},
+      <if test="record.sellerid != null" >
+        sellerID = #{record.sellerid,jdbcType=VARCHAR},
       </if>
-      <if test="record.sellername != null">
+      <if test="record.sellername != null" >
         sellerName = #{record.sellername,jdbcType=VARCHAR},
       </if>
-      <if test="record.sellerphone != null">
+      <if test="record.sellerphone != null" >
         sellerPhone = #{record.sellerphone,jdbcType=VARCHAR},
       </if>
-      <if test="record.riderid != null">
-        riderID = #{record.riderid,jdbcType=INTEGER},
+      <if test="record.riderid != null" >
+        riderID = #{record.riderid,jdbcType=VARCHAR},
       </if>
-      <if test="record.riderphone != null">
+      <if test="record.riderphone != null" >
         riderPhone = #{record.riderphone,jdbcType=VARCHAR},
       </if>
-      <if test="record.totalPrice != null">
+      <if test="record.totalPrice != null" >
         total_price = #{record.totalPrice,jdbcType=REAL},
       </if>
-      <if test="record.sellersorce != null">
+      <if test="record.sellersorce != null" >
         sellersorce = #{record.sellersorce,jdbcType=REAL},
       </if>
-      <if test="record.ridersorce != null">
+      <if test="record.ridersorce != null" >
         ridersorce = #{record.ridersorce,jdbcType=REAL},
       </if>
-      <if test="record.status != null">
+      <if test="record.status != null" >
         status = #{record.status,jdbcType=INTEGER},
       </if>
-      <if test="record.price != null">
+      <if test="record.price != null" >
         price = #{record.price,jdbcType=REAL},
       </if>
-      <if test="record.foodscore != null">
+      <if test="record.foodscore != null" >
         foodscore = #{record.foodscore,jdbcType=REAL},
       </if>
-      <if test="record.ordertime != null">
+      <if test="record.ordertime != null" >
         ordertime = #{record.ordertime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.paytime != null">
+      <if test="record.paytime != null" >
         paytime = #{record.paytime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.taketime != null">
+      <if test="record.taketime != null" >
         taketime = #{record.taketime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.arrivetime != null">
+      <if test="record.arrivetime != null" >
         arrivetime = #{record.arrivetime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update t_order
-    set id = #{record.id,jdbcType=INTEGER},
-      userID = #{record.userid,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
+      userID = #{record.userid,jdbcType=VARCHAR},
       userName = #{record.username,jdbcType=VARCHAR},
       address = #{record.address,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
-      sellerID = #{record.sellerid,jdbcType=INTEGER},
+      sellerID = #{record.sellerid,jdbcType=VARCHAR},
       sellerName = #{record.sellername,jdbcType=VARCHAR},
       sellerPhone = #{record.sellerphone,jdbcType=VARCHAR},
-      riderID = #{record.riderid,jdbcType=INTEGER},
+      riderID = #{record.riderid,jdbcType=VARCHAR},
       riderPhone = #{record.riderphone,jdbcType=VARCHAR},
       total_price = #{record.totalPrice,jdbcType=REAL},
       sellersorce = #{record.sellersorce,jdbcType=REAL},
@@ -355,83 +355,83 @@
       paytime = #{record.paytime,jdbcType=TIMESTAMP},
       taketime = #{record.taketime,jdbcType=TIMESTAMP},
       arrivetime = #{record.arrivetime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.Order" >
     update t_order
-    <set>
-      <if test="userid != null">
-        userID = #{userid,jdbcType=INTEGER},
+    <set >
+      <if test="userid != null" >
+        userID = #{userid,jdbcType=VARCHAR},
       </if>
-      <if test="username != null">
+      <if test="username != null" >
         userName = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="address != null">
+      <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
+      <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="sellerid != null">
-        sellerID = #{sellerid,jdbcType=INTEGER},
+      <if test="sellerid != null" >
+        sellerID = #{sellerid,jdbcType=VARCHAR},
       </if>
-      <if test="sellername != null">
+      <if test="sellername != null" >
         sellerName = #{sellername,jdbcType=VARCHAR},
       </if>
-      <if test="sellerphone != null">
+      <if test="sellerphone != null" >
         sellerPhone = #{sellerphone,jdbcType=VARCHAR},
       </if>
-      <if test="riderid != null">
-        riderID = #{riderid,jdbcType=INTEGER},
+      <if test="riderid != null" >
+        riderID = #{riderid,jdbcType=VARCHAR},
       </if>
-      <if test="riderphone != null">
+      <if test="riderphone != null" >
         riderPhone = #{riderphone,jdbcType=VARCHAR},
       </if>
-      <if test="totalPrice != null">
+      <if test="totalPrice != null" >
         total_price = #{totalPrice,jdbcType=REAL},
       </if>
-      <if test="sellersorce != null">
+      <if test="sellersorce != null" >
         sellersorce = #{sellersorce,jdbcType=REAL},
       </if>
-      <if test="ridersorce != null">
+      <if test="ridersorce != null" >
         ridersorce = #{ridersorce,jdbcType=REAL},
       </if>
-      <if test="status != null">
+      <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         price = #{price,jdbcType=REAL},
       </if>
-      <if test="foodscore != null">
+      <if test="foodscore != null" >
         foodscore = #{foodscore,jdbcType=REAL},
       </if>
-      <if test="ordertime != null">
+      <if test="ordertime != null" >
         ordertime = #{ordertime,jdbcType=TIMESTAMP},
       </if>
-      <if test="paytime != null">
+      <if test="paytime != null" >
         paytime = #{paytime,jdbcType=TIMESTAMP},
       </if>
-      <if test="taketime != null">
+      <if test="taketime != null" >
         taketime = #{taketime,jdbcType=TIMESTAMP},
       </if>
-      <if test="arrivetime != null">
+      <if test="arrivetime != null" >
         arrivetime = #{arrivetime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Order">
+  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Order" >
     update t_order
-    set userID = #{userid,jdbcType=INTEGER},
+    set userID = #{userid,jdbcType=VARCHAR},
       userName = #{username,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
-      sellerID = #{sellerid,jdbcType=INTEGER},
+      sellerID = #{sellerid,jdbcType=VARCHAR},
       sellerName = #{sellername,jdbcType=VARCHAR},
       sellerPhone = #{sellerphone,jdbcType=VARCHAR},
-      riderID = #{riderid,jdbcType=INTEGER},
+      riderID = #{riderid,jdbcType=VARCHAR},
       riderPhone = #{riderphone,jdbcType=VARCHAR},
       total_price = #{totalPrice,jdbcType=REAL},
       sellersorce = #{sellersorce,jdbcType=REAL},
@@ -443,6 +443,6 @@
       paytime = #{paytime,jdbcType=TIMESTAMP},
       taketime = #{taketime,jdbcType=TIMESTAMP},
       arrivetime = #{arrivetime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

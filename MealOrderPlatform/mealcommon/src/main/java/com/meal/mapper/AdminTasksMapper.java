@@ -10,7 +10,7 @@ public interface AdminTasksMapper {
 
     int deleteByExample(AdminTasksExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(AdminTasks record);
 
@@ -18,7 +18,7 @@ public interface AdminTasksMapper {
 
     List<AdminTasks> selectByExample(AdminTasksExample example);
 
-    AdminTasks selectByPrimaryKey(Integer id);
+    AdminTasks selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") AdminTasks record, @Param("example") AdminTasksExample example);
 

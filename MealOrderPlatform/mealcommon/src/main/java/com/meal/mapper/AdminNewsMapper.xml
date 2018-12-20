@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.AdminNewsMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.AdminNews" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="userKind" property="userkind" jdbcType="INTEGER" />
-    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="action" property="action" jdbcType="VARCHAR" />
     <result column="actionobject" property="actionobject" jdbcType="VARCHAR" />
@@ -85,15 +85,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_adminnews
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_adminnews
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.AdminNewsExample" >
     delete from t_adminnews
@@ -105,7 +105,7 @@
     insert into t_adminnews (id, userKind, userId, 
       username, action, actionobject, 
       newstime)
-    values (#{id,jdbcType=INTEGER}, #{userkind,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=VARCHAR}, #{userkind,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, 
       #{username,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, #{actionobject,jdbcType=VARCHAR}, 
       #{newstime,jdbcType=TIMESTAMP})
   </insert>
@@ -136,13 +136,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="userkind != null" >
         #{userkind,jdbcType=INTEGER},
       </if>
       <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
+        #{userid,jdbcType=VARCHAR},
       </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
@@ -168,13 +168,13 @@
     update t_adminnews
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.userkind != null" >
         userKind = #{record.userkind,jdbcType=INTEGER},
       </if>
       <if test="record.userid != null" >
-        userId = #{record.userid,jdbcType=INTEGER},
+        userId = #{record.userid,jdbcType=VARCHAR},
       </if>
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
@@ -195,9 +195,9 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_adminnews
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       userKind = #{record.userkind,jdbcType=INTEGER},
-      userId = #{record.userid,jdbcType=INTEGER},
+      userId = #{record.userid,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
       action = #{record.action,jdbcType=VARCHAR},
       actionobject = #{record.actionobject,jdbcType=VARCHAR},
@@ -213,7 +213,7 @@
         userKind = #{userkind,jdbcType=INTEGER},
       </if>
       <if test="userid != null" >
-        userId = #{userid,jdbcType=INTEGER},
+        userId = #{userid,jdbcType=VARCHAR},
       </if>
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
@@ -228,16 +228,16 @@
         newstime = #{newstime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.AdminNews" >
     update t_adminnews
     set userKind = #{userkind,jdbcType=INTEGER},
-      userId = #{userid,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},
       action = #{action,jdbcType=VARCHAR},
       actionobject = #{actionobject,jdbcType=VARCHAR},
       newstime = #{newstime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

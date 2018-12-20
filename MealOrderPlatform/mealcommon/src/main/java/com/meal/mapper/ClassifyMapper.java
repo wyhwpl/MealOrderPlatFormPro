@@ -10,7 +10,7 @@ public interface ClassifyMapper {
 
     int deleteByExample(ClassifyExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(Classify record);
 
@@ -18,7 +18,7 @@ public interface ClassifyMapper {
 
     List<Classify> selectByExample(ClassifyExample example);
 
-    Classify selectByPrimaryKey(Integer id);
+    Classify selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") Classify record, @Param("example") ClassifyExample example);
 

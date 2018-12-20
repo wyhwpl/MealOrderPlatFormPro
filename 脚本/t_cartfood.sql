@@ -1,7 +1,7 @@
 drop table if exists t_cartfood;
 create table t_cartfood(
-	id int primary key not null auto_increment, #主键
-	foodID int, #菜品ID
+	id varchar(255) primary key, #主键
+	foodID varchar(255), #菜品ID
 	copies int, #份数
-	cartID int #购物车ID
+	cartID varchar(255) #购物车ID
 );

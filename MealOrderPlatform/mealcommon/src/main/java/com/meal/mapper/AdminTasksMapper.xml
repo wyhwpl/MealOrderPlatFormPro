@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.AdminTasksMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.AdminTasks" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="taskKind" property="taskkind" jdbcType="INTEGER" />
-    <result column="objectId" property="objectid" jdbcType="INTEGER" />
+    <result column="objectId" property="objectid" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="tasktime" property="tasktime" jdbcType="TIMESTAMP" />
     <result column="donetime" property="donetime" jdbcType="TIMESTAMP" />
-    <result column="adminId" property="adminid" jdbcType="INTEGER" />
+    <result column="adminId" property="adminid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -86,15 +86,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_admintasks
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_admintasks
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.AdminTasksExample" >
     delete from t_admintasks
@@ -106,9 +106,9 @@
     insert into t_admintasks (id, taskKind, objectId, 
       username, status, tasktime, 
       donetime, adminId)
-    values (#{id,jdbcType=INTEGER}, #{taskkind,jdbcType=INTEGER}, #{objectid,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=VARCHAR}, #{taskkind,jdbcType=INTEGER}, #{objectid,jdbcType=VARCHAR}, 
       #{username,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{tasktime,jdbcType=TIMESTAMP}, 
-      #{donetime,jdbcType=TIMESTAMP}, #{adminid,jdbcType=INTEGER})
+      #{donetime,jdbcType=TIMESTAMP}, #{adminid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.meal.pojo.AdminTasks" >
     insert into t_admintasks
@@ -140,13 +140,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="taskkind != null" >
         #{taskkind,jdbcType=INTEGER},
       </if>
       <if test="objectid != null" >
-        #{objectid,jdbcType=INTEGER},
+        #{objectid,jdbcType=VARCHAR},
       </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
@@ -161,7 +161,7 @@
         #{donetime,jdbcType=TIMESTAMP},
       </if>
       <if test="adminid != null" >
-        #{adminid,jdbcType=INTEGER},
+        #{adminid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -175,13 +175,13 @@
     update t_admintasks
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.taskkind != null" >
         taskKind = #{record.taskkind,jdbcType=INTEGER},
       </if>
       <if test="record.objectid != null" >
-        objectId = #{record.objectid,jdbcType=INTEGER},
+        objectId = #{record.objectid,jdbcType=VARCHAR},
       </if>
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
@@ -196,7 +196,7 @@
         donetime = #{record.donetime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.adminid != null" >
-        adminId = #{record.adminid,jdbcType=INTEGER},
+        adminId = #{record.adminid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -205,14 +205,14 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_admintasks
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       taskKind = #{record.taskkind,jdbcType=INTEGER},
-      objectId = #{record.objectid,jdbcType=INTEGER},
+      objectId = #{record.objectid,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=INTEGER},
       tasktime = #{record.tasktime,jdbcType=TIMESTAMP},
       donetime = #{record.donetime,jdbcType=TIMESTAMP},
-      adminId = #{record.adminid,jdbcType=INTEGER}
+      adminId = #{record.adminid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -224,7 +224,7 @@
         taskKind = #{taskkind,jdbcType=INTEGER},
       </if>
       <if test="objectid != null" >
-        objectId = #{objectid,jdbcType=INTEGER},
+        objectId = #{objectid,jdbcType=VARCHAR},
       </if>
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
@@ -239,20 +239,20 @@
         donetime = #{donetime,jdbcType=TIMESTAMP},
       </if>
       <if test="adminid != null" >
-        adminId = #{adminid,jdbcType=INTEGER},
+        adminId = #{adminid,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.AdminTasks" >
     update t_admintasks
     set taskKind = #{taskkind,jdbcType=INTEGER},
-      objectId = #{objectid,jdbcType=INTEGER},
+      objectId = #{objectid,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       tasktime = #{tasktime,jdbcType=TIMESTAMP},
       donetime = #{donetime,jdbcType=TIMESTAMP},
-      adminId = #{adminid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+      adminId = #{adminid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

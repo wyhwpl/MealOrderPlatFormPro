@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.ClassifyMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.Classify" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="classifytag" property="classifytag" jdbcType="VARCHAR" />
-    <result column="sellerID" property="sellerid" jdbcType="INTEGER" />
+    <result column="sellerID" property="sellerid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -81,15 +81,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_classify
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_classify
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.ClassifyExample" >
     delete from t_classify
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="com.meal.pojo.Classify" >
     insert into t_classify (id, classifytag, sellerID
       )
-    values (#{id,jdbcType=INTEGER}, #{classifytag,jdbcType=VARCHAR}, #{sellerid,jdbcType=INTEGER}
+    values (#{id,jdbcType=VARCHAR}, #{classifytag,jdbcType=VARCHAR}, #{sellerid,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.meal.pojo.Classify" >
@@ -118,13 +118,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="classifytag != null" >
         #{classifytag,jdbcType=VARCHAR},
       </if>
       <if test="sellerid != null" >
-        #{sellerid,jdbcType=INTEGER},
+        #{sellerid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -138,13 +138,13 @@
     update t_classify
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.classifytag != null" >
         classifytag = #{record.classifytag,jdbcType=VARCHAR},
       </if>
       <if test="record.sellerid != null" >
-        sellerID = #{record.sellerid,jdbcType=INTEGER},
+        sellerID = #{record.sellerid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -153,9 +153,9 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_classify
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       classifytag = #{record.classifytag,jdbcType=VARCHAR},
-      sellerID = #{record.sellerid,jdbcType=INTEGER}
+      sellerID = #{record.sellerid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -167,15 +167,15 @@
         classifytag = #{classifytag,jdbcType=VARCHAR},
       </if>
       <if test="sellerid != null" >
-        sellerID = #{sellerid,jdbcType=INTEGER},
+        sellerID = #{sellerid,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Classify" >
     update t_classify
     set classifytag = #{classifytag,jdbcType=VARCHAR},
-      sellerID = #{sellerid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+      sellerID = #{sellerid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

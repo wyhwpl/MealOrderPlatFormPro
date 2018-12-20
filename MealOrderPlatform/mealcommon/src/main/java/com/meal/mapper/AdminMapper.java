@@ -2,16 +2,15 @@ package com.meal.mapper;
 
 import com.meal.pojo.Admin;
 import com.meal.pojo.AdminExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface AdminMapper {
     int countByExample(AdminExample example);
 
     int deleteByExample(AdminExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(Admin record);
 
@@ -19,7 +18,7 @@ public interface AdminMapper {
 
     List<Admin> selectByExample(AdminExample example);
 
-    Admin selectByPrimaryKey(Integer id);
+    Admin selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") Admin record, @Param("example") AdminExample example);
 

@@ -1,7 +1,7 @@
 package com.meal.pojo;
 
 public class User {
-    private Integer id;
+    private String id;
 
     private String phone;
 
@@ -13,12 +13,12 @@ public class User {
 
     private String imgUrl;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getPhone() {

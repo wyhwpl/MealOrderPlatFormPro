@@ -10,7 +10,7 @@ public interface SellerMapper {
 
     int deleteByExample(SellerExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(Seller record);
 
@@ -18,7 +18,7 @@ public interface SellerMapper {
 
     List<Seller> selectByExample(SellerExample example);
 
-    Seller selectByPrimaryKey(Integer id);
+    Seller selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") Seller record, @Param("example") SellerExample example);
 

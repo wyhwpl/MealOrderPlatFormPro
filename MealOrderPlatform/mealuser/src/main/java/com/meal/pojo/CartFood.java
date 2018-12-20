@@ -1,28 +1,28 @@
 package com.meal.pojo;
 
 public class CartFood {
-    private Integer id;
+    private String id;
 
-    private Integer foodid;
+    private String foodid;
 
     private Integer copies;
 
-    private Integer cartid;
+    private String cartid;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public Integer getFoodid() {
+    public String getFoodid() {
         return foodid;
     }
 
-    public void setFoodid(Integer foodid) {
-        this.foodid = foodid;
+    public void setFoodid(String foodid) {
+        this.foodid = foodid == null ? null : foodid.trim();
     }
 
     public Integer getCopies() {
@@ -33,11 +33,11 @@ public class CartFood {
         this.copies = copies;
     }
 
-    public Integer getCartid() {
+    public String getCartid() {
         return cartid;
     }
 
-    public void setCartid(Integer cartid) {
-        this.cartid = cartid;
+    public void setCartid(String cartid) {
+        this.cartid = cartid == null ? null : cartid.trim();
     }
 }

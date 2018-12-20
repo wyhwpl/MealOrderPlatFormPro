@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.UserMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.User" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
@@ -84,15 +84,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_user
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_user
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.UserExample" >
     delete from t_user
@@ -104,7 +104,7 @@
     insert into t_user (id, phone, password, 
       username, sex, img_URL
       )
-    values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{username,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}
       )
   </insert>
@@ -132,7 +132,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
@@ -161,7 +161,7 @@
     update t_user
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.phone != null" >
         phone = #{record.phone,jdbcType=VARCHAR},
@@ -185,7 +185,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_user
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
@@ -214,7 +214,7 @@
         img_URL = #{imgUrl,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.User" >
     update t_user
@@ -223,6 +223,6 @@
       username = #{username,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       img_URL = #{imgUrl,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

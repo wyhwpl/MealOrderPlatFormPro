@@ -1,43 +1,33 @@
 package com.meal.pojo;
 
 public class Cart {
-    private Integer id;
+    private String id;
 
-    private Integer userid;
+    private String userid;
 
-    private Integer sellerid;
+    private String sellerid;
 
-    private Integer cartfoodid;
-
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public Integer getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserid(String userid) {
+        this.userid = userid == null ? null : userid.trim();
     }
 
-    public Integer getSellerid() {
+    public String getSellerid() {
         return sellerid;
     }
 
-    public void setSellerid(Integer sellerid) {
-        this.sellerid = sellerid;
-    }
-
-    public Integer getCartfoodid() {
-        return cartfoodid;
-    }
-
-    public void setCartfoodid(Integer cartfoodid) {
-        this.cartfoodid = cartfoodid;
+    public void setSellerid(String sellerid) {
+        this.sellerid = sellerid == null ? null : sellerid.trim();
     }
 }

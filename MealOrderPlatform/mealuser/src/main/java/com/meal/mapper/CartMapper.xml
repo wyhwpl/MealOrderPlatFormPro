@@ -2,10 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.CartMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.Cart" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="userID" property="userid" jdbcType="INTEGER" />
-    <result column="sellerID" property="sellerid" jdbcType="INTEGER" />
-    <result column="cartfoodID" property="cartfoodid" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="userID" property="userid" jdbcType="VARCHAR" />
+    <result column="sellerID" property="sellerid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, userID, sellerID, cartfoodID
+    id, userID, sellerID
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.CartExample" >
     select
@@ -82,15 +81,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_cart
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_cart
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.CartExample" >
     delete from t_cart
@@ -99,10 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.meal.pojo.Cart" >
-    insert into t_cart (id, userID, sellerID, 
-      cartfoodID)
-    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{sellerid,jdbcType=INTEGER}, 
-      #{cartfoodid,jdbcType=INTEGER})
+    insert into t_cart (id, userID, sellerID
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{sellerid,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.meal.pojo.Cart" >
     insert into t_cart
@@ -116,22 +115,16 @@
       <if test="sellerid != null" >
         sellerID,
       </if>
-      <if test="cartfoodid != null" >
-        cartfoodID,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
+        #{userid,jdbcType=VARCHAR},
       </if>
       <if test="sellerid != null" >
-        #{sellerid,jdbcType=INTEGER},
-      </if>
-      <if test="cartfoodid != null" >
-        #{cartfoodid,jdbcType=INTEGER},
+        #{sellerid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -145,16 +138,13 @@
     update t_cart
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.userid != null" >
-        userID = #{record.userid,jdbcType=INTEGER},
+        userID = #{record.userid,jdbcType=VARCHAR},
       </if>
       <if test="record.sellerid != null" >
-        sellerID = #{record.sellerid,jdbcType=INTEGER},
-      </if>
-      <if test="record.cartfoodid != null" >
-        cartfoodID = #{record.cartfoodid,jdbcType=INTEGER},
+        sellerID = #{record.sellerid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -163,10 +153,9 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_cart
-    set id = #{record.id,jdbcType=INTEGER},
-      userID = #{record.userid,jdbcType=INTEGER},
-      sellerID = #{record.sellerid,jdbcType=INTEGER},
-      cartfoodID = #{record.cartfoodid,jdbcType=INTEGER}
+    set id = #{record.id,jdbcType=VARCHAR},
+      userID = #{record.userid,jdbcType=VARCHAR},
+      sellerID = #{record.sellerid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -175,22 +164,18 @@
     update t_cart
     <set >
       <if test="userid != null" >
-        userID = #{userid,jdbcType=INTEGER},
+        userID = #{userid,jdbcType=VARCHAR},
       </if>
       <if test="sellerid != null" >
-        sellerID = #{sellerid,jdbcType=INTEGER},
-      </if>
-      <if test="cartfoodid != null" >
-        cartfoodID = #{cartfoodid,jdbcType=INTEGER},
+        sellerID = #{sellerid,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Cart" >
     update t_cart
-    set userID = #{userid,jdbcType=INTEGER},
-      sellerID = #{sellerid,jdbcType=INTEGER},
-      cartfoodID = #{cartfoodid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+    set userID = #{userid,jdbcType=VARCHAR},
+      sellerID = #{sellerid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

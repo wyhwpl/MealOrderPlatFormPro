@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.OrderFoodMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.OrderFood" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="foodID" property="foodid" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="foodID" property="foodid" jdbcType="VARCHAR" />
     <result column="copies" property="copies" jdbcType="INTEGER" />
     <result column="price" property="price" jdbcType="REAL" />
     <result column="score" property="score" jdbcType="REAL" />
-    <result column="orderID" property="orderid" jdbcType="INTEGER" />
+    <result column="orderID" property="orderid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -84,15 +84,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_orderfood
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_orderfood
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.OrderFoodExample" >
     delete from t_orderfood
@@ -103,8 +103,8 @@
   <insert id="insert" parameterType="com.meal.pojo.OrderFood" >
     insert into t_orderfood (id, foodID, copies, 
       price, score, orderID)
-    values (#{id,jdbcType=INTEGER}, #{foodid,jdbcType=INTEGER}, #{copies,jdbcType=INTEGER}, 
-      #{price,jdbcType=REAL}, #{score,jdbcType=REAL}, #{orderid,jdbcType=INTEGER})
+    values (#{id,jdbcType=VARCHAR}, #{foodid,jdbcType=VARCHAR}, #{copies,jdbcType=INTEGER}, 
+      #{price,jdbcType=REAL}, #{score,jdbcType=REAL}, #{orderid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.meal.pojo.OrderFood" >
     insert into t_orderfood
@@ -130,10 +130,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="foodid != null" >
-        #{foodid,jdbcType=INTEGER},
+        #{foodid,jdbcType=VARCHAR},
       </if>
       <if test="copies != null" >
         #{copies,jdbcType=INTEGER},
@@ -145,7 +145,7 @@
         #{score,jdbcType=REAL},
       </if>
       <if test="orderid != null" >
-        #{orderid,jdbcType=INTEGER},
+        #{orderid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -159,10 +159,10 @@
     update t_orderfood
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.foodid != null" >
-        foodID = #{record.foodid,jdbcType=INTEGER},
+        foodID = #{record.foodid,jdbcType=VARCHAR},
       </if>
       <if test="record.copies != null" >
         copies = #{record.copies,jdbcType=INTEGER},
@@ -174,7 +174,7 @@
         score = #{record.score,jdbcType=REAL},
       </if>
       <if test="record.orderid != null" >
-        orderID = #{record.orderid,jdbcType=INTEGER},
+        orderID = #{record.orderid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -183,12 +183,12 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_orderfood
-    set id = #{record.id,jdbcType=INTEGER},
-      foodID = #{record.foodid,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
+      foodID = #{record.foodid,jdbcType=VARCHAR},
       copies = #{record.copies,jdbcType=INTEGER},
       price = #{record.price,jdbcType=REAL},
       score = #{record.score,jdbcType=REAL},
-      orderID = #{record.orderid,jdbcType=INTEGER}
+      orderID = #{record.orderid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -197,7 +197,7 @@
     update t_orderfood
     <set >
       <if test="foodid != null" >
-        foodID = #{foodid,jdbcType=INTEGER},
+        foodID = #{foodid,jdbcType=VARCHAR},
       </if>
       <if test="copies != null" >
         copies = #{copies,jdbcType=INTEGER},
@@ -209,18 +209,18 @@
         score = #{score,jdbcType=REAL},
       </if>
       <if test="orderid != null" >
-        orderID = #{orderid,jdbcType=INTEGER},
+        orderID = #{orderid,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.OrderFood" >
     update t_orderfood
-    set foodID = #{foodid,jdbcType=INTEGER},
+    set foodID = #{foodid,jdbcType=VARCHAR},
       copies = #{copies,jdbcType=INTEGER},
       price = #{price,jdbcType=REAL},
       score = #{score,jdbcType=REAL},
-      orderID = #{orderid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+      orderID = #{orderid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

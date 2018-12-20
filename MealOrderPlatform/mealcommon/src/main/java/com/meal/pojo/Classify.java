@@ -1,18 +1,18 @@
 package com.meal.pojo;
 
 public class Classify {
-    private Integer id;
+    private String id;
 
     private String classifytag;
 
-    private Integer sellerid;
+    private String sellerid;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getClassifytag() {
@@ -23,11 +23,11 @@ public class Classify {
         this.classifytag = classifytag == null ? null : classifytag.trim();
     }
 
-    public Integer getSellerid() {
+    public String getSellerid() {
         return sellerid;
     }
 
-    public void setSellerid(Integer sellerid) {
-        this.sellerid = sellerid;
+    public void setSellerid(String sellerid) {
+        this.sellerid = sellerid == null ? null : sellerid.trim();
     }
 }

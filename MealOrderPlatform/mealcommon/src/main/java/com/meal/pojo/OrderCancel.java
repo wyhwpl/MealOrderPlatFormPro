@@ -1,33 +1,33 @@
 package com.meal.pojo;
 
 public class OrderCancel {
-    private Integer id;
+    private String id;
 
-    private Integer orderid;
+    private String orderid;
 
-    private Integer riderid;
+    private String riderid;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public Integer getOrderid() {
+    public String getOrderid() {
         return orderid;
     }
 
-    public void setOrderid(Integer orderid) {
-        this.orderid = orderid;
+    public void setOrderid(String orderid) {
+        this.orderid = orderid == null ? null : orderid.trim();
     }
 
-    public Integer getRiderid() {
+    public String getRiderid() {
         return riderid;
     }
 
-    public void setRiderid(Integer riderid) {
-        this.riderid = riderid;
+    public void setRiderid(String riderid) {
+        this.riderid = riderid == null ? null : riderid.trim();
     }
 }

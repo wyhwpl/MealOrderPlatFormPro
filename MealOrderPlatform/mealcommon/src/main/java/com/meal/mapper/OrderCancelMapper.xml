@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.OrderCancelMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.OrderCancel" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="orderId" property="orderid" jdbcType="INTEGER" />
-    <result column="riderId" property="riderid" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="orderId" property="orderid" jdbcType="VARCHAR" />
+    <result column="riderId" property="riderid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -81,15 +81,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_ordercancel
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_ordercancel
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.OrderCancelExample" >
     delete from t_ordercancel
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="com.meal.pojo.OrderCancel" >
     insert into t_ordercancel (id, orderId, riderId
       )
-    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{riderid,jdbcType=INTEGER}
+    values (#{id,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{riderid,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.meal.pojo.OrderCancel" >
@@ -118,13 +118,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="orderid != null" >
-        #{orderid,jdbcType=INTEGER},
+        #{orderid,jdbcType=VARCHAR},
       </if>
       <if test="riderid != null" >
-        #{riderid,jdbcType=INTEGER},
+        #{riderid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -138,13 +138,13 @@
     update t_ordercancel
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.orderid != null" >
-        orderId = #{record.orderid,jdbcType=INTEGER},
+        orderId = #{record.orderid,jdbcType=VARCHAR},
       </if>
       <if test="record.riderid != null" >
-        riderId = #{record.riderid,jdbcType=INTEGER},
+        riderId = #{record.riderid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -153,9 +153,9 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_ordercancel
-    set id = #{record.id,jdbcType=INTEGER},
-      orderId = #{record.orderid,jdbcType=INTEGER},
-      riderId = #{record.riderid,jdbcType=INTEGER}
+    set id = #{record.id,jdbcType=VARCHAR},
+      orderId = #{record.orderid,jdbcType=VARCHAR},
+      riderId = #{record.riderid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -164,18 +164,18 @@
     update t_ordercancel
     <set >
       <if test="orderid != null" >
-        orderId = #{orderid,jdbcType=INTEGER},
+        orderId = #{orderid,jdbcType=VARCHAR},
       </if>
       <if test="riderid != null" >
-        riderId = #{riderid,jdbcType=INTEGER},
+        riderId = #{riderid,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.OrderCancel" >
     update t_ordercancel
-    set orderId = #{orderid,jdbcType=INTEGER},
-      riderId = #{riderid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+    set orderId = #{orderid,jdbcType=VARCHAR},
+      riderId = #{riderid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

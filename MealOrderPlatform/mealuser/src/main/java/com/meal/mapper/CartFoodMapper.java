@@ -10,7 +10,7 @@ public interface CartFoodMapper {
 
     int deleteByExample(CartFoodExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(CartFood record);
 
@@ -18,7 +18,7 @@ public interface CartFoodMapper {
 
     List<CartFood> selectByExample(CartFoodExample example);
 
-    CartFood selectByPrimaryKey(Integer id);
+    CartFood selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") CartFood record, @Param("example") CartFoodExample example);
 

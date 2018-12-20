@@ -10,7 +10,7 @@ public interface OrderCancelMapper {
 
     int deleteByExample(OrderCancelExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(OrderCancel record);
 
@@ -18,7 +18,7 @@ public interface OrderCancelMapper {
 
     List<OrderCancel> selectByExample(OrderCancelExample example);
 
-    OrderCancel selectByPrimaryKey(Integer id);
+    OrderCancel selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") OrderCancel record, @Param("example") OrderCancelExample example);
 

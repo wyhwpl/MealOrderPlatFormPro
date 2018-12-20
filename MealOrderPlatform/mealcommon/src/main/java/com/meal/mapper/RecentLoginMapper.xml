@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.meal.mapper.CartFoodMapper" >
-  <resultMap id="BaseResultMap" type="com.meal.pojo.CartFood" >
+<mapper namespace="com.meal.mapper.RecentLoginMapper" >
+  <resultMap id="BaseResultMap" type="com.meal.pojo.RecentLogin" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="foodID" property="foodid" jdbcType="VARCHAR" />
-    <result column="copies" property="copies" jdbcType="INTEGER" />
-    <result column="cartID" property="cartid" jdbcType="VARCHAR" />
+    <result column="userKind" property="userkind" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="logintime" property="logintime" jdbcType="TIMESTAMP" />
+    <result column="loginouttime" property="loginouttime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, foodID, copies, cartID
+    id, userKind, userId, ip, logintime, loginouttime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.CartFoodExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meal.pojo.RecentLoginExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_cartfood
+    from t_recentlogin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,76 +87,96 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from t_cartfood
+    from t_recentlogin
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from t_cartfood
+    delete from t_recentlogin
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.meal.pojo.CartFoodExample" >
-    delete from t_cartfood
+  <delete id="deleteByExample" parameterType="com.meal.pojo.RecentLoginExample" >
+    delete from t_recentlogin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.meal.pojo.CartFood" >
-    insert into t_cartfood (id, foodID, copies, 
-      cartID)
-    values (#{id,jdbcType=VARCHAR}, #{foodid,jdbcType=VARCHAR}, #{copies,jdbcType=INTEGER}, 
-      #{cartid,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.meal.pojo.RecentLogin" >
+    insert into t_recentlogin (id, userKind, userId, 
+      ip, logintime, loginouttime
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userkind,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{logintime,jdbcType=TIMESTAMP}, #{loginouttime,jdbcType=TIMESTAMP}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.meal.pojo.CartFood" >
-    insert into t_cartfood
+  <insert id="insertSelective" parameterType="com.meal.pojo.RecentLogin" >
+    insert into t_recentlogin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="foodid != null" >
-        foodID,
+      <if test="userkind != null" >
+        userKind,
       </if>
-      <if test="copies != null" >
-        copies,
+      <if test="userid != null" >
+        userId,
       </if>
-      <if test="cartid != null" >
-        cartID,
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="logintime != null" >
+        logintime,
+      </if>
+      <if test="loginouttime != null" >
+        loginouttime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="foodid != null" >
-        #{foodid,jdbcType=VARCHAR},
+      <if test="userkind != null" >
+        #{userkind,jdbcType=INTEGER},
       </if>
-      <if test="copies != null" >
-        #{copies,jdbcType=INTEGER},
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
       </if>
-      <if test="cartid != null" >
-        #{cartid,jdbcType=VARCHAR},
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null" >
+        #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginouttime != null" >
+        #{loginouttime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.meal.pojo.CartFoodExample" resultType="java.lang.Integer" >
-    select count(*) from t_cartfood
+  <select id="countByExample" parameterType="com.meal.pojo.RecentLoginExample" resultType="java.lang.Integer" >
+    select count(*) from t_recentlogin
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update t_cartfood
+    update t_recentlogin
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.foodid != null" >
-        foodID = #{record.foodid,jdbcType=VARCHAR},
+      <if test="record.userkind != null" >
+        userKind = #{record.userkind,jdbcType=INTEGER},
       </if>
-      <if test="record.copies != null" >
-        copies = #{record.copies,jdbcType=INTEGER},
+      <if test="record.userid != null" >
+        userId = #{record.userid,jdbcType=VARCHAR},
       </if>
-      <if test="record.cartid != null" >
-        cartID = #{record.cartid,jdbcType=VARCHAR},
+      <if test="record.ip != null" >
+        ip = #{record.ip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logintime != null" >
+        logintime = #{record.logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loginouttime != null" >
+        loginouttime = #{record.loginouttime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -162,35 +184,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update t_cartfood
+    update t_recentlogin
     set id = #{record.id,jdbcType=VARCHAR},
-      foodID = #{record.foodid,jdbcType=VARCHAR},
-      copies = #{record.copies,jdbcType=INTEGER},
-      cartID = #{record.cartid,jdbcType=VARCHAR}
+      userKind = #{record.userkind,jdbcType=INTEGER},
+      userId = #{record.userid,jdbcType=VARCHAR},
+      ip = #{record.ip,jdbcType=VARCHAR},
+      logintime = #{record.logintime,jdbcType=TIMESTAMP},
+      loginouttime = #{record.loginouttime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.CartFood" >
-    update t_cartfood
+  <update id="updateByPrimaryKeySelective" parameterType="com.meal.pojo.RecentLogin" >
+    update t_recentlogin
     <set >
-      <if test="foodid != null" >
-        foodID = #{foodid,jdbcType=VARCHAR},
+      <if test="userkind != null" >
+        userKind = #{userkind,jdbcType=INTEGER},
       </if>
-      <if test="copies != null" >
-        copies = #{copies,jdbcType=INTEGER},
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=VARCHAR},
       </if>
-      <if test="cartid != null" >
-        cartID = #{cartid,jdbcType=VARCHAR},
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null" >
+        logintime = #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginouttime != null" >
+        loginouttime = #{loginouttime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.CartFood" >
-    update t_cartfood
-    set foodID = #{foodid,jdbcType=VARCHAR},
-      copies = #{copies,jdbcType=INTEGER},
-      cartID = #{cartid,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.meal.pojo.RecentLogin" >
+    update t_recentlogin
+    set userKind = #{userkind,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      logintime = #{logintime,jdbcType=TIMESTAMP},
+      loginouttime = #{loginouttime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

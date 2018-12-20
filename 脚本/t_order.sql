@@ -1,14 +1,14 @@
 drop table if exists t_order;
 create table t_order(
-	id int primary key not null auto_increment, #订单ID
-	userID int, #用户ID
+	id varchar(255) primary key, #订单ID
+	userID varchar(255), #用户ID
 	userName varchar(255), # 用户名字
 	address varchar(255), # 收货地址
 	phone varchar(11), #联系方式
-	sellerID int, #商家ID
+	sellerID varchar(255), #商家ID
 	sellerName varchar(255), #店铺名
 	sellerPhone varchar(11), #店家联系方式
-	riderID int, #骑手ID
+	riderID varchar(255), #骑手ID
 	riderPhone varchar(11), #骑手联系方式
 	total_price float, #总额
 	sellersorce float, #商家评分

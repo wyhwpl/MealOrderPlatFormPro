@@ -3,11 +3,11 @@ package com.meal.pojo;
 import java.util.Date;
 
 public class AdminTasks {
-    private Integer id;
+    private String id;
 
     private Integer taskkind;
 
-    private Integer objectid;
+    private String objectid;
 
     private String username;
 
@@ -17,14 +17,14 @@ public class AdminTasks {
 
     private Date donetime;
 
-    private Integer adminid;
+    private String adminid;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public Integer getTaskkind() {
@@ -35,12 +35,12 @@ public class AdminTasks {
         this.taskkind = taskkind;
     }
 
-    public Integer getObjectid() {
+    public String getObjectid() {
         return objectid;
     }
 
-    public void setObjectid(Integer objectid) {
-        this.objectid = objectid;
+    public void setObjectid(String objectid) {
+        this.objectid = objectid == null ? null : objectid.trim();
     }
 
     public String getUsername() {
@@ -75,11 +75,11 @@ public class AdminTasks {
         this.donetime = donetime;
     }
 
-    public Integer getAdminid() {
+    public String getAdminid() {
         return adminid;
     }
 
-    public void setAdminid(Integer adminid) {
-        this.adminid = adminid;
+    public void setAdminid(String adminid) {
+        this.adminid = adminid == null ? null : adminid.trim();
     }
 }

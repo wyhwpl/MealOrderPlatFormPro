@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.FoodMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.Food" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="foodname" property="foodname" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="origin_price" property="originPrice" jdbcType="REAL" />
-    <result column="tagID" property="tagid" jdbcType="INTEGER" />
+    <result column="tagID" property="tagid" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="REAL" />
-    <result column="sellerID" property="sellerid" jdbcType="INTEGER" />
+    <result column="sellerID" property="sellerid" jdbcType="VARCHAR" />
     <result column="score" property="score" jdbcType="REAL" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="applicationtime" property="applicationtime" jdbcType="TIMESTAMP" />
@@ -92,15 +92,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_food
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_food
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.FoodExample" >
     delete from t_food
@@ -114,9 +114,9 @@
       sellerID, score, status, 
       applicationtime, thoughtime, undercarriagetime, 
       img_URL)
-    values (#{id,jdbcType=INTEGER}, #{foodname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{originPrice,jdbcType=REAL}, #{tagid,jdbcType=INTEGER}, #{price,jdbcType=REAL}, 
-      #{sellerid,jdbcType=INTEGER}, #{score,jdbcType=REAL}, #{status,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=VARCHAR}, #{foodname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{originPrice,jdbcType=REAL}, #{tagid,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, 
+      #{sellerid,jdbcType=VARCHAR}, #{score,jdbcType=REAL}, #{status,jdbcType=INTEGER}, 
       #{applicationtime,jdbcType=TIMESTAMP}, #{thoughtime,jdbcType=TIMESTAMP}, #{undercarriagetime,jdbcType=TIMESTAMP}, 
       #{imgUrl,jdbcType=VARCHAR})
   </insert>
@@ -165,7 +165,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="foodname != null" >
         #{foodname,jdbcType=VARCHAR},
@@ -177,13 +177,13 @@
         #{originPrice,jdbcType=REAL},
       </if>
       <if test="tagid != null" >
-        #{tagid,jdbcType=INTEGER},
+        #{tagid,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
         #{price,jdbcType=REAL},
       </if>
       <if test="sellerid != null" >
-        #{sellerid,jdbcType=INTEGER},
+        #{sellerid,jdbcType=VARCHAR},
       </if>
       <if test="score != null" >
         #{score,jdbcType=REAL},
@@ -215,7 +215,7 @@
     update t_food
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.foodname != null" >
         foodname = #{record.foodname,jdbcType=VARCHAR},
@@ -227,13 +227,13 @@
         origin_price = #{record.originPrice,jdbcType=REAL},
       </if>
       <if test="record.tagid != null" >
-        tagID = #{record.tagid,jdbcType=INTEGER},
+        tagID = #{record.tagid,jdbcType=VARCHAR},
       </if>
       <if test="record.price != null" >
         price = #{record.price,jdbcType=REAL},
       </if>
       <if test="record.sellerid != null" >
-        sellerID = #{record.sellerid,jdbcType=INTEGER},
+        sellerID = #{record.sellerid,jdbcType=VARCHAR},
       </if>
       <if test="record.score != null" >
         score = #{record.score,jdbcType=REAL},
@@ -260,13 +260,13 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_food
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       foodname = #{record.foodname,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
       origin_price = #{record.originPrice,jdbcType=REAL},
-      tagID = #{record.tagid,jdbcType=INTEGER},
+      tagID = #{record.tagid,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=REAL},
-      sellerID = #{record.sellerid,jdbcType=INTEGER},
+      sellerID = #{record.sellerid,jdbcType=VARCHAR},
       score = #{record.score,jdbcType=REAL},
       status = #{record.status,jdbcType=INTEGER},
       applicationtime = #{record.applicationtime,jdbcType=TIMESTAMP},
@@ -290,13 +290,13 @@
         origin_price = #{originPrice,jdbcType=REAL},
       </if>
       <if test="tagid != null" >
-        tagID = #{tagid,jdbcType=INTEGER},
+        tagID = #{tagid,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
         price = #{price,jdbcType=REAL},
       </if>
       <if test="sellerid != null" >
-        sellerID = #{sellerid,jdbcType=INTEGER},
+        sellerID = #{sellerid,jdbcType=VARCHAR},
       </if>
       <if test="score != null" >
         score = #{score,jdbcType=REAL},
@@ -317,22 +317,22 @@
         img_URL = #{imgUrl,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Food" >
     update t_food
     set foodname = #{foodname,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       origin_price = #{originPrice,jdbcType=REAL},
-      tagID = #{tagid,jdbcType=INTEGER},
+      tagID = #{tagid,jdbcType=VARCHAR},
       price = #{price,jdbcType=REAL},
-      sellerID = #{sellerid,jdbcType=INTEGER},
+      sellerID = #{sellerid,jdbcType=VARCHAR},
       score = #{score,jdbcType=REAL},
       status = #{status,jdbcType=INTEGER},
       applicationtime = #{applicationtime,jdbcType=TIMESTAMP},
       thoughtime = #{thoughtime,jdbcType=TIMESTAMP},
       undercarriagetime = #{undercarriagetime,jdbcType=TIMESTAMP},
       img_URL = #{imgUrl,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

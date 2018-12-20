@@ -3,9 +3,9 @@ package com.meal.pojo;
 import java.util.Date;
 
 public class Order {
-    private Integer id;
+    private String id;
 
-    private Integer userid;
+    private String userid;
 
     private String username;
 
@@ -13,13 +13,13 @@ public class Order {
 
     private String phone;
 
-    private Integer sellerid;
+    private String sellerid;
 
     private String sellername;
 
     private String sellerphone;
 
-    private Integer riderid;
+    private String riderid;
 
     private String riderphone;
 
@@ -43,20 +43,20 @@ public class Order {
 
     private Date arrivetime;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public Integer getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserid(String userid) {
+        this.userid = userid == null ? null : userid.trim();
     }
 
     public String getUsername() {
@@ -83,12 +83,12 @@ public class Order {
         this.phone = phone == null ? null : phone.trim();
     }
 
-    public Integer getSellerid() {
+    public String getSellerid() {
         return sellerid;
     }
 
-    public void setSellerid(Integer sellerid) {
-        this.sellerid = sellerid;
+    public void setSellerid(String sellerid) {
+        this.sellerid = sellerid == null ? null : sellerid.trim();
     }
 
     public String getSellername() {
@@ -107,12 +107,12 @@ public class Order {
         this.sellerphone = sellerphone == null ? null : sellerphone.trim();
     }
 
-    public Integer getRiderid() {
+    public String getRiderid() {
         return riderid;
     }
 
-    public void setRiderid(Integer riderid) {
-        this.riderid = riderid;
+    public void setRiderid(String riderid) {
+        this.riderid = riderid == null ? null : riderid.trim();
     }
 
     public String getRiderphone() {

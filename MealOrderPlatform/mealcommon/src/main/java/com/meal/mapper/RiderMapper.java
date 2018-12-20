@@ -10,7 +10,7 @@ public interface RiderMapper {
 
     int deleteByExample(RiderExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(Rider record);
 
@@ -18,7 +18,7 @@ public interface RiderMapper {
 
     List<Rider> selectByExample(RiderExample example);
 
-    Rider selectByPrimaryKey(Integer id);
+    Rider selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") Rider record, @Param("example") RiderExample example);
 

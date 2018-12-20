@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.meal.mapper.RiderMapper" >
   <resultMap id="BaseResultMap" type="com.meal.pojo.Rider" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -92,15 +92,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_rider
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_rider
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.meal.pojo.RiderExample" >
     delete from t_rider
@@ -114,7 +114,7 @@
       currentstatus, sex, score, 
       regtime, thoughtime, logouttime, 
       img_URL)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
       #{currentstatus,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}, #{score,jdbcType=REAL}, 
       #{regtime,jdbcType=TIMESTAMP}, #{thoughtime,jdbcType=TIMESTAMP}, #{logouttime,jdbcType=TIMESTAMP}, 
@@ -165,7 +165,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
@@ -215,7 +215,7 @@
     update t_rider
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
@@ -260,7 +260,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_rider
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
@@ -317,7 +317,7 @@
         img_URL = #{imgUrl,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meal.pojo.Rider" >
     update t_rider
@@ -333,6 +333,6 @@
       thoughtime = #{thoughtime,jdbcType=TIMESTAMP},
       logouttime = #{logouttime,jdbcType=TIMESTAMP},
       img_URL = #{imgUrl,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -3,7 +3,7 @@ package com.meal.pojo;
 import java.util.Date;
 
 public class Food {
-    private Integer id;
+    private String id;
 
     private String foodname;
 
@@ -11,11 +11,11 @@ public class Food {
 
     private Float originPrice;
 
-    private Integer tagid;
+    private String tagid;
 
     private Float price;
 
-    private Integer sellerid;
+    private String sellerid;
 
     private Float score;
 
@@ -29,12 +29,12 @@ public class Food {
 
     private String imgUrl;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getFoodname() {
@@ -61,12 +61,12 @@ public class Food {
         this.originPrice = originPrice;
     }
 
-    public Integer getTagid() {
+    public String getTagid() {
         return tagid;
     }
 
-    public void setTagid(Integer tagid) {
-        this.tagid = tagid;
+    public void setTagid(String tagid) {
+        this.tagid = tagid == null ? null : tagid.trim();
     }
 
     public Float getPrice() {
@@ -77,12 +77,12 @@ public class Food {
         this.price = price;
     }
 
-    public Integer getSellerid() {
+    public String getSellerid() {
         return sellerid;
     }
 
-    public void setSellerid(Integer sellerid) {
-        this.sellerid = sellerid;
+    public void setSellerid(String sellerid) {
+        this.sellerid = sellerid == null ? null : sellerid.trim();
     }
 
     public Float getScore() {
