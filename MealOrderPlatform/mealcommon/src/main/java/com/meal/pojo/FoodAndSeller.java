@@ -3,7 +3,7 @@ package com.meal.pojo;
 import java.util.Date;
 
 public class FoodAndSeller {
-    private Integer id;
+    private String id;
 
     private String foodname;
 
@@ -29,11 +29,11 @@ public class FoodAndSeller {
 
     private String imgUrl;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -11,17 +11,17 @@ import java.util.List;
 */
 public class TypeFood {
 
-    private int typeId;
+    private String typeId;
 
     private String typeName;
 
     private List<Food> foods;
 
-    public int getTypeId() {
+    public String getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(int typeId) {
+    public void setTypeId(String typeId) {
         this.typeId = typeId;
     }
 

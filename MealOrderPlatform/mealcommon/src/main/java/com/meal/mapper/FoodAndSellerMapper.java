@@ -5,7 +5,7 @@ import com.meal.pojo.FoodAndSeller;
 
 public interface FoodAndSellerMapper {
 
-    FoodAndSeller selectByPrimaryKey(Integer id);
+    FoodAndSeller selectByPrimaryKey(String id);
 
 
 }
