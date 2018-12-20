@@ -22,7 +22,7 @@ public class FoodAndSellerController {
 
     @RequestMapping(value = "byId/{id}")
     @ResponseBody
-    public FoodAndSeller getFoodAndSellerById(@PathVariable int id){
+    public FoodAndSeller getFoodAndSellerById(@PathVariable String id){
         return foodAndSellerService.getFoodAndSellerById(id);
     }
 

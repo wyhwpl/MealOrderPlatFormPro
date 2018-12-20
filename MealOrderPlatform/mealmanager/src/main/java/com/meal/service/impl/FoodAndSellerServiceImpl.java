@@ -17,7 +17,7 @@ public class FoodAndSellerServiceImpl implements FoodAndSellerService {
     @Autowired
     private FoodAndSellerMapper foodAndSellerMapper;
 
-    public FoodAndSeller getFoodAndSellerById(int id) {
+    public FoodAndSeller getFoodAndSellerById(String id) {
 
         FoodAndSeller foodAndSeller=foodAndSellerMapper.selectByPrimaryKey(id);
         if(foodAndSeller==null)return null;

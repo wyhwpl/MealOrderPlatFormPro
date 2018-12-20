@@ -9,5 +9,5 @@ import com.meal.pojo.FoodAndSeller;
 */
 public interface FoodAndSellerService {
 
-    FoodAndSeller getFoodAndSellerById(int id);
+    FoodAndSeller getFoodAndSellerById(String id);
 }
