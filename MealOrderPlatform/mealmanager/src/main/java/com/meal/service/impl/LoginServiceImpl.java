@@ -44,7 +44,7 @@ public class LoginServiceImpl implements LoginService {
         Cookie loginId=new Cookie("loginId",admin.getLoginid());
         Cookie password=new Cookie("password",admin.getPassword());
         Cookie imgUrl=new Cookie("imgUrl",lists.get(0).getImgUrl());
-        Cookie adminId=new Cookie("adminId",String.valueOf(lists.get(0).getId()));
+        Cookie adminId=new Cookie("adminId",lists.get(0).getId());
         Cookie adminName=null;
         try {
             adminName=new Cookie("adminName", URLEncoder.encode(lists.get(0).getUsername(),"UTF-8"));

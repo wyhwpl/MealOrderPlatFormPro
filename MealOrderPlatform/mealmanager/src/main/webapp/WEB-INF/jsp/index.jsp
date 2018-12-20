@@ -43,7 +43,7 @@
 
 <%
 	String imgUrl="/images/admindefault";
-	int adminId=1;
+	String adminId="1";
 	String adminName="管理员";
 	Cookie[] cookies=request.getCookies();
 	if(cookies!=null){
@@ -54,7 +54,7 @@
 				}
 			}
 			if("adminId".equals(cookies[i].getName())){
-			    adminId=Integer.parseInt(cookies[i].getValue());
+			    adminId=cookies[i].getValue();
 			}
 			if("adminName".equals(cookies[i].getName())){
 			    adminName= URLDecoder.decode(cookies[i].getValue(),"UTF-8");

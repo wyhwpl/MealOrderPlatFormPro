@@ -12,9 +12,9 @@ public interface SellerInfoService {
 
     PageInfo getSellerInfo(int pageNum, int pageSize, int type);
 
-    Seller getSellerById(int id);
+    Seller getSellerById(String id);
 
-    int updateSellerStatusById(int status, String reason, int id);
+    int updateSellerStatusById(int status, String reason, String id);
 
     int getTotal(int status);
 

@@ -51,7 +51,7 @@ public class FoodInfoServiceImpl implements FoodInfoService {
         return pageInfo;
     }
 
-    public Food getFoodById(int id) {
+    public Food getFoodById(String id) {
 
         Food food=foodMapper.selectByPrimaryKey(id);
         if(food==null) return null;
@@ -59,7 +59,7 @@ public class FoodInfoServiceImpl implements FoodInfoService {
         return food;
     }
 
-    public int updateFoodStatusById(int status, int id) {
+    public int updateFoodStatusById(int status, String id) {
 
         Food food=foodMapper.selectByPrimaryKey(id);
         if(food==null) return 0;

@@ -11,9 +11,9 @@ import com.meal.pojo.Rider;
 public interface RiderInfoService {
     PageInfo getRiderInfoByType(int type, int pageNum, int pageSize);
 
-    Rider getRiderById(int id);
+    Rider getRiderById(String id);
 
-    int updateRiderStatusById(int status, int id);
+    int updateRiderStatusById(int status, String id);
 
     int getTotal(int status);
 }

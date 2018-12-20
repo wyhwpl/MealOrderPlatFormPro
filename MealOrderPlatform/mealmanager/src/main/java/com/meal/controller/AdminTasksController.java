@@ -25,13 +25,13 @@ public class AdminTasksController {
 
     @RequestMapping(value = "/all/{adminId}")
     @ResponseBody
-    public List<AdminTasks> getAllTask(@PathVariable int adminId){
+    public List<AdminTasks> getAllTask(@PathVariable String adminId){
         return adminTasksService.getAllTasks(adminId);
     }
 
     @RequestMapping(value = "/some/{adminId}")
     @ResponseBody
-    public List<AdminTasks> getSomeTask(@PathVariable int adminId,
+    public List<AdminTasks> getSomeTask(@PathVariable String adminId,
                                         @RequestParam("num")int num){
         return adminTasksService.getSomeTasks(num,adminId);
     }
@@ -39,13 +39,13 @@ public class AdminTasksController {
     @RequestMapping(value = "/byexample/{type}")
     @ResponseBody
     public List<AdminTasks> getTaskByExample(@PathVariable int type,
-                                             @RequestParam("adminId")int adminId){
+                                             @RequestParam("adminId")String adminId){
         return adminTasksService.getTasksByExample(type,adminId);
     }
 
     @RequestMapping(value = "/done/{id}")
     @ResponseBody
-    public int done(@PathVariable int id){
+    public int done(@PathVariable String id){
         return adminTasksService.updateTaskStatusById(id);
     }
 
@@ -57,7 +57,7 @@ public class AdminTasksController {
 
     @RequestMapping(value = "/getAdminTask/{adminId}")
     @ResponseBody
-    public int getTotal(@PathVariable int adminId,
+    public int getTotal(@PathVariable String adminId,
                         @RequestParam("status") int status){
         return adminTasksService.getAdminTask(status,adminId);
     }

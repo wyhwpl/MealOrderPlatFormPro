@@ -38,20 +38,20 @@ public class SellerInfoController {
 
     @RequestMapping(value = "/byId/{id}")
     @ResponseBody
-    public Seller getSellerById(@PathVariable int id){
+    public Seller getSellerById(@PathVariable String id){
         return sellerInfoService.getSellerById(id);
     }
 
     @RequestMapping(value = "/though/{id}")
     @ResponseBody
-    public int though(@PathVariable int id){
+    public int though(@PathVariable String id){
 
         return sellerInfoService.updateSellerStatusById(0,null,id);
     }
 
     @RequestMapping(value = "/notthough/{id}")
     @ResponseBody
-    public int notThough(@PathVariable int id,
+    public int notThough(@PathVariable String id,
                          @RequestParam("reason")String reason){
 
         System.out.println(reason);

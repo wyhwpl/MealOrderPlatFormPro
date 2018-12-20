@@ -22,7 +22,7 @@ public class ClassifyController {
 
     @RequestMapping(value = "/byId/{id}")
     @ResponseBody
-    public Classify getTagById(@PathVariable int id){
+    public Classify getTagById(@PathVariable String id){
         return classifyService.getClassifyById(id);
     }
 

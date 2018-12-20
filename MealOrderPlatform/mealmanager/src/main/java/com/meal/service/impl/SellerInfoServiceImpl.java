@@ -55,14 +55,14 @@ public class SellerInfoServiceImpl implements SellerInfoService {
         return pageInfo;
     }
 
-    public Seller getSellerById(int id) {
+    public Seller getSellerById(String id) {
 
         Seller seller=sellerMapper.selectByPrimaryKey(id);
         if(seller==null)return null;
         return seller;
     }
 
-    public int updateSellerStatusById(int status, String reason, int id) {
+    public int updateSellerStatusById(int status, String reason, String id) {
 
         Seller seller=sellerMapper.selectByPrimaryKey(id);
 

@@ -23,7 +23,7 @@ public class AdminTasksServiceImpl implements AdminTasksService {
     private AdminTasksMapper adminTasksMapper;
 
     //返回全部任务
-    public List<AdminTasks> getAllTasks(int adminId) {
+    public List<AdminTasks> getAllTasks(String adminId) {
         AdminTasksExample example=new AdminTasksExample();
         AdminTasksExample.Criteria criteria=example.createCriteria();
         criteria.andAdminidEqualTo(adminId);
@@ -34,7 +34,7 @@ public class AdminTasksServiceImpl implements AdminTasksService {
     }
 
     //返回指定个数任务
-    public List<AdminTasks> getSomeTasks(int num,int adminId) {
+    public List<AdminTasks> getSomeTasks(int num,String adminId) {
         PageHelper.startPage(1,num);
         AdminTasksExample example=new AdminTasksExample();
         AdminTasksExample.Criteria criteria=example.createCriteria();
@@ -45,7 +45,7 @@ public class AdminTasksServiceImpl implements AdminTasksService {
     }
 
     //通过条件返回任务
-    public List<AdminTasks> getTasksByExample(int type,int adminId) {
+    public List<AdminTasks> getTasksByExample(int type,String adminId) {
 
         AdminTasksExample example=new AdminTasksExample();
         AdminTasksExample.Criteria criteria=example.createCriteria();
@@ -61,7 +61,7 @@ public class AdminTasksServiceImpl implements AdminTasksService {
         return tasks;
     }
 
-    public int updateTaskStatusById(int id) {
+    public int updateTaskStatusById(String id) {
 
         AdminTasks tasks=adminTasksMapper.selectByPrimaryKey(id);
         if(tasks==null) return 0;
@@ -79,7 +79,7 @@ public class AdminTasksServiceImpl implements AdminTasksService {
         return adminTasksMapper.countByExample(example);
     }
 
-    public int getAdminTask(int status, int adminId) {
+    public int getAdminTask(int status, String adminId) {
         AdminTasksExample example=new AdminTasksExample();
         AdminTasksExample.Criteria criteria=example.createCriteria();
         criteria.andStatusEqualTo(status);

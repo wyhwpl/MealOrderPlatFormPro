@@ -51,13 +51,13 @@ public class RiderInfoServiceImpl implements RiderInfoService {
         return pageInfo;
     }
 
-    public Rider getRiderById(int id) {
+    public Rider getRiderById(String id) {
         Rider rider=riderMapper.selectByPrimaryKey(id);
         if(rider==null) return null;
         return rider;
     }
 
-    public int updateRiderStatusById(int status, int id) {
+    public int updateRiderStatusById(int status, String id) {
 
         Rider rider=riderMapper.selectByPrimaryKey(id);
         if(rider==null) return 0;

@@ -32,19 +32,19 @@ public class FoodInfoController {
 
     @RequestMapping(value = "/byId/{id}")
     @ResponseBody
-    public Food getFoodById(@PathVariable int id){
+    public Food getFoodById(@PathVariable String id){
         return foodInfoService.getFoodById(id);
     }
 
     @RequestMapping(value = "/though/{id}")
     @ResponseBody
-    public int though(@PathVariable int id){
+    public int though(@PathVariable String id){
         return foodInfoService.updateFoodStatusById(0,id);
     }
 
     @RequestMapping(value = "/notthough/{id}")
     @ResponseBody
-    public int notThough(@PathVariable int id){
+    public int notThough(@PathVariable String id){
         return foodInfoService.updateFoodStatusById(1,id);
     }
 

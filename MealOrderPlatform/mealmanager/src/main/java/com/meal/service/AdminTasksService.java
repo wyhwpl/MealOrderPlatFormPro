@@ -11,15 +11,15 @@ import java.util.List;
 */
 public interface AdminTasksService {
     //返回全部任务
-    List<AdminTasks> getAllTasks(int adminId);
+    List<AdminTasks> getAllTasks(String adminId);
     //返回指定个数任务
-    List<AdminTasks> getSomeTasks(int num, int adminId);
+    List<AdminTasks> getSomeTasks(int num, String adminId);
     //通过条件返回任务
-    List<AdminTasks> getTasksByExample(int type, int adminId);
+    List<AdminTasks> getTasksByExample(int type, String adminId);
 
-    int updateTaskStatusById(int id);
+    int updateTaskStatusById(String id);
 
     int getTotal(int status);
 
-    int getAdminTask(int status, int adminId);
+    int getAdminTask(int status, String adminId);
 }

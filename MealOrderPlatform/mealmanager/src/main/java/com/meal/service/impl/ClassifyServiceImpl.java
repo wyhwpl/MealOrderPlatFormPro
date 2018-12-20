@@ -17,7 +17,7 @@ public class ClassifyServiceImpl implements ClassifyService {
     @Autowired
     private ClassifyMapper classifyMapper;
 
-    public Classify getClassifyById(int id) {
+    public Classify getClassifyById(String id) {
         Classify tag=classifyMapper.selectByPrimaryKey(id);
         if(tag==null) return null;
         return tag;

@@ -9,6 +9,6 @@ import com.meal.pojo.Classify;
 */
 public interface ClassifyService {
 
-    Classify getClassifyById(int id);
+    Classify getClassifyById(String id);
 
 }
