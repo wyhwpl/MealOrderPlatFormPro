@@ -1,6 +1,5 @@
 package com.meal.controller;
 
-import com.meal.pojo.Order;
 import com.meal.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

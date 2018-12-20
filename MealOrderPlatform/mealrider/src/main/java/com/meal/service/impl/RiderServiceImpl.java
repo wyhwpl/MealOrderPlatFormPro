@@ -1,13 +1,12 @@
 package com.meal.service.impl;
 
 import com.meal.commons.CheckResult;
+import com.meal.commons.CreateUUID;
+import com.meal.mapper.AdminMapper;
 import com.meal.mapper.AdminNewsMapper;
 import com.meal.mapper.AdminTasksMapper;
 import com.meal.mapper.RiderMapper;
-import com.meal.pojo.AdminNews;
-import com.meal.pojo.AdminTasks;
-import com.meal.pojo.Rider;
-import com.meal.pojo.RiderExample;
+import com.meal.pojo.*;
 import com.meal.service.RiderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +35,9 @@ public class RiderServiceImpl implements RiderService {
     @Autowired
     private AdminNewsMapper adminNewsMapper;
 
+    @Autowired
+    private AdminMapper adminMapper;
+
 
     public CheckResult loginCheck(HttpServletRequest request, HttpServletResponse response, Rider rider) {
 
@@ -55,7 +57,7 @@ public class RiderServiceImpl implements RiderService {
         return CheckResult.build(200,"登录成功");
     }
 
-    public int applicationAgain(int riderId, Rider rider) {
+    public int applicationAgain(String riderId, Rider rider) {
         Rider riderI = riderMapper.selectByPrimaryKey(riderId);
 
         Date time=new Date();
@@ -68,18 +70,24 @@ public class RiderServiceImpl implements RiderService {
         rider.setScore(0f);
         int result=riderMapper.updateByPrimaryKey(rider);
         if(result!=0){
+            AdminExample example=new AdminExample();
+            int count=adminMapper.countByExample(example);
+            List<Admin> admins=adminMapper.selectByExample(example);
             AdminTasks tasks=new AdminTasks();
+            tasks.setId(CreateUUID.createUUID());
             tasks.setTaskkind(2);
             tasks.setObjectid(riderId);
             tasks.setUsername(rider.getUsername());
             tasks.setStatus(0);
             tasks.setTasktime(time);
             Random random=new Random();
-            int s=random.nextInt(4)%(4-1+1)+1;
-            System.out.println(s);
-            tasks.setAdminid(s);
+            int s=random.nextInt(count)%(count-1+1)+1;
+            String adminId=admins.get(s).getId();
+            System.out.println(adminId);
+            tasks.setAdminid(adminId);
             int res=adminTasksMapper.insert(tasks);
             AdminNews news=new AdminNews();
+            news.setId(CreateUUID.createUUID());
             news.setUserkind(3);
             news.setUserid(riderId);
             news.setUsername(rider.getUsername());
@@ -92,13 +100,14 @@ public class RiderServiceImpl implements RiderService {
         return 0;
     }
 
-    public int logOff(int riderId) {
+    public int logOff(String riderId) {
         Rider rider=riderMapper.selectByPrimaryKey(riderId);
         Date time=new Date();
         rider.setStatus(3);
         rider.setLogouttime(time);
         int result=riderMapper.updateByPrimaryKey(rider);
         AdminNews news=new AdminNews();
+        news.setId(CreateUUID.createUUID());
         news.setUserkind(3);
         news.setUserid(riderId);
         news.setUsername(rider.getUsername());
@@ -109,13 +118,13 @@ public class RiderServiceImpl implements RiderService {
         return result;
     }
 
-    public int modifyAddress(int riderId, String address) {
+    public int modifyAddress(String riderId, String address) {
         Rider rider=riderMapper.selectByPrimaryKey(riderId);
         rider.setAddress(address);
         return riderMapper.updateByPrimaryKey(rider);
     }
 
-    public int modifySex(int riderId, String sex) {
+    public int modifySex(String riderId, String sex) {
         Rider rider=riderMapper.selectByPrimaryKey(riderId);
         rider.setAddress(sex);
         return riderMapper.updateByPrimaryKey(rider);

@@ -1,7 +1,6 @@
 package com.meal.controller;
 
 import com.meal.commons.CheckResult;
-import com.meal.pojo.Rider;
 import com.meal.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

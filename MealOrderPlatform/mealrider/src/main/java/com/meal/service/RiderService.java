@@ -16,12 +16,12 @@ public interface RiderService {
 
     CheckResult loginCheck(HttpServletRequest request, HttpServletResponse response, Rider rider);
 
-    int applicationAgain(int riderId,Rider rider);
+    int applicationAgain(String riderId,Rider rider);
 
-    int logOff(int riderId);
+    int logOff(String riderId);
 
-    int modifyAddress(int riderId,String address);
+    int modifyAddress(String riderId,String address);
 
-    int modifySex(int riderId,String sex);
+    int modifySex(String riderId,String sex);
 
 }

@@ -21,7 +21,7 @@ public class OrderFoodServiceImpl implements OrderFoodService {
     private OrderFoodMapper orderFoodMapper;
 
 
-    public List<OrderFood> getOrderFood(int orderId) {
+    public List<OrderFood> getOrderFood(String orderId) {
         OrderFoodExample example=new OrderFoodExample();
         OrderFoodExample.Criteria criteria=example.createCriteria();
         criteria.andOrderidEqualTo(orderId);

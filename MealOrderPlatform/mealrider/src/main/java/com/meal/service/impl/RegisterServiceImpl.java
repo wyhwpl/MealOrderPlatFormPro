@@ -1,13 +1,12 @@
 package com.meal.service.impl;
 
 import com.meal.commons.CheckResult;
+import com.meal.commons.CreateUUID;
+import com.meal.mapper.AdminMapper;
 import com.meal.mapper.AdminNewsMapper;
 import com.meal.mapper.AdminTasksMapper;
 import com.meal.mapper.RiderMapper;
-import com.meal.pojo.AdminNews;
-import com.meal.pojo.AdminTasks;
-import com.meal.pojo.Rider;
-import com.meal.pojo.RiderExample;
+import com.meal.pojo.*;
 import com.meal.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +33,9 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private AdminNewsMapper adminNewsMapper;
+
+    @Autowired
+    private AdminMapper adminMapper;
 
 
     public CheckResult checkData(String param, int type) {
@@ -65,29 +67,35 @@ public class RegisterServiceImpl implements RegisterService {
         if(checkResult.getStatus()==500){
             return CheckResult.build(500,"登录账号已存在");
         }
+        String id= CreateUUID.createUUID();
         Date time=new Date();
-        int count=riderMapper.countByExample(new RiderExample());
-        rider.setId(count+1);
+        rider.setId(id);
         rider.setRegtime(time);
         rider.setStatus(0);
         rider.setPassword(DigestUtils.md5DigestAsHex(rider.getPassword().getBytes()));
         rider.setScore(0f);
         riderMapper.insert(rider);
 
+        AdminExample example=new AdminExample();
+        int count=adminMapper.countByExample(example);
+        List<Admin> admins=adminMapper.selectByExample(example);
         AdminTasks tasks=new AdminTasks();
+        tasks.setId(CreateUUID.createUUID());
         tasks.setTaskkind(2);
-        tasks.setObjectid(count+1);
+        tasks.setObjectid(id);
         tasks.setUsername(rider.getUsername());
         tasks.setStatus(0);
         tasks.setTasktime(time);
         Random random=new Random();
-        int s=random.nextInt(4)%(4-1+1)+1;
-        System.out.println(s);
-        tasks.setAdminid(s);
+        int s=random.nextInt(count)%(count-1+1)+1;
+        String adminId=admins.get(s).getId();
+        System.out.println(adminId);
+        tasks.setAdminid(adminId);
         adminTasksMapper.insert(tasks);
         AdminNews news=new AdminNews();
+        news.setId(CreateUUID.createUUID());
         news.setUserkind(3);
-        news.setUserid(count+1);
+        news.setUserid(id);
         news.setUsername(rider.getUsername());
         news.setAction("申请注册");
         news.setActionobject("骑手");

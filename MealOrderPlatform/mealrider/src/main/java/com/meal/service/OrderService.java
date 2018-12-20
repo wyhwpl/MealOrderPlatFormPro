@@ -11,13 +11,13 @@ import java.util.List;
 */
 public interface OrderService {
 
-    List<Order> getAllOrder(int riderId);
+    List<Order> getAllOrder(String riderId);
 
-    List<Order> getDoneOrder(int riderId);
+    List<Order> getDoneOrder(String riderId);
 
-    List<Order> getDoingOrder(int riderId);
+    List<Order> getDoingOrder(String riderId);
 
-    List<Order> getToDoOrder(int riderId);
+    List<Order> getToDoOrder(String riderId);
 
-    int cancelOrConfirmOrder(int orderId,boolean flag);
+    int cancelOrConfirmOrder(String orderId,boolean flag);
 }

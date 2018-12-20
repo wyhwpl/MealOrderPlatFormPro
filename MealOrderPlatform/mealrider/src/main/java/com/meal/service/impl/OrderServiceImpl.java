@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderCancelMapper orderCancelMapper;
 
 
-    public List<Order> getAllOrder(int riderId) {
+    public List<Order> getAllOrder(String riderId) {
         OrderExample example=new OrderExample();
         OrderExample.Criteria criteria=example.createCriteria();
         criteria.andRideridEqualTo(riderId);
@@ -38,7 +38,7 @@ public class OrderServiceImpl implements OrderService {
         return orders;
     }
 
-    public List<Order> getDoneOrder(int riderId) {
+    public List<Order> getDoneOrder(String riderId) {
         OrderExample example=new OrderExample();
         OrderExample.Criteria criteria=example.createCriteria();
         criteria.andRideridEqualTo(riderId);
@@ -54,7 +54,7 @@ public class OrderServiceImpl implements OrderService {
         return orders;
     }
 
-    public List<Order> getDoingOrder(int riderId) {
+    public List<Order> getDoingOrder(String riderId) {
         OrderExample example=new OrderExample();
         OrderExample.Criteria criteria=example.createCriteria();
         criteria.andRideridEqualTo(riderId);
@@ -66,7 +66,7 @@ public class OrderServiceImpl implements OrderService {
         return orders;
     }
 
-    public List<Order> getToDoOrder(int riderId) {
+    public List<Order> getToDoOrder(String riderId) {
         OrderExample example=new OrderExample();
         OrderExample.Criteria criteria=example.createCriteria();
         criteria.andStatusEqualTo(2);
@@ -78,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
         return orders;
     }
 
-    public int cancelOrConfirmOrder(int orderId, boolean flag) {
+    public int cancelOrConfirmOrder(String orderId, boolean flag) {
 
         Order order=orderMapper.selectByPrimaryKey(orderId);
         if(order==null){
