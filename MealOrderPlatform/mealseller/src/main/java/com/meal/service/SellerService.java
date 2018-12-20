@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 */
 public interface SellerService {
 
-    CheckResult loginCheck(HttpServletRequest request, HttpServletResponse response,Seller seller);
+    CheckResult loginCheck(HttpServletRequest request, HttpServletResponse response, Seller seller);
 
-    int ApplicationAgain(int sellerId,Seller seller);
+    int ApplicationAgain(String sellerId,Seller seller);
 
-    int logout(int sellerId);
+    int logout(String sellerId);
 
 }

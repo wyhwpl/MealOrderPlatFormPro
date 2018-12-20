@@ -1,23 +1,19 @@
 package com.meal.service.impl;
 
 import com.meal.commons.CheckResult;
+import com.meal.commons.CreateUUID;
+import com.meal.mapper.AdminMapper;
 import com.meal.mapper.AdminNewsMapper;
 import com.meal.mapper.AdminTasksMapper;
 import com.meal.mapper.SellerMapper;
-import com.meal.pojo.AdminNews;
-import com.meal.pojo.AdminTasks;
-import com.meal.pojo.Seller;
-import com.meal.pojo.SellerExample;
+import com.meal.pojo.*;
 import com.meal.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -39,8 +35,11 @@ public class SellerServiceImpl implements SellerService {
     @Autowired
     private AdminNewsMapper adminNewsMapper;
 
+    @Autowired
+    private AdminMapper adminMapper;
 
-    public CheckResult loginCheck(HttpServletRequest request, HttpServletResponse response,Seller seller) {
+
+    public CheckResult loginCheck(HttpServletRequest request, HttpServletResponse response, Seller seller) {
 
         SellerExample example =new SellerExample();
         SellerExample.Criteria criteria=example.createCriteria();
@@ -87,7 +86,7 @@ public class SellerServiceImpl implements SellerService {
         return CheckResult.build(200,"登录成功");
     }
 
-    public int ApplicationAgain(int sellerId, Seller seller) {
+    public int ApplicationAgain(String sellerId, Seller seller) {
 
         Seller sellerI=sellerMapper.selectByPrimaryKey(sellerId);
 
@@ -102,18 +101,24 @@ public class SellerServiceImpl implements SellerService {
         seller.setStatus(0);
         int result=sellerMapper.updateByPrimaryKey(seller);
         if(result!=0){
+            AdminExample example=new AdminExample();
+            int count=adminMapper.countByExample(example);
+            List<Admin> admins=adminMapper.selectByExample(example);
             AdminTasks tasks=new AdminTasks();
+            tasks.setId(CreateUUID.createUUID());
             tasks.setTaskkind(1);
             tasks.setObjectid(sellerId);
             tasks.setUsername(seller.getName());
             tasks.setStatus(0);
             tasks.setTasktime(time);
             Random random=new Random();
-            int s=random.nextInt(4)%(4-1+1)+1;
-            System.out.println(s);
-            tasks.setAdminid(s);
+            int s=random.nextInt(count)%(count-1+1)+1;
+            String adminId=admins.get(s).getId();
+            System.out.println(adminId);
+            tasks.setAdminid(adminId);
             int res=adminTasksMapper.insert(tasks);
             AdminNews news=new AdminNews();
+            news.setId(CreateUUID.createUUID());
             news.setUserkind(1);
             news.setUserid(sellerId);
             news.setUsername(seller.getName());
@@ -126,7 +131,7 @@ public class SellerServiceImpl implements SellerService {
         return result;
     }
 
-    public int logout(int sellerId) {
+    public int logout(String sellerId) {
 
         Seller seller=sellerMapper.selectByPrimaryKey(sellerId);
 
@@ -137,6 +142,7 @@ public class SellerServiceImpl implements SellerService {
         int result=sellerMapper.updateByPrimaryKey(seller);
 
         AdminNews news=new AdminNews();
+        news.setId(CreateUUID.createUUID());
         news.setUserkind(1);
         news.setUserid(sellerId);
         news.setUsername(seller.getName());

@@ -24,7 +24,7 @@ public class OrderFoodController {
 
     @RequestMapping(value = "/getAll/{orderId}")
     @ResponseBody
-    public List<OrderFood> getAll(@PathVariable int orderId){
+    public List<OrderFood> getAll(@PathVariable String orderId){
         return orderFoodService.getOrderFood(orderId);
     }
 }

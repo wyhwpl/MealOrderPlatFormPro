@@ -12,12 +12,12 @@ import java.util.List;
 public interface ClassifyService {
 
 
-    List<Classify> getAllClassify(int sellerId);
+    List<Classify> getAllClassify(String sellerId);
 
-    Classify getClassifyById(int tagId);
+    Classify getClassifyById(String tagId);
 
-    int addTag(Classify classify,int sellerId);
+    int addTag(Classify classify,String sellerId);
 
-    int modifyTag(int tagId,String tagName);
+    int modifyTag(String tagId,String tagName);
 
 }

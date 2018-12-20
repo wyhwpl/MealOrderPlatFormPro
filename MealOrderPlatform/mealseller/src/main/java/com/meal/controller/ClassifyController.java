@@ -22,25 +22,25 @@ public class ClassifyController {
 
     @RequestMapping(value = "/getAll/{sellerId}")
     @ResponseBody
-    public List<Classify> getAllClassify(@PathVariable int sellerId){
+    public List<Classify> getAllClassify(@PathVariable String sellerId){
         return classifyService.getAllClassify(sellerId);
     }
 
     @RequestMapping(value = "/getById/{id}")
     @ResponseBody
-    public Classify getById(@PathVariable int id){
+    public Classify getById(@PathVariable String id){
         return classifyService.getClassifyById(id);
     }
 
     @RequestMapping(value = "/add/{sellerId}")
     @ResponseBody
-    public int addClassify(@PathVariable int sellerId, @RequestBody Classify classify){
+    public int addClassify(@PathVariable String sellerId, @RequestBody Classify classify){
         return classifyService.addTag(classify, sellerId);
     }
 
     @RequestMapping(value = "/modifyById/{id}")
     @ResponseBody
-    public int modifyClassify(@PathVariable int id,
+    public int modifyClassify(@PathVariable String id,
                               @RequestParam("tagName") String tagName){
         return classifyService.modifyTag(id, tagName);
     }

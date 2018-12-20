@@ -1,7 +1,6 @@
 package com.meal.service.impl;
 
 import com.meal.mapper.OrderFoodMapper;
-
 import com.meal.pojo.OrderFood;
 import com.meal.pojo.OrderFoodExample;
 import com.meal.service.OrderFoodService;
@@ -22,7 +21,7 @@ public class OrderFoodServiceImpl implements OrderFoodService {
     private OrderFoodMapper orderFoodMapper;
 
 
-    public List<OrderFood> getOrderFood(int orderId) {
+    public List<OrderFood> getOrderFood(String orderId) {
 
         OrderFoodExample example=new OrderFoodExample();
         OrderFoodExample.Criteria criteria=example.createCriteria();

@@ -40,13 +40,13 @@ public class SellerController {
 
     @RequestMapping(value = "/logOff/{sellerId}")
     @ResponseBody
-    public int logOff(@PathVariable int sellerId){
+    public int logOff(@PathVariable String sellerId){
         return sellerService.logout(sellerId);
     }
 
     @RequestMapping(value = "/applicationAgain/{sellerId}")
     @ResponseBody
-    public int applicationAgain(@PathVariable int sellerId,
+    public int applicationAgain(@PathVariable String sellerId,
                                 @RequestBody Seller seller){
         return sellerService.ApplicationAgain(sellerId, seller);
     }

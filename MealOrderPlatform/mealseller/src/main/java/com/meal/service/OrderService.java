@@ -11,10 +11,12 @@ import java.util.List;
 */
 public interface OrderService {
 
-    List<Order> getAllOrder(int sellerId);
+    List<Order> getAllOrder(String sellerId);
 
-    List<Order> getOrderByExample(int sellerId,int param,int type);
+    List<Order> getOrderByExample(String sellerId,String param,int type);
 
-    int modifyOrderByExample(int orderId,String param,int type);
+    int modifyOrderByExample(String orderId,String param,int type);
+
+    int confirmOrder(String orderId,String sellerId);
 
 }

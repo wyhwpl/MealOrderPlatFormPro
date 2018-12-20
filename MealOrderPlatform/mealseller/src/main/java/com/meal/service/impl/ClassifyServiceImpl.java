@@ -1,5 +1,6 @@
 package com.meal.service.impl;
 
+import com.meal.commons.CreateUUID;
 import com.meal.mapper.ClassifyMapper;
 import com.meal.pojo.Classify;
 import com.meal.pojo.ClassifyExample;
@@ -21,7 +22,7 @@ public class ClassifyServiceImpl implements ClassifyService {
     private ClassifyMapper classifyMapper;
 
 
-    public List<Classify> getAllClassify(int sellerId) {
+    public List<Classify> getAllClassify(String sellerId) {
 
         ClassifyExample example=new ClassifyExample();
 
@@ -38,19 +39,20 @@ public class ClassifyServiceImpl implements ClassifyService {
         return classifies;
     }
 
-    public Classify getClassifyById(int tagId) {
+    public Classify getClassifyById(String tagId) {
 
         return classifyMapper.selectByPrimaryKey(tagId);
     }
 
-    public int addTag(Classify classify, int sellerId) {
+    public int addTag(Classify classify, String sellerId) {
 
+        classify.setId(CreateUUID.createUUID());
         classify.setSellerid(sellerId);
 
         return classifyMapper.insert(classify);
     }
 
-    public int modifyTag(int tagId, String tagName) {
+    public int modifyTag(String tagId, String tagName) {
 
         Classify classify=classifyMapper.selectByPrimaryKey(tagId);
         classify.setClassifytag(tagName);

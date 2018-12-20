@@ -1,5 +1,6 @@
 package com.meal.service.impl;
 
+import com.meal.commons.CreateUUID;
 import com.meal.mapper.*;
 import com.meal.pojo.*;
 import com.meal.service.FoodService;
@@ -33,8 +34,11 @@ public class FoodServiceImpl implements FoodService {
     @Autowired
     private SellerMapper sellerMapper;
 
+    @Autowired
+    private AdminMapper adminMapper;
 
-    public List<Food> getAllFood(int sellerId) {
+
+    public List<Food> getAllFood(String sellerId) {
 
         FoodExample example=new FoodExample();
         FoodExample.Criteria criteria=example.createCriteria();
@@ -47,7 +51,7 @@ public class FoodServiceImpl implements FoodService {
         return foods;
     }
 
-    public List<Food> getFoodByExample(int sellerId, int param, int type) {
+    public List<Food> getFoodByExample(String sellerId, String param, int type) {
 
         FoodExample example=new FoodExample();
         FoodExample.Criteria criteria=example.createCriteria();
@@ -62,7 +66,7 @@ public class FoodServiceImpl implements FoodService {
             criteria.andTagidEqualTo(param);
         }
         if(type==3){
-            criteria.andStatusEqualTo(param);
+            criteria.andStatusEqualTo(Integer.parseInt(param));
         }
 
         List<Food> foods=foodMapper.selectByExample(example);
@@ -73,14 +77,13 @@ public class FoodServiceImpl implements FoodService {
         return foods;
     }
 
-    public FoodAndSeller getFoodDetails(int foodId) {
+    public FoodAndSeller getFoodDetails(String foodId) {
         FoodAndSeller foodAndSeller=foodAndSellerMapper.selectByPrimaryKey(foodId);
         return foodAndSeller;
     }
 
-    public int modifyFoodByExample(int foodId, String param, int type) {
+    public int modifyFoodByExample(String foodId, String param, int type) {
 
-        FoodExample example=new FoodExample();
         Food food=foodMapper.selectByPrimaryKey(foodId);
         if(food==null) return 0;
 
@@ -92,7 +95,7 @@ public class FoodServiceImpl implements FoodService {
             food.setDescription(param);
         }
         if(type==3){
-            food.setTagid(Integer.parseInt(param));
+            food.setTagid(param);
         }
         if(type==4){
             food.setPrice(Float.parseFloat(param));
@@ -103,13 +106,11 @@ public class FoodServiceImpl implements FoodService {
         return foodMapper.updateByPrimaryKey(food);
     }
 
-    public int addFood(Food food, int sellerId) {
+    public int addFood(Food food, String sellerId) {
 
-        FoodExample example=new FoodExample();
-        int count=foodMapper.countByExample(example);
-
+        String id= CreateUUID.createUUID();
         Date time=new Date();
-        food.setId(count+1);
+        food.setId(id);
         food.setSellerid(sellerId);
         food.setApplicationtime(time);
         food.setScore(0f);
@@ -120,17 +121,25 @@ public class FoodServiceImpl implements FoodService {
         int result=foodMapper.insert(food);
         if(result!=0){
             AdminTasks tasks=new AdminTasks();
+            tasks.setId(CreateUUID.createUUID());
             tasks.setTaskkind(3);
-            tasks.setObjectid(count+1);
+            tasks.setObjectid(id);
             tasks.setUsername(food.getFoodname());
             tasks.setStatus(0);
             tasks.setTasktime(time);
             Random random=new Random();
-            int s=random.nextInt(4)%(4-1+1)+1;
-            System.out.println(s);
-            tasks.setAdminid(s);
+            AdminExample example=new AdminExample();
+
+            int count=adminMapper.countByExample(example);
+            List<Admin> admins=adminMapper.selectByExample(example);
+
+            int s=random.nextInt(count)%(count-1+1)+1;
+            String adminId=admins.get(s).getId();
+            System.out.println(adminId);
+            tasks.setAdminid(adminId);
             int res=adminTasksMapper.insert(tasks);
             AdminNews news=new AdminNews();
+            news.setId(CreateUUID.createUUID());
             news.setUserkind(1);
             news.setUserid(sellerId);
             news.setUsername(sellerMapper.selectByPrimaryKey(sellerId).getName());
@@ -143,7 +152,7 @@ public class FoodServiceImpl implements FoodService {
         return result;
     }
 
-    public int underCarriage(int foodId,int sellerId) {
+    public int underCarriage(String foodId,String sellerId) {
 
         Date time=new Date();
         Food food=foodMapper.selectByPrimaryKey(foodId);
@@ -151,6 +160,7 @@ public class FoodServiceImpl implements FoodService {
         food.setUndercarriagetime(time);
         int result=foodMapper.updateByPrimaryKey(food);
         AdminNews news=new AdminNews();
+        news.setId(CreateUUID.createUUID());
         news.setUserkind(1);
         news.setUserid(sellerId);
         news.setUsername(sellerMapper.selectByPrimaryKey(sellerId).getName());

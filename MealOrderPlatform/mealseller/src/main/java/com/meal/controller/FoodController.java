@@ -26,27 +26,27 @@ public class FoodController {
 
     @RequestMapping(value = "/getAll/{sellerId}")
     @ResponseBody
-    public List<Food> getAllFood(@PathVariable int sellerId){
+    public List<Food> getAllFood(@PathVariable String sellerId){
         return foodService.getAllFood(sellerId);
     }
 
     @RequestMapping(value = "/getByExample/{sellerId}/{param}/{type}")
     @ResponseBody
-    public List<Food> getByExample(@PathVariable int sellerId,
-                                   @PathVariable int param,
+    public List<Food> getByExample(@PathVariable String sellerId,
+                                   @PathVariable String param,
                                    @PathVariable int type){
         return foodService.getFoodByExample(sellerId, param, type);
     }
 
     @RequestMapping(value = "/getDetails/{foodId}")
     @ResponseBody
-    public FoodAndSeller getDetails(@PathVariable int foodId){
+    public FoodAndSeller getDetails(@PathVariable String foodId){
         return foodService.getFoodDetails(foodId);
     }
 
     @RequestMapping(value = "/modifyByExample/{foodId}/{param}/{type}")
     @ResponseBody
-    public int modifyByExample(@PathVariable int foodId,
+    public int modifyByExample(@PathVariable String foodId,
                                @PathVariable String param,
                                @PathVariable int type){
         return foodService.modifyFoodByExample(foodId, param, type);
@@ -54,7 +54,7 @@ public class FoodController {
 
     @RequestMapping(value = "/add/{sellerId}")
     @ResponseBody
-    public int addFood(@PathVariable int sellerId, @RequestBody Food food){
+    public int addFood(@PathVariable String sellerId, @RequestBody Food food){
         return foodService.addFood(food, sellerId);
     }
 

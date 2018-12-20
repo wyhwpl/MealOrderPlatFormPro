@@ -11,6 +11,6 @@ import java.util.List;
 */
 public interface OrderFoodService {
 
-    List<OrderFood> getOrderFood(int orderId);
+    List<OrderFood> getOrderFood(String orderId);
 
 }

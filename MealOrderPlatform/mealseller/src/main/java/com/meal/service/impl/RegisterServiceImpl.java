@@ -1,13 +1,12 @@
 package com.meal.service.impl;
 
 import com.meal.commons.CheckResult;
+import com.meal.commons.CreateUUID;
+import com.meal.mapper.AdminMapper;
 import com.meal.mapper.AdminNewsMapper;
 import com.meal.mapper.AdminTasksMapper;
 import com.meal.mapper.SellerMapper;
-import com.meal.pojo.AdminNews;
-import com.meal.pojo.AdminTasks;
-import com.meal.pojo.Seller;
-import com.meal.pojo.SellerExample;
+import com.meal.pojo.*;
 import com.meal.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +33,9 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private AdminNewsMapper adminNewsMapper;
+
+    @Autowired
+    private AdminMapper adminMapper;
 
     public CheckResult checkData(String param, Integer type) {
 
@@ -90,29 +92,35 @@ public class RegisterServiceImpl implements RegisterService {
         if(checkResult3.getStatus()==500){
             return CheckResult.build(500,"联系方式已存在");
         }
+        String id= CreateUUID.createUUID();
         Date time=new Date();
-        int count=sellerMapper.countByExample(new SellerExample());
-        seller.setId(count+1);
+        seller.setId(id);
         seller.setRegtime(time);
         seller.setStatus(0);
         seller.setScore(0f);
         seller.setPassword(DigestUtils.md5DigestAsHex(seller.getPassword().getBytes()));
         sellerMapper.insert(seller);
 
+        AdminExample example=new AdminExample();
+        int count=adminMapper.countByExample(example);
+        List<Admin> admins=adminMapper.selectByExample(example);
         AdminTasks tasks=new AdminTasks();
+        tasks.setId(CreateUUID.createUUID());
         tasks.setTaskkind(1);
-        tasks.setObjectid(count+1);
+        tasks.setObjectid(id);
         tasks.setUsername(seller.getName());
         tasks.setStatus(0);
         tasks.setTasktime(time);
         Random random=new Random();
-        int s=random.nextInt(4)%(4-1+1)+1;
-        System.out.println(s);
-        tasks.setAdminid(s);
+        int s=random.nextInt(count)%(count-1+1)+1;
+        String adminId=admins.get(s).getId();
+        System.out.println(adminId);
+        tasks.setAdminid(adminId);
         adminTasksMapper.insert(tasks);
         AdminNews news=new AdminNews();
+        news.setId(CreateUUID.createUUID());
         news.setUserkind(1);
-        news.setUserid(count+1);
+        news.setUserid(id);
         news.setUsername(seller.getName());
         news.setAction("申请注册");
         news.setActionobject("店铺"+seller.getSellername());

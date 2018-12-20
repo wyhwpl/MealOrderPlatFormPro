@@ -12,17 +12,17 @@ import java.util.List;
 */
 public interface FoodService {
 
-    List<Food> getAllFood(int sellerId);
+    List<Food> getAllFood(String sellerId);
 
-    List<Food> getFoodByExample(int sellerId,int param,int type);
+    List<Food> getFoodByExample(String sellerId,String param,int type);
 
-    FoodAndSeller getFoodDetails(int foodId);
+    FoodAndSeller getFoodDetails(String foodId);
 
-    int modifyFoodByExample(int foodId,String param,int type);
+    int modifyFoodByExample(String foodId,String param,int type);
 
-    int addFood(Food food,int sellerId);
+    int addFood(Food food,String sellerId);
 
-    int underCarriage(int foodId,int sellerId);
+    int underCarriage(String foodId,String sellerId);
 
 
 }
