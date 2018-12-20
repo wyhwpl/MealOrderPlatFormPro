@@ -11,9 +11,10 @@ import java.util.List;
 */
 public interface CartService {
 
-    int createCart(int sellerId,int userId);
-    int addCartFood(int sellerId,int userId,int foodId);
-    int subCartFood(int sellerId,int userId,int foodId);
-    List<CartFood> getAll(int sellerId,int userId);
-    int countCartFood(int sellerId,int userId);
+    int createCart(String sellerId,String userId);
+    int addCartFood(String sellerId,String userId,String foodId);
+    int subCartFood(String sellerId,String userId,String foodId);
+    List<CartFood> getAll(String sellerId, String userId);
+    int countCartFood(String sellerId,String userId);
+    int clearCartFood(String sellerId,String userId);
 }

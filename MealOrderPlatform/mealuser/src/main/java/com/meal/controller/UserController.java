@@ -44,7 +44,7 @@ public class UserController {
 
     @RequestMapping(value = "/logOff")
     @ResponseBody
-    public int logOff(@RequestParam("userId")int userId){
+    public int logOff(@RequestParam("userId")String userId){
         return userService.logOff(userId);
     }
 

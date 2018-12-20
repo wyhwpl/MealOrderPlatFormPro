@@ -15,5 +15,5 @@ public interface UserService {
 
     CheckResult loginCheck(HttpServletRequest request, HttpServletResponse response, User user);
 
-    int logOff(int userId);
+    int logOff(String userId);
 }

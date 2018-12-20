@@ -30,7 +30,7 @@ public class SellerFoodServiceImpl implements SellerFoodService {
     private ClassifyMapper classifyMapper;
 
 
-    public SellerFood getSellerFood(int sellerId) {
+    public SellerFood getSellerFood(String sellerId) {
         ClassifyExample classifyExample=new ClassifyExample();
         ClassifyExample.Criteria criteria=classifyExample.createCriteria();
         criteria.andSelleridEqualTo(sellerId);

@@ -11,7 +11,7 @@ import java.util.List;
 */
 public interface SellerService {
 
-    Seller getSellerById(int sellerId);
+    Seller getSellerById(String sellerId);
 
     List<Seller> getSellerByExample(String address);
 }

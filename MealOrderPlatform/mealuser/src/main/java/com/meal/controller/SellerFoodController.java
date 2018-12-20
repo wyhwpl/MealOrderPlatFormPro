@@ -22,7 +22,7 @@ public class SellerFoodController {
 
     @RequestMapping(value = "/getSellerFood")
     @ResponseBody
-    public SellerFood getSellerFood(@RequestParam("sellerId")int sellerId){
+    public SellerFood getSellerFood(@RequestParam("sellerId")String sellerId){
         return sellerFoodService.getSellerFood(sellerId);
     }
 }

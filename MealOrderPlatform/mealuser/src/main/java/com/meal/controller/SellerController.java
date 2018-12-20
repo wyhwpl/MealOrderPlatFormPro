@@ -23,7 +23,7 @@ public class SellerController {
 
     @RequestMapping(value = "/getById")
     @ResponseBody
-    public Seller getSellerById(@RequestParam("sellerId") int sellerId){
+    public Seller getSellerById(@RequestParam("sellerId") String sellerId){
         return sellerService.getSellerById(sellerId);
     }
 

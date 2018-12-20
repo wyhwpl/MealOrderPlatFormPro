@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
         return CheckResult.build(200,"登录成功");
     }
 
-    public int logOff(int userId) {
+    public int logOff(String userId) {
 
 
         return userMapper.deleteByPrimaryKey(userId);

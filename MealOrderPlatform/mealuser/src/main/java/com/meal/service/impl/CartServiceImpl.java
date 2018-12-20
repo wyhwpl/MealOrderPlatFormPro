@@ -1,5 +1,6 @@
 package com.meal.service.impl;
 
+import com.meal.commons.CreateUUID;
 import com.meal.mapper.CartFoodMapper;
 import com.meal.mapper.CartMapper;
 import com.meal.pojo.Cart;
@@ -27,7 +28,7 @@ public class CartServiceImpl implements CartService {
     private CartFoodMapper cartFoodMapper;
 
 
-    public int createCart(int sellerId, int userId) {
+    public int createCart(String sellerId, String userId) {
 
         CartExample cartExample=new CartExample();
         CartExample.Criteria cartCriteria=cartExample.createCriteria();
@@ -37,6 +38,7 @@ public class CartServiceImpl implements CartService {
         if(carts==null||carts.isEmpty()){
 
             Cart cart=new Cart();
+            cart.setId(CreateUUID.createUUID());
             cart.setSellerid(sellerId);
             cart.setUserid(userId);
             return cartMapper.insert(cart);
@@ -45,7 +47,7 @@ public class CartServiceImpl implements CartService {
         return 0;
     }
 
-    public int addCartFood(int sellerId, int userId,int foodId) {
+    public int addCartFood(String sellerId, String userId,String foodId) {
         CartExample cartExample=new CartExample();
         CartExample.Criteria cartCriteria=cartExample.createCriteria();
         cartCriteria.andUseridEqualTo(userId);
@@ -55,7 +57,7 @@ public class CartServiceImpl implements CartService {
             createCart(sellerId, userId);
         }
         carts=cartMapper.selectByExample(cartExample);
-        int cartId=carts.get(0).getId();
+        String cartId=carts.get(0).getId();
         CartFoodExample foodExample=new CartFoodExample();
         CartFoodExample.Criteria foodCriteria=foodExample.createCriteria();
         foodCriteria.andCartidEqualTo(cartId);
@@ -63,6 +65,7 @@ public class CartServiceImpl implements CartService {
         List<CartFood> cartFoods=cartFoodMapper.selectByExample(foodExample);
         if(cartFoods==null||cartFoods.isEmpty()){
             CartFood cartFood=new CartFood();
+            cartFood.setId(CreateUUID.createUUID());
             cartFood.setCartid(cartId);
             cartFood.setCopies(1);
             cartFood.setFoodid(foodId);
@@ -75,7 +78,7 @@ public class CartServiceImpl implements CartService {
 
     }
 
-    public int subCartFood(int sellerId, int userId,int foodId) {
+    public int subCartFood(String sellerId, String userId,String foodId) {
         CartExample cartExample=new CartExample();
         CartExample.Criteria cartCriteria=cartExample.createCriteria();
         cartCriteria.andUseridEqualTo(userId);
@@ -85,7 +88,7 @@ public class CartServiceImpl implements CartService {
             createCart(sellerId, userId);
         }
         carts=cartMapper.selectByExample(cartExample);
-        int cartId=carts.get(0).getId();
+        String cartId=carts.get(0).getId();
         CartFoodExample foodExample=new CartFoodExample();
         CartFoodExample.Criteria foodCriteria=foodExample.createCriteria();
         foodCriteria.andCartidEqualTo(cartId);
@@ -104,7 +107,7 @@ public class CartServiceImpl implements CartService {
         }
     }
 
-    public List<CartFood> getAll(int sellerId,int userId) {
+    public List<CartFood> getAll(String sellerId,String userId) {
 
         CartExample cartExample=new CartExample();
         CartExample.Criteria cartCriteria=cartExample.createCriteria();
@@ -114,7 +117,7 @@ public class CartServiceImpl implements CartService {
         if(carts==null||carts.isEmpty()){
             return null;
         }
-        int cartId=carts.get(0).getId();
+        String cartId=carts.get(0).getId();
 
         CartFoodExample example=new CartFoodExample();
         CartFoodExample.Criteria criteria=example.createCriteria();
@@ -126,7 +129,7 @@ public class CartServiceImpl implements CartService {
         return cartFoods;
     }
 
-    public int countCartFood(int sellerId,int userId) {
+    public int countCartFood(String sellerId,String userId) {
 
         CartExample cartExample=new CartExample();
         CartExample.Criteria cartCriteria=cartExample.createCriteria();
@@ -136,11 +139,28 @@ public class CartServiceImpl implements CartService {
         if(carts==null||carts.isEmpty()){
             return 0;
         }
-        int cartId=carts.get(0).getId();
+        String cartId=carts.get(0).getId();
         CartFoodExample example=new CartFoodExample();
         CartFoodExample.Criteria criteria=example.createCriteria();
         criteria.andCartidEqualTo(cartId);
         return cartFoodMapper.countByExample(example);
 
+    }
+
+    public int clearCartFood(String sellerId, String userId) {
+        CartExample cartExample=new CartExample();
+        CartExample.Criteria cartCriteria=cartExample.createCriteria();
+        cartCriteria.andUseridEqualTo(userId);
+        cartCriteria.andSelleridEqualTo(sellerId);
+        List<Cart> carts=cartMapper.selectByExample(cartExample);
+        if(carts==null||carts.isEmpty()){
+            return 0;
+        }
+        String cartId=carts.get(0).getId();
+        CartFoodExample example=new CartFoodExample();
+        CartFoodExample.Criteria criteria=example.createCriteria();
+        criteria.andCartidEqualTo(cartId);
+
+        return cartFoodMapper.deleteByExample(example);
     }
 }

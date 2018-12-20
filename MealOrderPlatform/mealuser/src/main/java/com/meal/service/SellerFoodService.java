@@ -9,5 +9,5 @@ import com.meal.commons.SellerFood;
 */
 public interface SellerFoodService {
 
-    SellerFood getSellerFood(int sellerId);
+    SellerFood getSellerFood(String sellerId);
 }

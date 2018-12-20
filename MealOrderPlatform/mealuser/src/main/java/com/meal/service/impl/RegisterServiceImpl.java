@@ -1,6 +1,7 @@
 package com.meal.service.impl;
 
 import com.meal.commons.CheckResult;
+import com.meal.commons.CreateUUID;
 import com.meal.mapper.UserMapper;
 import com.meal.pojo.User;
 import com.meal.pojo.UserExample;
@@ -32,9 +33,6 @@ public class RegisterServiceImpl implements RegisterService {
         if(type==1){
             criteria.andPhoneEqualTo(param);
         }
-        if(type==2){
-            criteria.andUsernameEqualTo(param);
-        }
 
         List<User> users=userMapper.selectByExample(example);
         if(users==null||users.isEmpty()){
@@ -62,6 +60,7 @@ public class RegisterServiceImpl implements RegisterService {
         if(userNameResult.getStatus()==500){
             return CheckResult.build(500,"用户名已存在");
         }
+        user.setId(CreateUUID.createUUID());
         user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         int result=userMapper.insert(user);
         if(result==0){

@@ -21,7 +21,7 @@ public class SellerServiceImpl implements SellerService {
     private SellerMapper sellerMapper;
 
 
-    public Seller getSellerById(int sellerId) {
+    public Seller getSellerById(String sellerId) {
 
         return sellerMapper.selectByPrimaryKey(sellerId);
     }
