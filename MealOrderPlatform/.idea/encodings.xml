@@ -7,6 +7,9 @@
     <file url="file://$PROJECT_DIR$/mealmanager/meal-manager-pojo" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mealmanager/meal-manager-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mealmanager/meal-manager-web" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/mealmanager/meal-manager-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mealportal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mealrider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mealseller" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mealuser" charset="UTF-8" />
   </component>
 </project>

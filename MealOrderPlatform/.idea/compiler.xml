@@ -7,10 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mealcommon" />
-        <module name="mealmanagermapper" />
-        <module name="mealmanagerpojo" />
-        <module name="mealmanagerservice" />
-        <module name="mealmanagerweb" />
+        <module name="mealmanager" />
+        <module name="mealportal" />
+        <module name="mealrider" />
+        <module name="mealseller" />
+        <module name="mealuser" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,10 @@
       <module name="mealmanagerservice" target="1.5" />
       <module name="mealmanagerweb" target="1.5" />
       <module name="mealparent" target="1.5" />
+      <module name="mealportal" target="1.5" />
+      <module name="mealrider" target="1.5" />
+      <module name="mealseller" target="1.5" />
+      <module name="mealuser" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
