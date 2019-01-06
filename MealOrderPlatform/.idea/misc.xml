@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/mealmanager/meal-manager-web" />
+    <file type="web" url="file://$PROJECT_DIR$/mealmanager" />
+    <file type="web" url="file://$PROJECT_DIR$/mealportal" />
+    <file type="web" url="file://$PROJECT_DIR$/mealrider" />
+    <file type="web" url="file://$PROJECT_DIR$/mealseller" />
+    <file type="web" url="file://$PROJECT_DIR$/mealuser" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -9,6 +13,10 @@
         <option value="$PROJECT_DIR$/mealparent/pom.xml" />
         <option value="$PROJECT_DIR$/mealcommon/pom.xml" />
         <option value="$PROJECT_DIR$/mealmanager/pom.xml" />
+        <option value="$PROJECT_DIR$/mealseller/pom.xml" />
+        <option value="$PROJECT_DIR$/mealrider/pom.xml" />
+        <option value="$PROJECT_DIR$/mealuser/pom.xml" />
+        <option value="$PROJECT_DIR$/mealportal/pom.xml" />
       </list>
     </option>
   </component>

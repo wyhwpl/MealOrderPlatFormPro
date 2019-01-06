@@ -1,15 +1,21 @@
 <component name="ProjectDictionaryState">
   <dictionary name="wpl">
     <words>
+      <w>calcul</w>
       <w>imgs</w>
       <w>mealorderplatform</w>
+      <w>mealparent</w>
       <w>mylogin</w>
       <w>pagehelper</w>
       <w>regtime</w>
+      <w>riderlogin</w>
+      <w>rtime</w>
       <w>sellercenter</w>
       <w>sellerimg</w>
+      <w>sellerlogin</w>
       <w>springmvc</w>
       <w>tbody</w>
+      <w>userlogin</w>
     </words>
   </dictionary>
 </component>
